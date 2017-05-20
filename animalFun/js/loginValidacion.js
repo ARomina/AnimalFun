@@ -11,7 +11,7 @@ function login(){
     if(validacionLogin()){
 			$.ajax({
 
-					url: "http://localhost/progra2/extras/procesaLogin2.php", 
+					url: "http://localhost/animalFun/extras/procesaLogin.php", 
 	                type: "POST",
 	                data: {"usuario": usuario, 
 	                       "password": password, 
@@ -24,9 +24,9 @@ function login(){
 	                success: 
 	                      function(data){
 	                        if(data == "OK"){
-	                    		window.location.href = "http://localhost/progra2/loginExito.php"; 
+	                    		window.location.href = "http://localhost/animalFun/loginExito.php"; 
 	                       }else{
-	                            window.location.href = "http://localhost/progra2/loginFail.php";
+	                            window.location.href = "http://localhost/animalFun/loginFail.php";
 	                        }
 	                    }
 
