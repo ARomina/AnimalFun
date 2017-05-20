@@ -35,48 +35,17 @@
 
     <!-- Custom CSS -->
     <link href="css/half-slider.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/estilos2.css">
+    <link rel="stylesheet" href="css/estilos3.css">
 
    </head>
    <body>
 	
 		<!-- MENU -->
-    <nav class="navbar navbar-default fondo" role="navigation">
-        <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-brand-centered">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <div class="navbar-brand navbar-brand-centered">
-            <a href="#"><img id="logo-navbar-middle" src="img/AnimalFun-logo-260x90-transp.png" alt="Logo Thing main logo"></a>
-          </div>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="navbar-brand-centered">
-          <ul class="nav navbar-nav">
-            <li><a href="#" class="textoMenu">Link</a></li>
-            <li><a href="#" class="textoMenu">Link</a></li>
-            <li><a href="#" class="textoMenu">Link</a></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#" class="textoMenu">Link</a></li>
-            <li><a href="#" class="textoMenu">Link</a></li>
-            <li><a href="#" class="textoMenu">Link</a></li>         
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-    </nav>
-
-    <!-- <header role="banner">
+    <header role="banner">
       <nav id="navbar-primary" class="navbar" role="navigation">
         <div class="container-fluid"> -->
           <!-- Brand and toggle get grouped for better mobile display -->
-         <!--  <div class="navbar-header">
+          <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-primary-collapse">
               <span class="sr-only">Toggle navigation</span>
               <span class="icon-bar"></span>
@@ -93,11 +62,11 @@
               <li><a href="#" class="textoMenu">Unirse</a></li>
               <li><a href="#" class="textoMenu">Iniciar sesión</a></li>
               <li><a href="#" class="textoMenu">Preguntas</a></li>
-            </ul> -->
-          <!-- </div> --><!-- /.navbar-collapse -->
-        <!-- </div> --><!-- /.container-fluid -->
-    <!--   </nav>
-    </header> --><!-- header role="banner" -->
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    </header><!-- header role="banner" -->
 
 		 <!-- <header>
 			 <nav class="line">
