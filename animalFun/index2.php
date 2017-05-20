@@ -6,7 +6,7 @@
 <html lang="en-US">
    <head>
       <meta charset="UTF-8">
-      <title>AnimalFun - El lugar para tus mascotas</title>
+      <title>INDEX 2</title>
       <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
       <link rel="icon" href="img/favicon.ico" type="image/x-icon">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -35,13 +35,40 @@
 
     <!-- Custom CSS -->
     <link href="css/half-slider.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/estilos2.css">
 
    </head>
    <body>
 	
 		<!-- MENU -->
-		 <header>
+    <header role="banner">
+      <nav id="navbar-primary" class="navbar" role="navigation">
+        <div class="container-fluid">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-primary-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <div class="collapse navbar-collapse" id="navbar-primary-collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#" class="textoMenu">Inicio</a></li>
+              <li><a href="#" class="textoMenu">¿Quiénes somos?</a></li>
+              <li><a href="#" class="textoMenu">Explorar</a></li>
+              <li><a href="#" class="textoMenu"><img id="logo-navbar-middle" src="img/AnimalFun-logo-260x90-transp.png" alt="Logo Thing main logo"></a></li>
+              <li><a href="#" class="textoMenu">Unirse</a></li>
+              <li><a href="#" class="textoMenu">Iniciar sesión</a></li>
+              <li><a href="#" class="textoMenu">Preguntas</a></li>
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
+    </header><!-- header role="banner" -->
+
+		 <!-- <header>
 			 <nav class="line">
 				   <div class="top-nav">
 
@@ -69,7 +96,7 @@
 
 				   </div>
 			 </nav>
-		  </header>
+		  </header> -->
 
 		<!--CAROUSEL-->
 		    <!-- Half Page Image Background Carousel Header (AHORA ES UN DIV)-->

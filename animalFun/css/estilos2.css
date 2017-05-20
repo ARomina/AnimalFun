@@ -12,7 +12,7 @@ body{
 }
 
 /* Navbar */
-nav{
+/*nav{
 	position: absolute;
 	top: 0;
 	z-index: 500;
@@ -31,9 +31,56 @@ nav{
 
 #navItemCentro{
 	margin-bottom: 0;
+}*/
+
+
+/* TEST MENUUUUUUU */
+nav{
+	background: none repeat scroll 0 0 rgba(0, 30, 34, 0.85);
 }
 
-.logo {
+.navbar{
+	position: absolute;
+	top: 0;
+	z-index: 500;
+	margin-bottom: 0;
+}
+
+#navbar-primary .navbar-nav {
+  width: 100%;
+  text-align: center;
+}
+#navbar-primary .navbar-nav > li {
+ /* display: inline-block;
+  float: none;*/
+  float: left;
+   position: relative;
+  display: block;
+  padding: 10px 15px;
+  margin: auto;
+}
+#navbar-primary .navbar-nav > li > a {
+  padding-left: 5px;
+  padding-right: 5px;
+ /* position: relative;
+  display: block;
+  padding: 10px 15px;*/
+}
+
+.textoMenu{
+	font-weight: bold;
+	color: #ffffff !important;
+}
+
+/*.nav > li > a {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+}*/
+
+/* ------------------------------ */
+
+.logo{
 	margin: 0;
 	text-align: center;
 	width: 100%;
