@@ -2,9 +2,6 @@
 <!-- Profesores: Rusticcini, Alejandro / D'aranno, Facundo / Uran, Jhonatan-->
 <!-- Alumnos: Barraza, A. Romina / Miharu, Lucas-->
 
-<?php
-?>
-
 <!DOCTYPE html>
 <html lang="en-US">
    <head>
@@ -49,7 +46,7 @@
 				   <div class="top-nav">                       
 					  <div class="top-nav s-12 l-5">
 						 <ul class="right top-ul chevron">
-							<li><a href="../animalFun">Inicio</a>
+							<li><a href="../animalFun/index.php">Inicio</a>
 							</li>
 							<li><a href="#">¿Quiénes somos?</a>
 							</li>
