@@ -6,38 +6,17 @@ body{
 
 /* Clases para textos */
 .textoBoldBlanco{
-	/*background: none repeat scroll 0 0 rgb(0, 30, 34);*/
 	font-weight: bold;
 	color: #ffffff;
 }
 
-/* Navbar */
-nav{
-	position: absolute;
-	top: 0;
-	z-index: 500;
+.textoBold{
+	font-weight: bold;
 }
 
-.line{
-	background: none repeat scroll 0 0 rgba(0, 30, 34, 0.85);
-}
-
-.top-nav {
-	text-align: center;
-}
-.top-nav ul {
-	padding: 0;
-}
-
-#navItemCentro{
-	margin-bottom: 0;
-}
-
-.logo {
-	margin: 0;
-	text-align: center;
-	width: 100%;
-	/*background-color: #ffffff;*/
+/* Botones de colores */
+.botonNaranja{
+	background-color: #FF9D27;
 }
 
 /* Carousel */
@@ -53,9 +32,49 @@ nav{
 	background-image:url('../img/3.jpg');
 }
 
-
 /* Scroll 2 */
-/* Hay que agregar la parte de los rankings, etc */
+.media-photo {
+	width: 35px;
+}
+
+.titulo-central{
+	background-color: #2AA02A;
+	color: #ffffff;
+	font-weight: bold;
+	padding: 10px;
+}
+
+.titulos{
+	color: #2AA02A;
+	font-weight: bold;
+	padding-bottom: 5%;
+}
+
+.div-tablas{
+	padding-top: 3%;
+	padding-bottom: 4%;
+}
+
+.divider{
+	border-right: 1px solid #E3E3E4;
+ }
+
+.espacio-derecha{
+	padding-right: 10px;
+}
+
+.boton{
+	margin-top: 20px;
+	padding: 10px;
+	background-color: #FF9D27;
+	color: #ffffff;
+	font-weight: bold;
+}
+
+.boton:hover{
+	background-color: #FF6600;
+	color: #ffffff;
+}
 
 /* Footer */
 #div-footer{
@@ -210,8 +229,8 @@ nav{
 }
 	
 .sa-innate-form button{
-	border:1px solid#e64b3b;
-	background:#e64b3b;
+	border:1px solid #2AA02A;
+	background: #2AA02A;
 	color:#fff;
 	padding:10px 25px;
 	font-size:14px;
@@ -219,8 +238,8 @@ nav{
 }
 
 .sa-innate-form button:hover{
-	border:1px solid#db3b2b;
-	background:#db3b2b;
+	border:1px solid #1F791F;
+	background: #1F791F;
 	color:#fff;
 }
 
@@ -237,3 +256,98 @@ nav{
 	color: red;
 	visibility: hidden;
 }
+
+.text-success2{
+	color: #FF9D27;
+}
+
+.textoNaranja{
+	color: #FF9D27 !important;
+}
+
+.textoNaranja:hover{
+	color: #FF6600 !important;
+}
+
+#textoBotonUnirse>a{
+	color: #fff !important;
+}
+
+#listaDescripcionesRegistro{
+	line-height: 2;
+}
+
+/* -------------------------------------------------------------------------- */
+
+/* Registro */
+
+	/* Dejemos esto aca por las dudas, por ahora
+    Note: It is best to use a less version of this file ( see http://css2less.cc
+    For the media queries use @screen-sm-min instead of 768px.
+    For .omb_spanOr use @body-bg instead of white.*/
+
+@media (min-width: 768px) {
+    .omb_row-sm-offset-3 div:first-child[class*="col-"] {
+        margin-left: 25%;
+    }
+}
+
+.omb_login .omb_authTitle {
+    text-align: center;
+	line-height: 300%;
+}
+	
+.omb_login .omb_socialButtons a {
+	color: white; // In yourUse @body-bg 
+	opacity:0.9;
+}
+.omb_login .omb_socialButtons a:hover {
+    color: white;
+	opacity:1;    	
+}
+.omb_login .omb_socialButtons .omb_btn-facebook {background: #3b5998;}
+.omb_login .omb_socialButtons .omb_btn-twitter {background: #00aced;}
+.omb_login .omb_socialButtons .omb_btn-google {background: #c32f10;}
+
+
+.omb_login .omb_loginOr {
+	position: relative;
+	font-size: 1.5em;
+	color: #aaa;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+}
+.omb_login .omb_loginOr .omb_hrOr {
+	background-color: #cdcdcd;
+	height: 1px;
+	margin-top: 0px !important;
+	margin-bottom: 0px !important;
+}
+.omb_login .omb_loginOr .omb_spanOr {
+	display: block;
+	position: absolute;
+	left: 50%;
+	top: -0.6em;
+	margin-left: -1.5em;
+	background-color: white;
+	width: 3em;
+	text-align: center;
+}			
+
+.omb_login .omb_loginForm .input-group.i {
+	width: 2em;
+}
+.omb_login .omb_loginForm  .help-block {
+    color: red;
+}
+
+	
+@media (min-width: 768px) {
+    .omb_login .omb_forgotPwd {
+        text-align: right;
+		margin-top:10px;
+ 	}		
+}
+

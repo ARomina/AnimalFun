@@ -35,63 +35,19 @@
     <!-- Custom CSS -->
     <link href="css/half-slider.css" rel="stylesheet">
     <link rel="stylesheet" href="css/estilos.css">
-    <link rel="stylesheet" href="css/estilosMenuPrincipalcss">
+    <link rel="stylesheet" href="css/estilosMenuPaginas.css">
 
    </head>
    <body>
-	
-		<?php include("menuPrincipal.php");?>
 
-		<!--CAROUSEL-->
-		    <!-- Half Page Image Background Carousel Header (AHORA ES UN DIV)-->
-    <div id="myCarousel" class="carousel slide">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-        </ol>
-
-        <!-- Wrapper for Slides -->
-        <div class="carousel-inner">
-            <div class="item active">
-                <!-- Set the first background image using inline CSS below. -->
-                <div class="fill" id="carouselFoto1"></div>
-                <div class="carousel-caption">
-                    <h2>Foto 1</h2>
-                </div>
-            </div>
-            <div class="item">
-                <!-- Set the second background image using inline CSS below. -->
-                <div class="fill" id="carouselFoto2"></div>
-                <div class="carousel-caption">
-                    <h2>Foto 2</h2>
-                </div>
-            </div>
-            <div class="item">
-                <!-- Set the third background image using inline CSS below. -->
-                <div class="fill" id="carouselFoto3"></div>
-                <div class="carousel-caption">
-                    <h2>Foto 3</h2>
-                </div>
-            </div>
-        </div>
-
-        <!-- Controls -->
-        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-            <span class="icon-prev"></span>
-        </a>
-        <a class="right carousel-control" href="#myCarousel" data-slide="next">
-            <span class="icon-next"></span>
-        </a>
-
-    </div>
-
-    <!-- Sección: Rankings, etc. -->
+    <?php include("menuPaginas.php"); ?>
+   
+    <!-- Sección -->
     <div class="row">
-      <div class="col-md-12 text-center">
-        <h2 class="titulo-central">¡Mirá las mascotas más populares y la actividad en nuestra red!</h2>
+      <div class="col-md-12 col-lg-12 text-center">
+        <h2 class="titulo-central">Perfil de {dueñ@}</h2>
       </div>
+
     </div>
 
 		<!-- FOOTER -->

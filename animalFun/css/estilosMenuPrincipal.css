@@ -1,0 +1,28 @@
+/* Navbar */
+nav{
+	position: absolute;
+	top: 0;
+	z-index: 500;
+}
+
+.line{
+	background: none repeat scroll 0 0 rgba(0, 30, 34, 0.85);
+}
+
+.top-nav {
+	text-align: center;
+}
+.top-nav ul {
+	padding: 0;
+}
+
+#navItemCentro{
+	margin-bottom: 0;
+}
+
+.logo {
+	margin: 0;
+	text-align: center;
+	width: 100%;
+	/*background-color: #ffffff;*/
+}
