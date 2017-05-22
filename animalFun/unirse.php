@@ -5,7 +5,7 @@
 <?php
 
 	session_start(); 
-	include_once "conexion.php"; 
+	include_once "conexion.php"; /*
 
 	//Validación de campos
 	if(isset($_POST['submit'])) 
@@ -53,7 +53,7 @@
 	            echo 'Este usuario ya ha sido registrado anteriormente.'; 
 	        } 
 	    } 
-	}     
+	} */    
 
 ?>
 
@@ -125,39 +125,40 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="well">
+                        <span><?php  ?></span>
 					        <form class="sa-innate-form" action="" method="POST">
 					        			<label for="usuario" class="control-label">Usuario </label>
 							            <input type="text" name="usuario" class="form-control" id="usuario"  value="" required="" title="nombre del perfil" placeholder="usuario"/>
-										      <span class="alerta" id="alertaUsuario">Obligatorio</span></br>
-
+										      <span class="alerta" id="alertaUsuario">Campo obligatorio. Debe tener entre 4 y 10 caracteres, sólo letras y números</span></br>
 							            <label for="nombre" class="control-label">Nombre </label>
 							            <input type="text" name="nombre" class="form-control" id="nombre"  value="" required="" title="nombre del perfil" placeholder="nombre"/>
-										      <span class="alerta" id="alertaUsuario">Obligatorio</span></br>
+										      <span class="alerta" id="alertaNombreUsuario">Campo obligatorio. Puede contener sólo letras y espacios</span></br>
 							           	<label for="apellido"lass="control-label">Apellido </label>
 							            <input type="text" name="apellido" class="form-control" id="apellido"  value="" required="" title="apellido del perfil" placeholder="apellido"/>
-										      <span class="alerta" id="alertaUsuario">Obligatorio</span></br>
+										      <span class="alerta" id="alertaApellidoUsuario">Campo obligatorio. Puede contener sólo letras y espacios</span></br>
 										<label for="correo"lass="control-label">Correo electrónico </label>
-							            <input type="text" name="aorreo" class="form-control" id="correo"  value="" required="" title="correo" placeholder="correo"/>
-										      <span class="alerta" id="alertaUsuario">Obligatorio</span></br>
-										<label for="correo"lass="control-label">Repita correo electrónico</label>
 							            <input type="text" name="correo" class="form-control" id="correo"  value="" required="" title="correo" placeholder="correo"/>
-										      <span class="alerta" id="alertaUsuario">Obligatorio</span></br>
+										      <span class="alerta" id="alertaCorreo">Campo obligatorio. La dirección debe tener un formato válido</span></br>
+										<label for="correo2"lass="control-label">Repita correo electrónico</label>
+							            <input type="text" name="correo2" class="form-control" id="correo2"  value="" required="" title="correo" placeholder="correo"/>
+										      <span class="alerta" id="alertaCorreo2">Campo obligatorio. La dirección debe tener un formato válido y concidir con lo ingresado antes</span></br>
 										<label >Contraseña</label>
-							            <input  class="form-control" type="password" name="password" placeholder="password"  value="" required="" title="Please enter your password"for="password" id="password" /></br>
+							            <input  class="form-control" type="password" name="password" placeholder="password"  value="" required="" title="Por favor, ingrese su contraseña"for="password" id="password" /></br>
 							            <span class="alerta" id="alertaContrasenia">La contraseña no puede estar vacía y debe tener entre 6 y 8 caracteres</span>
 							            <label >Repita contraseña</label>
-							            <input  class="form-control" type="password" name="repassword" placeholder="repassword"  value="" required="" title="Please enter your password"for="repassword" id="repassword" /></br>
-							            <span class="alerta" id="alertaContrasenia">La contraseña no puede estar vacía y debe tener entre 6 y 8 caracteres</span>
+							            <input  class="form-control" type="password" name="repassword" placeholder="repassword"  value="" required="" title="Por favor, ingrese su contraseña"for="repassword" id="repassword" /></br>
+							            <span class="alerta" id="alertaContrasenia2">La contraseña no puede estar vacía, debe tener entre 6 y 8 caracteres y deb coincidir con lo ingresado antes</span>
 										<div id="loginErrorMsg" class="alert alert-error hide">Contraseña o usuario incorrectos</div>
 										<div class="checkbox">
 		                                   <!--  <label>
 		                                        <input type="checkbox" name="remember" id="remember"> Recordarme
 		                                    </label> -->
 											<label>
-		                                        <input type="checkbox" name="remember" id="remember"> Acepto los términos y condiciones 
+		                                        <input type="checkbox" name="checkboxCondiciones" id="checkboxCondiciones"> Acepto los términos y condiciones
+		                                        <span class="alerta" id="alertaCheckbox">Debe leer y aceptar las condiciones del sitio</span> 
 		                                    </label>
 	                                    </div>
-							    		<button type="submit" value="registro" name="submit" class="btn btn-lg btn-primary btn-block" onClick="">¡Registrarme!</button>
+							    		<button type="button" value="registro" name="submit" class="btn btn-lg btn-primary btn-block" onClick="registro()">¡Registrarme!</button>
 						    </form>
                         </div>
                     </div>
@@ -181,6 +182,7 @@
 
       <script type="text/javascript" src="js/jquery-3.2.0.js"></script>
       <script type="text/javascript" src="js/bootstrap.js"></script>
+      <script type="text/javascript" src="js/registroValidacion.js"></script>
      <!--  <script type="text/javascript" src="js/responsee.js"></script> -->
      <!--  <script type="text/javascript" src="js/loginValidacion.js"></script>	  --> 
    </body>

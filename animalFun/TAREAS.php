@@ -12,6 +12,7 @@
 	Registro:
 	- Validar los campos con js, mandar con AJAX.
 	- Chequear los mensajes de respuesta --> que vuelva con AJAX
+	- Volamos el ingreso del segundo correo?
 
 	Login:
 	- Validarlo con la base

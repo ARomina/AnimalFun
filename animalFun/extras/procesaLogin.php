@@ -6,6 +6,7 @@
         
         //Inicio módulo de sesión
         session_start();
+        include_once "conexion.php"; 
 
         //Inicialización de variables
         $usuario = "";
