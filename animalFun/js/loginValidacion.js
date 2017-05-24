@@ -44,7 +44,7 @@ function login(){
         });
 
     }else{
-        //alert("Incorrect data");
+        //alert("Datos incorrectos");
     }
 					
 }

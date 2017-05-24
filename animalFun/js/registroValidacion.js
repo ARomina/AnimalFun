@@ -17,7 +17,7 @@ var checkboxCondiciones = "";
 function registro(){
 
     if(validacionRegistro()){
-    	alert("Exito!");
+    	//alert("Exito!");
     	console.log(usuario);
     	console.log(nombre);
     	console.log(apellido);
@@ -43,17 +43,36 @@ function registro(){
 	                },
 	                success: 
 	                      function(data){
-	                       if(data.indexOf("Usted se ha registrado correctamente.") > -1){
-	                        	window.location.href = "http://localhost/animalFun/index.php";
-	                       }else{
-	                       		window.location.href = "http://localhost/animalFun/unirse.php";
-	                       }
+	                        switch (data) {
+					            case "USUARIO_REGISTRADO":
+					                $("#myModal").modal("toggle");
+        						    $("#mensajeModal").html("Usted se ha registrado correctamente");
+        						    /*setTimeout(function () {
+								    window.location.href = "http://localhost/animalFun/index.php";
+									}, 1200);*/
+					                break;
+					            case "CLAVES_NO_IGUALES":
+					                $("#myModal").modal("toggle");
+        							$("#mensajeModal").html("Las claves no son iguales, intente nuevamente");
+					                break;
+					            case "USUARIO_REGISTRADO_ANTERIORMENTE":
+					                $("#myModal").modal("toggle");
+        							$("#mensajeModal").html("Este usuario ya ha sido registrado anteriormente");
+					                break;
+					            case "CAMPOS_VACIOS":
+					                $("#myModal").modal("toggle");
+        							$("#mensajeModal").html("Por favor llene todos los campos");
+					                break;  
+					            default: 
+					            	$("#myModal").modal("toggle");
+        							$("#mensajeModal").html("No se pudo realizar la operación");
+        					}
 	                    }
 
         });
 
     }else{
-        //alert("Incorrect data");
+        //alert("Datos incorrectos");
     }
 					
 }

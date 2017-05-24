@@ -6,14 +6,14 @@
 
 	//session_start(); 
 	include_once "../conexion.php"; 
-	$data = "";
 
 	//Validación de campos
 	/*if(isset($_POST['submit'])) 
 	{ */
 	    if($_POST['usuario'] == '' or $_POST['password'] == '' or $_POST['repassword'] == '')
 	    { 
-	        echo 'Por favor llene todos los campos.'; 
+	    	echo "CAMPOS_VACIOS";
+	        //echo 'Por favor llene todos los campos.'; 
 	    } 
 	    else 
 	    { 
@@ -42,22 +42,19 @@
 	                $sql = "INSERT INTO usuario (usuario,password,nombre,apellido,correo) VALUES ('$usuario','$password','$nombre','$apellido','$correo')";
 	                mysqli_query($con, $sql); 
 	  
-	  				$data = "Usted se ha registrado correctamente.";
-	  				echo $data;
+	  				echo "USUARIO_REGISTRADO";
 	                //echo "Usted se ha registrado correctamente."; 
 	            } 
 	            else 
 	            { 
-	            	//$data = "ERROR";
-	            	//echo $data;
-	                echo 'Las claves no son iguales, intente nuevamente.'; 
+	            	echo "CLAVES_NO_IGUALES";
+	                //echo 'Las claves no son iguales, intente nuevamente.'; 
 	            } 
 	        } 
 	        else 
 	        { 
-	        	//$data = "ERROR";
-	        	//echo $data;
-	            echo 'Este usuario ya ha sido registrado anteriormente.'; 
+	        	echo "USUARIO_REGISTRADO_ANTERIORMENTE";
+	            //echo 'Este usuario ya ha sido registrado anteriormente.'; 
 	        }
 
 	    } 

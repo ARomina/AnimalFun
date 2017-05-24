@@ -43,7 +43,7 @@
             <div class="well">
 					    <form class="sa-innate-form" action="" method="POST">
 							            <label for="usuario" class="control-label">Usuario </label>
-							            <input type="text" name="usuario" class="form-control" id="usuario"  value="" required="" title="Ppor favor, ingrese su usuario" placeholder="username"/>
+							            <input type="text" name="usuario" class="form-control" id="usuario"  value="" required="" title="Ppor favor, ingrese su usuario" placeholder="usuario"/>
 										      <span class="alerta" id="alertaUsuario">El usuario no puede estar vacío y debe tener entre 4 y 10 caracteres</span>
 							           	<label>Contraseña</label>
 							            <input  class="form-control" type="password" name="password" placeholder="password"  value="" required="" title="Por favor, ingrese su contraseña" for="password" id="password" />
@@ -95,10 +95,10 @@
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
-          <h4 class="modal-title">Login</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title text-center textoBold">Login</h4>
         </div>
-        <div class="modal-body">
+        <div class="modal-body text-center">
           <p id="mensajeModal"></p>
         </div>
       </div>
