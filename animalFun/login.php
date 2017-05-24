@@ -102,7 +102,6 @@
           <p id="mensajeModal"></p>
         </div>
       </div>
-      
     </div>
   </div>
      

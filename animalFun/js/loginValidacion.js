@@ -39,7 +39,6 @@ function login(){
 								    window.location.href = "http://localhost/animalFun/login.php";
 								}, 1200);
 	                        }
-
 	                    }
 
         });
