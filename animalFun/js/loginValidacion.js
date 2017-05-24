@@ -23,11 +23,23 @@ function login(){
 	                },
 	                success: 
 	                      function(data){
-	                        if(data == "OK"){
-	                    		window.location.href = "http://localhost/animalFun/loginExito.php"; 
-	                       }else{
-	                            window.location.href = "http://localhost/animalFun/loginFail.php";
+	          				//alert(data);
+	          				//console.log(data);
+	                        if(data == "USUARIO VALIDO"){
+	                        	//alert("EXISTE USUARIO");
+	                        	$("#myModal").modal("toggle");
+        						$("#mensajeModal").html("¡Bienvenid@!");
+        						setTimeout(function () {
+								    window.location.href = "http://localhost/animalFun/index.php";
+								}, 1200);
+	                        }else{
+	                        	$("#myModal").modal("toggle");
+        						$("#mensajeModal").html("Usuario o contraseña inválidos, por favor, volvé a internarlo");
+        						setTimeout(function () {
+								    window.location.href = "http://localhost/animalFun/login.php";
+								}, 1200);
 	                        }
+
 	                    }
 
         });

@@ -87,6 +87,24 @@
       </div>
 
   </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+          <h4 class="modal-title">Login</h4>
+        </div>
+        <div class="modal-body">
+          <p id="mensajeModal"></p>
+        </div>
+      </div>
+      
+    </div>
+  </div>
      
       <script type="text/javascript" src="js/jquery-3.2.0.js"></script>
       <script type="text/javascript" src="js/bootstrap.js"></script>
