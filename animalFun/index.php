@@ -12,9 +12,9 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" href="css/bootstrap.css">
-      <!-- <link rel="stylesheet" href="css/estilos.css"> -->
-      <link rel="stylesheet" href="css/components.css">
-      <link rel="stylesheet" href="css/responsee.css">
+   <!--    <link rel="stylesheet" href="css/estilos.css"> -->
+<!--       <link rel="stylesheet" href="css/components.css"> -->
+<!--       <link rel="stylesheet" href="css/responsee.css"> -->
      
      <!--  <link rel="stylesheet" href="owl-carousel/owl.carousel.css">
       <link rel="stylesheet" href="owl-carousel/owl.theme.css"> -->
@@ -36,63 +36,207 @@
     <link href="css/half-slider.css" rel="stylesheet">
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="css/estilosMenuPrincipal.css">
+    <link href="css/font-awesome.css" rel="stylesheet">
+
 
    </head>
    <body>
 	
+    <!-- MENU -->
 		<?php include("menuPrincipal.php");?>
+    <!-- MENU -->
 
 		<!--CAROUSEL-->
-		    <!-- Half Page Image Background Carousel Header (AHORA ES UN DIV)-->
-    <div id="myCarousel" class="carousel slide">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-        </ol>
-
-        <!-- Wrapper for Slides -->
-        <div class="carousel-inner">
-            <div class="item active">
-                <!-- Set the first background image using inline CSS below. -->
-                <div class="fill" id="carouselFoto1"></div>
-                <div class="carousel-caption">
-                    <h2>Foto 1</h2>
-                </div>
-            </div>
-            <div class="item">
-                <!-- Set the second background image using inline CSS below. -->
-                <div class="fill" id="carouselFoto2"></div>
-                <div class="carousel-caption">
-                    <h2>Foto 2</h2>
-                </div>
-            </div>
-            <div class="item">
-                <!-- Set the third background image using inline CSS below. -->
-                <div class="fill" id="carouselFoto3"></div>
-                <div class="carousel-caption">
-                    <h2>Foto 3</h2>
-                </div>
-            </div>
-        </div>
-
-        <!-- Controls -->
-        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-            <span class="icon-prev"></span>
-        </a>
-        <a class="right carousel-control" href="#myCarousel" data-slide="next">
-            <span class="icon-next"></span>
-        </a>
-
-    </div>
+		<?php include("carousel.php");?>
 
     <!-- Sección: Rankings, etc. -->
-    <div class="row">
-      <div class="col-md-12 text-center">
-        <h2 class="titulo-central">¡Mirá las mascotas más populares y la actividad en nuestra red!</h2>
+
+    <!-- ESTE ESTILO INLINE SE TIENE QUE IR DE AHI -->
+      <div class="row" style="margin-top: -20px;">
+            <div class="col-md-12 text-center">
+               <h2 class="titulo-central">¡Mirá las mascotas más populares y la actividad en nuestra red! <i class="fa fa-chevron-down"></i></h2>
+            </div>
+         </div>
+         <div class="container">
+            <div class="row">
+            <div class="col-md-12" id="div-tablas">
+               <div class="row">
+                  <div class="col-md-4 text-center" >
+                     <h3 class="titulos">Últimas historias publicadas</h3>
+                     <table class="divider">
+                        <thead>
+                           <th>
+                              <tr><!-- <h3 class="titulos">Últimas historias publicadas</h3> --></tr>
+                           </th>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <td>
+                                  <div>
+                                       <a href="#" class="pull-left">
+                                          <img src="img/dog-icon.png" class="media-photo">
+                                       </a>
+                                       <p class="espacio-derecha">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. </p>
+                                 </div>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>
+                                  <div>
+                                       <a href="#" class="pull-left">
+                                          <img src="img/dog-icon.png" class="media-photo">
+                                       </a>
+                                       <p class="espacio-derecha">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. </p>
+                                 </div>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>
+                                  <div>
+                                       <a href="#" class="pull-left">
+                                          <img src="img/dog-icon.png" class="media-photo">
+                                       </a>
+                                       <p class="espacio-derecha">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. </p>
+                                 </div>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>
+                                  <div>
+                                       <a href="#" class="pull-left">
+                                          <img src="img/dog-icon.png" class="media-photo">
+                                       </a>
+                                       <p class="espacio-derecha">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. </p>
+                                 </div>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                     <div class="text-center">
+                        <a href="#" class="btn boton">Ver más</a>
+                     </div>
+                  </div>
+                  <div class="col-md-4 text-center">
+                     <h3 class="titulos">Ránking de mascotas</h3>
+                     <table class="divider">
+                        <thead>
+                           <th>
+                              <tr>
+                                 <!-- <h3 class="titulos">Ránking de mascotas</h3> -->
+                              </tr>
+                              <tr>
+                                
+                              </tr>
+                           </th>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <td>
+                                  <div>
+                                       <a href="#" class="pull-left">
+                                          <img src="img/dog-icon.png" class="media-photo">
+                                       </a>
+                                       <p class="espacio-derecha">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. </p>
+                                 </div>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>
+                                  <div>
+                                       <a href="#" class="pull-left">
+                                          <img src="img/dog-icon.png" class="media-photo">
+                                       </a>
+                                       <p class="espacio-derecha">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. </p>
+                                 </div>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>
+                                  <div>
+                                       <a href="#" class="pull-left">
+                                          <img src="img/dog-icon.png" class="media-photo">
+                                       </a>
+                                       <p class="espacio-derecha">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. </p>
+                                 </div>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>
+                                  <div>
+                                       <a href="#" class="pull-left">
+                                          <img src="img/dog-icon.png" class="media-photo">
+                                       </a>
+                                       <p class="espacio-derecha">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. </p>
+                                 </div>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                     <div class="text-center">
+                        <a href="#" class="btn boton">Ver más</a>
+                     </div>
+                  </div>
+                  <div class="col-md-4 text-center">
+                     <h3 class="titulos">Actividad reciente</h3>
+                     <table>
+                        <thead>
+                           <th>
+                              <tr><!-- <h3 class="titulos">Actividad reciente</h3> --></tr>
+                           </th>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <td>
+                                  <div>
+                                       <a href="#" class="pull-left">
+                                          <img src="img/person-icon.png" class="media-photo">
+                                       </a>
+                                       <p class="espacio-derecha">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. </p>
+                                 </div>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>
+                                  <div>
+                                       <a href="#" class="pull-left">
+                                          <img src="img/person-icon.png" class="media-photo">
+                                       </a>
+                                       <p class="espacio-derecha">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. </p>
+                                 </div>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>
+                                  <div>
+                                       <a href="#" class="pull-left">
+                                          <img src="img/person-icon.png" class="media-photo">
+                                       </a>
+                                       <p class="espacio-derecha">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. </p>
+                                 </div>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>
+                                  <div>
+                                       <a href="#" class="pull-left">
+                                          <img src="img/person-icon.png" class="media-photo">
+                                       </a>
+                                       <p class="espacio-derecha">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. </p>
+                                 </div>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                     <div class="text-center">
+                        <a href="#" class="btn boton">Ver más</a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div><!-- div container -->
+
       </div>
-    </div>
 
 		<!-- FOOTER -->
 		<div class="row" id="div-footer">
@@ -117,9 +261,9 @@
 
     <!-- Script to Activate the Carousel -->
     <script>
-    $('.carousel').carousel({
-        interval: 5000 //changes the speed
-    })
+      $('.carousel').carousel({
+          interval: 5000 //changes the speed
+      })
     </script>
    </body>
 </html>
