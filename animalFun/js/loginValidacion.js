@@ -23,10 +23,7 @@ function login(){
 	                },
 	                success: 
 	                      function(data){
-	          				//alert(data);
-	          				//console.log(data);
 	                        if(data == "USUARIO VALIDO"){
-	                        	//alert("EXISTE USUARIO");
 	                        	$("#myModal").modal("toggle");
         						$("#mensajeModal").html("¡Bienvenid@!");
         						setTimeout(function () {
@@ -34,7 +31,7 @@ function login(){
 								}, 1200);
 	                        }else{
 	                        	$("#myModal").modal("toggle");
-        						$("#mensajeModal").html("Usuario o contraseña inválidos, por favor, volvé a internarlo");
+        						$("#mensajeModal").html("Usuario o contraseña inválidos, por favor, volvé a intentarlo");
         						setTimeout(function () {
 								    window.location.href = "http://localhost/animalFun/login.php";
 								}, 1200);

@@ -99,7 +99,7 @@ body{
    	background:#2aa02a;*/
    	background-color: #2C8E78;
  	text-align: center;
-
+ 	margin-top: 5%;
 }
 
 #footer-derecha, #footer-centro, #footer-izquierda{
@@ -362,3 +362,14 @@ body{
  	}		
 }
 
+/* Adopciones */
+.divBuscador{
+	margin-top: 2%;
+}
+
+#divMascotasEnAdopcionOfrecer{
+	margin-top: -20px; 
+	margin-left:5%; 
+	margin-right:5%; 
+	margin-bottom:-20px;
+}
