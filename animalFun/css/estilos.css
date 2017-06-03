@@ -24,6 +24,23 @@ body{
 	background-color: #FF9D27;
 }
 
+/* Sección logueado en menu */
+.navbar-login{
+    width: 305px;
+    padding: 10px;
+    padding-bottom: 0px;
+}
+
+.navbar-login-session{
+    padding: 10px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+
+.icon-size{
+    font-size: 87px;
+}
+
 /* Carousel */
 #carouselFoto1{
 	background-image:url('../img/1.jpg');

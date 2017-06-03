@@ -1,6 +1,14 @@
-<!-- Materia: Programación Web 2  / UNLaM 2017 -->
-<!-- Profesores: Rusticcini, Alejandro / D'aranno, Facundo / Uran, Jhonatan-->
-<!-- Alumnos: Barraza, A. Romina / Miharu, Lucas-->
+<?php
+  
+  /* Materia: Programación Web 2  / UNLaM 2017 
+     Profesores: Rusticcini, Alejandro / D'aranno, Facundo / Uran, Jhonatan
+     Alumnos: Barraza, A. Romina / Miharu, Lucas */
+
+  include_once "conexion.php";
+
+  session_start();
+
+?>
 
 <!DOCTYPE html>
 <html lang="en-US">
@@ -38,20 +46,18 @@
     <link rel="stylesheet" href="css/estilosMenuPrincipal.css">
     <link href="css/font-awesome.css" rel="stylesheet">
 
-
    </head>
    <body>
-	
+
     <!-- MENU -->
 		<?php include("menuPrincipal.php");?>
-    <!-- MENU -->
 
-		<!--CAROUSEL-->
+		<!-- CAROUSEL -->
 		<?php include("carousel.php");?>
 
     <!-- Sección: Rankings, etc. -->
 
-    <!-- ESTE ESTILO INLINE SE TIENE QUE IR DE AHI -->
+      <!-- ESTE ESTILO INLINE SE TIENE QUE IR DE AHI -->
       <div class="row" style="margin-top: -20px;">
             <div class="col-md-12 text-center">
                <h2 class="titulo-central">¡Mirá las mascotas más populares y la actividad en nuestra red! <i class="fa fa-chevron-down"></i></h2>
@@ -236,7 +242,7 @@
          </div>
       </div><!-- div container -->
 
-      </div>
+    </div>
 
 		<!-- FOOTER -->
 		<div class="row" id="div-footer">
@@ -247,10 +253,13 @@
 				<p class="textoBoldBlanco">Programación Web 2</p>
 			 </div>
 		</div>
+
 		<!-- FOOTER -->
+
       <script type="text/javascript" src="js/jquery-3.2.0.js"></script>
       <script type="text/javascript" src="js/bootstrap.js"></script>
-	  <script type="text/javascript" src="js/carousel.js"></script>
+	    <script type="text/javascript" src="js/carousel.js"></script>
+
        <!-- /.container -->
 
     <!-- jQuery -->
@@ -265,5 +274,6 @@
           interval: 5000 //changes the speed
       })
     </script>
+    
    </body>
 </html>

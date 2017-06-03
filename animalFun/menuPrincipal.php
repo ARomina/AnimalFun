@@ -39,29 +39,60 @@
 			          <span class="icon-bar"></span>
 			          <span class="icon-bar"></span>
 			        </button>
-			        <a class="navbar-brand text-hide" href="#"></a>
+			        <a class="navbar-brand text-hide" href="index.php"></a>
 			      </div>
 			      <div id="navbarMenu" class="navbar-collapse collapse">
 			      	<ul class="nav navbar-nav navbar-left" id="navIzquierda">
 			      		<li class="active"><a href="#" class="textoBoldNaranjaClaro">Inicio</a></li>
 			      		<li><a href="#" class="textoBoldNaranjaClaro">Explorar</a></li>
-			      		<li><a href="#" class="textoBoldNaranjaClaro">Adopciones</a></li>
+			      		<li><a href="adopciones.php" class="textoBoldNaranjaClaro">Adopciones</a></li>
 			      	</ul>
 			        <ul class="nav navbar-nav navbar-right" id="navDerecha">
-			          <li><a href="#" class="textoBoldNaranjaClaro">Unirse</a></li>
-			          <li><a href="#" class="textoBoldNaranjaClaro" id="loginButton">Log in</a></li>
-			        <!--   <li class="dropdown">
-			            <a href="#" class="dropdown-toggle textoBoldNaranjaClaro" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
-			            <ul class="dropdown-menu" role="menu">
-			              <li><a href="#">Action</a></li>
-			              <li><a href="#">Another action</a></li>
-			              <li><a href="#">Something else here</a></li>
-			              <li class="divider"></li>
-			              <li class="dropdown-header">Nav header</li>
-			              <li><a href="#">Separated link</a></li>
-			              <li><a href="#">One more separated link</a></li>
-			            </ul>
-			          </li> -->
+			          <li><a href="unirse.php" class="textoBoldNaranjaClaro">Unirse</a></li>
+			          <?php 
+				          if(!isset($_SESSION['usuario'])){
+				          	echo '<li><a href="login.php" class="textoBoldNaranjaClaro" id="loginButton">Log in</a></li>';
+				          }else{
+				          	echo '<li class="dropdown">
+				                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+				                        <span class="glyphicon glyphicon-user"></span> 
+				                        <strong>'.$_SESSION['usuario'].'</strong>
+				                        <span class="glyphicon glyphicon-chevron-down"></span>
+				                    </a>
+				                    <ul class="dropdown-menu">
+				                        <li>
+				                            <div class="navbar-login">
+				                                <div class="row">
+				                                    <div class="col-lg-4">
+				                                        <p class="text-center">
+				                                            <span class="glyphicon glyphicon-user icon-size"></span>
+				                                        </p>
+				                                    </div>
+				                                    <div class="col-lg-8">
+				                                        <p class="text-left"><strong>Mis datos</strong></p>
+				                                        <p class="text-left"><strong>Mis mascotas</strong></p>
+				                                        <p class="text-left"><strong>Mis adopciones</strong></p>
+				                                        <p class="text-left"><strong>Mis citas</strong></p>
+				                                    </div>
+				                                </div>
+				                            </div>
+				                        </li>
+				                        <li class="divider"></li>
+				                        <li>
+				                            <div class="navbar-login navbar-login-session">
+				                                <div class="row">
+				                                    <div class="col-lg-12">
+				                                        <p>
+				                                            <a href="extras/procesaLogOut.php" class="btn btn-danger btn-block">Cerrar Sesión</a>
+				                                        </p>
+				                                    </div>
+				                                </div>
+				                            </div>
+				                        </li>
+				                    </ul>
+				                </li>';
+			          }
+			          ?>
 			        </ul>
 			      </div>
 			      <!--/.nav-collapse -->

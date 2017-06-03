@@ -39,7 +39,7 @@
        //Comprobación
 
        //Armo la query
-       $sql = "SELECT usuario, password FROM usuario WHERE BINARY usuario = ? AND password = ?";
+       $sql = "SELECT * FROM usuario WHERE BINARY usuario = ? AND password = ?";
 
         //Preparo la query
         if($stmt = $con->prepare($sql)){
