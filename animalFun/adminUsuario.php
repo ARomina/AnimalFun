@@ -8,6 +8,15 @@
 
   session_start();
 
+  $usuario = $_SESSION['usuario'];
+
+  //Query para mostrar la foto de perfil
+  $query = "SELECT fotoPerfilUsuario FROM usuario WHERE usuario = '$usuario'";
+
+  $resultado = mysqli_query($con, $query) or die('Error');
+  
+  $row = mysqli_fetch_assoc($resultado);
+
 ?>
 
 <!DOCTYPE html>
@@ -66,19 +75,32 @@
           <div class="col-md-4 center-block">
             <form class="form-horizontal" role="form">
               <fieldset>
-
-                <!-- Form Name -->
+                 <!-- Form Name -->
                 <legend>Mi foto de perfil</legend>
-                   <div id="fotoPerfil" class="divCirculo"></div>
+                   <!--<div id="fotoPerfil" class="divCirculo"></div>-->
+                    <!--<form name="" method="post" action="editarFotoPerfilUsuario.php">-->
+                      <img src="<?php 
+                        if(isset($row['fotoPerfilUsuario'])){
+                           echo str_replace('../', '', $row['fotoPerfilUsuario']);
+                        }else{
+                          echo 'img/avatar-placeholder.jpg';
+                        }
+                        ?>" height="250" width="250" class="center-block">
+                    <!--</form>-->
               </fieldset>
             </form>
 
             <div class="form-group">
-            <div class="col-md-4 col-md-push-8">
-              <div class="pull-right">
+            <!--<div class="col-md-4 col-md-push-8">-->
+             <div class="col-md-12 text-center">
+              <!--<div class="pull-right"-->
            <!--      <button type="submit" class="btn btn-default">Cancel</button> -->
-                <a href="#" class="btn boton2">Cambiar foto de perfil</a>
-              </div>
+                <form action="extras/editarFotoPerfilUsuario.php" method="POST" enctype="multipart/form-data" class="center-block">
+                  <input name="userfile" type="file" id="userfile">
+                  <!--<a href="extras/editarFotoPerfilUsuario.php" class="btn boton2" name="upload" value="upload">Cambiar foto de perfil</a>-->
+                  <input name="upload" type="submit" class="btn boton2" id="upload" value="Cambiar foto de perfil">
+                </form>
+              <!--</div>-->
             </div>
           </div>
           </div>

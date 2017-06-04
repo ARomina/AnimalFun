@@ -56,9 +56,6 @@
 		}
 	}
 
-	//Cerrar conexión
-	$con->close();
-
 ?>
 
 <!DOCTYPE html>

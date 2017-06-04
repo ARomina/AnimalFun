@@ -1,3 +1,14 @@
+<?php
+
+	//Query para traer la foto de perfil
+	$query = "SELECT fotoPerfilUsuario FROM usuario WHERE usuario = '{$_SESSION['usuario']}'";
+
+	$resultado = mysqli_query($con, $query) or die('Error');
+		  
+	$row = mysqli_fetch_assoc($resultado);
+
+?>
+
 <!-- MENU -->
 		<!--  <header>
 			 <nav class="line">
@@ -64,9 +75,15 @@
 				                            <div class="navbar-login">
 				                                <div class="row">
 				                                    <div class="col-lg-4">
-				                                        <p class="text-center">
-				                                            <span class="glyphicon glyphicon-user icon-size"></span>
-				                                        </p>
+				                                        <p class="text-center">';
+				                                        if(isset($resultado)){
+				                                        	//Recordar que le saqué el span
+				                                        	echo '<img src="'.str_replace('../', '', $row['fotoPerfilUsuario']).'" class="icon-size" height="80" height="80"/>';
+				                                        }else{
+				                                            echo '<span class="glyphicon glyphicon-user icon-size"></span>';
+				                                        }
+
+				                                        echo '</p>
 				                                    </div>
 				                                    <div class="col-lg-8">
 				                                        <p><a href="adminUsuario.php" class="text-left"><strong>Mis datos</strong></a></p>
