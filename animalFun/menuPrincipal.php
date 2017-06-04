@@ -1,11 +1,15 @@
 <?php
+	
+	if(isset($_SESSION['usuario'])){
+		
+		//Query para traer la foto de perfil
+		$query = "SELECT fotoPerfilUsuario FROM usuario WHERE usuario = '{$_SESSION['usuario']}'";
 
-	//Query para traer la foto de perfil
-	$query = "SELECT fotoPerfilUsuario FROM usuario WHERE usuario = '{$_SESSION['usuario']}'";
-
-	$resultado = mysqli_query($con, $query) or die('Error');
-		  
-	$row = mysqli_fetch_assoc($resultado);
+		$resultado = mysqli_query($con, $query) or die('Error');
+			  
+		$row = mysqli_fetch_assoc($resultado);
+	
+	}
 
 ?>
 
@@ -54,8 +58,8 @@
 			      </div>
 			      <div id="navbarMenu" class="navbar-collapse collapse">
 			      	<ul class="nav navbar-nav navbar-left" id="navIzquierda">
-			      		<li class="active"><a href="#" class="textoBoldNaranjaClaro">Inicio</a></li>
-			      		<li><a href="#" class="textoBoldNaranjaClaro">Explorar</a></li>
+			      		<li class="active"><a href="index.php" class="textoBoldNaranjaClaro">Inicio</a></li>
+			      		<li><a href="explorar.php" class="textoBoldNaranjaClaro">Explorar</a></li>
 			      		<li><a href="adopciones.php" class="textoBoldNaranjaClaro">Adopciones</a></li>
 			      	</ul>
 			        <ul class="nav navbar-nav navbar-right" id="navDerecha">
