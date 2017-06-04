@@ -1,6 +1,6 @@
 //Expresiones regulares para la validacion
-var regexpLetrasNumeros=/^[-\w\.\$]{4,10}$/;
-var regexpLetrasNumeros2=/^[-\w\.\$]{6,8}$/;
+var regexLetrasNumeros=/^[-\w\.\$]{4,10}$/;
+var regexLetrasNumeros2=/^[-\w\.\$]{6,8}$/;
 
 //Inicialización de variables
 var usuario = "";
@@ -66,7 +66,7 @@ function login(){
 
 	//Validaciones de los campos
 	function validacionUsuario(){
-			if((usuario.length == 0) || (!usuario.match(regexpLetrasNumeros))){
+			if((usuario.length == 0) || (!usuario.match(regexLetrasNumeros))){
 				usuarioElemento.classList.add("error");
 				document.getElementById("alertaUsuario").style.visibility = "visible";
 				return false;
@@ -78,7 +78,7 @@ function login(){
     }
 
     function validacionPassword(){
-			if((password.length == 0) || (!password.match(regexpLetrasNumeros2))){
+			if((password.length == 0) || (!password.match(regexLetrasNumeros2))){
 				passwordElemento.classList.add("error");
 				document.getElementById("alertaContrasenia").style.visibility = "visible";
 				return false;

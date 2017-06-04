@@ -24,6 +24,16 @@ body{
 	background-color: #FF9D27;
 }
 
+.boton2{
+	background-color: #FF9D27;
+	color: #ffffff;
+}
+
+.boton2:hover{
+	background-color: #FF6600;
+	color: #ffffff;
+}
+
 /* Sección logueado en menu */
 .navbar-login{
     width: 305px;

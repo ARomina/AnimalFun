@@ -69,10 +69,10 @@
 				                                        </p>
 				                                    </div>
 				                                    <div class="col-lg-8">
-				                                        <p class="text-left"><strong>Mis datos</strong></p>
-				                                        <p class="text-left"><strong>Mis mascotas</strong></p>
-				                                        <p class="text-left"><strong>Mis adopciones</strong></p>
-				                                        <p class="text-left"><strong>Mis citas</strong></p>
+				                                        <p><a href="adminUsuario.php" class="text-left"><strong>Mis datos</strong></a></p>
+				                                        <p><a href="#" class="text-left"><strong>Mis mascotas</strong></a></p>
+				                                        <p><a href="#" class="text-left"><strong>Mis adopciones</strong></a></p>
+				                                        <p><a href="#" class="text-left"><strong>Mis citas</strong></a></p>
 				                                    </div>
 				                                </div>
 				                            </div>
