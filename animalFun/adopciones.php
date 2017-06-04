@@ -8,6 +8,57 @@
 
   session_start();
 
+    //Array de TIPOS de mascota
+    $tiposMascota = array();
+
+ 	//Query TIPO de mascota
+	$sql = "SELECT * FROM tipomascota";
+	$resultado = $con->query($sql);
+
+	if($resultado->num_rows > 0){
+		$i = 0;
+		while($row = $resultado->fetch_assoc()){
+			$tiposMascota[$i]['idTipo'] = $row["idTipo"];
+			$tiposMascota[$i]['tipo'] = $row["tipo"];
+			$i++;
+		}
+	}
+
+	//Array de RAZAS de mascota
+	$razasMascota = array();
+
+ 	//Query TIPO de mascota
+	$sql = "SELECT * FROM razamascota";
+	$resultado = $con->query($sql);
+
+	if($resultado->num_rows > 0){
+		$i = 0;
+		while($row = $resultado->fetch_assoc()){
+			$razasMascota[$i]['idRaza'] = $row["idRaza"];
+			$razasMascota[$i]['raza'] = $row["raza"];
+			$i++;
+		}
+	}
+
+	//Array de TAMAÑOS de mascota
+	$tamanosMascota = array();
+
+ 	//Query TIPO de mascota
+	$sql = "SELECT * FROM tamanomascota";
+	$resultado = $con->query($sql);
+
+	if($resultado->num_rows > 0){
+		$i = 0;
+		while($row = $resultado->fetch_assoc()){
+			$tamanosMascota[$i]['idTamano'] = $row["idTamano"];
+			$tamanosMascota[$i]['tamano'] = $row["tamano"];
+			$i++;
+		}
+	}
+
+	//Cerrar conexión
+	$con->close();
+
 ?>
 
 <!DOCTYPE html>
@@ -93,11 +144,17 @@
 					<div class="form-group">
 	                    <label>Tipo</label>
 	                        <select class="form-control">
-	                        	<option selected disabled>Seleccioná un tipo de mascota</option>
-	                            <option>Perro</option>
-	                            <option>Gato</option>
-	                            <option>Ave</option>
-	                            <option>Pez</option>
+	                            <?php
+							        $cantTiposMascota = count($tiposMascota);
+							   		if($cantTiposMascota > 0){
+							   			echo '<option value="0" disabled="disabled" selected="selected">Seleccione un tipo</option>';
+							   			for($i=0; $i<$cantTiposMascota; $i++){
+								   			echo '<option value="'.$tiposMascota[$i]['idTipo'].'">'.$tiposMascota[$i]['tipo'].'</option>';
+							        	}
+							        }else{
+							        	echo '<option value="">No hay opciones disponibles</option>';   //si no hay nada cargado en el array
+							        }
+							    ?>
 	                        </select>
 	                </div>
 				</form>
@@ -107,12 +164,17 @@
 				<div class="form-group">
 	                <label>Raza</label>
 	                    <select class="form-control">
-	                    	<option selected disabled>Seleccioná una raza</option>
-	                        <option>Caniche</option>
-	                        <option>Ovejero alemán</option>
-	                        <option>Bulldog francés</option>
-	                        <option>Pequinés</option>
-	                        <option>Galgo</option>
+	                    	<?php
+							    $cantRazasMascota = count($razasMascota);
+							   	if($cantRazasMascota > 0){
+							   		echo '<option value="0" disabled="disabled" selected="selected">Seleccione una raza</option>';
+							   		for($i=0; $i<$cantRazasMascota; $i++){
+								   		echo '<option value="'.$razasMascota[$i]['idRaza'].'">'.$razasMascota[$i]['raza'].'</option>';
+							        }
+							    }else{
+							        echo '<option value="">No hay opciones disponibles</option>';   //si no hay nada cargado en el array
+							    }
+							?>
 	                    </select>
 	            </div>
 				</form>
@@ -122,10 +184,17 @@
 				<div class="form-group">
 	                <label>Tamaño</label>
 	                    <select class="form-control">
-	                    	<option selected disabled>Seleccioná un tamaño</option>
-	                        <option>Pequeño</option>
-	                        <option>Mediano</option>
-	                        <option>Grande</option>
+	                    	<?php
+							    $cantTamanosMascota = count($tamanosMascota);
+							   	if($cantTamanosMascota > 0){
+							   		echo '<option value="0" disabled="disabled" selected="selected">Seleccione un tamaño</option>';
+							   		for($i=0; $i<$cantTamanosMascota; $i++){
+								   		echo '<option value="'.$tamanosMascota[$i]['idTamano'].'">'.$tamanosMascota[$i]['tamano'].'</option>';
+							        }
+							    }else{
+							        echo '<option value="">No hay opciones disponibles</option>';   //si no hay nada cargado en el array
+							    }
+							?>
 	                    </select>
 	             </div>
 				</form>
