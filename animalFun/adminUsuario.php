@@ -8,14 +8,10 @@
 
   session_start();
 
-  $usuario = $_SESSION['usuario'];
-
-  //Query para mostrar la foto de perfil
-  $query = "SELECT fotoPerfilUsuario FROM usuario WHERE usuario = '$usuario'";
-
-  $resultado = mysqli_query($con, $query) or die('Error');
-  
-  $row = mysqli_fetch_assoc($resultado);
+  if(isset($_SESSION['usuario'])){
+    $usuario = $_SESSION['usuario'];
+    $fotoPerfilUsuario = $_SESSION['foto'];
+  }
 
 ?>
 
@@ -59,9 +55,11 @@
 
    </head>
    <body>
-  
+
     <!-- MENU -->
     <?php include("menuPaginas.php");?>
+
+    <div id="wrap">
 
     <!-- Sección Perfil Dueño -->
       <div class="row">
@@ -80,8 +78,8 @@
                    <!--<div id="fotoPerfil" class="divCirculo"></div>-->
                     <!--<form name="" method="post" action="editarFotoPerfilUsuario.php">-->
                       <img src="<?php 
-                        if(isset($row['fotoPerfilUsuario'])){
-                           echo str_replace('../', '', $row['fotoPerfilUsuario']);
+                        if(isset($fotoPerfilUsuario)){
+                           echo str_replace('../', '', $fotoPerfilUsuario);
                         }else{
                           echo 'img/avatar-placeholder.jpg';
                         }
@@ -126,6 +124,10 @@
             </div>
           </div>
       </div><!-- div container -->
+
+    </div><!-- div wrap -->
+
+    <div id="push"></div>
 
     <!-- FOOTER -->
     <div class="row" id="div-footer">

@@ -66,15 +66,13 @@
 
                     <div class="form-group">
                       <label class="col-sm-2 control-label" for="telefono">Teléfono </label>
-                      <div class="col-sm-10">
-                         <input type="text" placeholder="'.$telefono.'" class="form-control" id="telefono" value="';
-                         if(isset($telefono)){
-                            echo $telefono;
+                      <div class="col-sm-10">';
+                         if(isset($telefono) && !empty($telefono)){
+                            echo '<input type="text" placeholder="'.$telefono.'" class="form-control" id="telefono" value="'.$telefono.'">';
                           }else{
-                            echo "";
+                            echo '<input type="text" placeholder="Solo números" class="form-control" id="telefono" value="">';
                           }
-                         echo '">
-                         <span class="alerta" id="alertaTelefono">Sólo puede contener números</span>
+                         echo '<span class="alerta" id="alertaTelefono">Sólo puede contener números</span>
                       </div>
                     </div>
 
@@ -93,6 +91,7 @@
                     <div class="form-group">
                       <label class="col-sm-2 control-label" for="fechaNac">Cumpleaños </label>
                       <div class="col-sm-10">';
+                      if(isset($fechaNac) && !empty($fechaNac)){
                         //para la fecha del placeholder tenga el orden correcto para la validacion
                         $fechaAux = $fechaNac;
                         $fechaPartes = explode('-', $fechaAux);
@@ -103,8 +102,11 @@
                             }else{
                               echo "";
                             }
-                         echo '">
-                         <span class="alerta" id="alertaFecha">Ingrese una fecha con el formato dd/mm/aaaa</span>
+                         echo '">';
+                       }else{
+                           echo '<input type="text" placeholder="dd/mm/aaaa" class="form-control" id="fechaNac" value="">';
+                       }
+                         echo '<span class="alerta" id="alertaFecha">Ingrese una fecha con el formato dd/mm/aaaa</span>
                       </div>
                     </div>
 

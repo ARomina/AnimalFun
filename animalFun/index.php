@@ -2,7 +2,7 @@
   
   /* Materia: Programación Web 2  / UNLaM 2017 
      Profesores: Rusticcini, Alejandro / D'aranno, Facundo / Uran, Jhonatan
-     Alumnos: Barraza, A. Romina / Miharu, Lucas */
+     Alumnos: Barraza, A. Romina / Miharu, Lucas / Suárez, Pablo */
 
   include_once "conexion.php";
 
@@ -57,8 +57,9 @@
 
     <!-- Sección: Rankings, etc. -->
 
+    <div class="wrap">
       <!-- ESTE ESTILO INLINE SE TIENE QUE IR DE AHI -->
-      <div class="row" style="margin-top: -20px;">
+      <div class="row" style="margin-top: -20px;" id="rowGeneralBody">
             <div class="col-md-12 text-center">
                <h2 class="titulo-central">¡Mirá las mascotas más populares y la actividad en nuestra red! <i class="fa fa-chevron-down"></i></h2>
             </div>
@@ -241,8 +242,11 @@
             </div>
          </div>
       </div><!-- div container -->
+    </div><!-- div wrapper -->
 
-    </div>
+    <div id="push"></div>
+
+   <!--  </div> -->
 
 		<!-- FOOTER -->
 		<div class="row" id="div-footer">

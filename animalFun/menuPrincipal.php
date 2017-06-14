@@ -1,15 +1,9 @@
 <?php
 	
 	if(isset($_SESSION['usuario'])){
-		
-		//Query para traer la foto de perfil
-		$query = "SELECT fotoPerfilUsuario FROM usuario WHERE usuario = '{$_SESSION['usuario']}'";
-
-		$resultado = mysqli_query($con, $query) or die('Error');
-			  
-		$row = mysqli_fetch_assoc($resultado);
-	
-	}
+	    $usuario = $_SESSION['usuario'];
+	    $fotoPerfilUsuario = $_SESSION['foto'];
+  	}
 
 ?>
 
@@ -80,9 +74,9 @@
 				                                <div class="row">
 				                                    <div class="col-lg-4">
 				                                        <p class="text-center">';
-				                                        if(isset($resultado)){
+				                                        if(isset($fotoPerfilUsuario) && !empty($fotoPerfilUsuario)){
 				                                        	//Recordar que le saqué el span
-				                                        	echo '<img src="'.str_replace('../', '', $row['fotoPerfilUsuario']).'" class="icon-size" height="80" height="80"/>';
+				                                        	echo '<img src="'.str_replace('../', '', $fotoPerfilUsuario).'" class="icon-size" height="80" height="80"/>';
 				                                        }else{
 				                                            echo '<span class="glyphicon glyphicon-user icon-size"></span>';
 				                                        }
@@ -91,9 +85,9 @@
 				                                    </div>
 				                                    <div class="col-lg-8">
 				                                        <p><a href="adminUsuario.php" class="text-left"><strong>Mis datos</strong></a></p>
-				                                        <p><a href="#" class="text-left"><strong>Mis mascotas</strong></a></p>
-				                                        <p><a href="#" class="text-left"><strong>Mis adopciones</strong></a></p>
-				                                        <p><a href="#" class="text-left"><strong>Mis citas</strong></a></p>
+                                                        <p><a href="adminUsuarioMascotas.php" class="text-left"><strong>Mis mascotas</strong></a></p>
+                                                        <p><a href="adminUsuarioAdopciones.php" class="text-left"><strong>Mis adopciones</strong></a></p>
+                                                        <p><a href="adminUsuarioCitas.php" class="text-left"><strong>Mis citas</strong></a></p>
 				                                    </div>
 				                                </div>
 				                            </div>

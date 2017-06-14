@@ -19,7 +19,8 @@
 		$resultado = move_uploaded_file($tmpName, $filePath);
 		if(!$resultado){
 			echo "Error al subir la imagen";
-			$filePath="../img/avatar-placeholder.jpg";
+			//$filePath="../img/avatar-placeholder.jpg";
+			$imagenPlaceholder = "../img/avatar-placeholder.jpg";
 		}
 			
 		if(!get_magic_quotes_gpc()){
@@ -28,9 +29,6 @@
 		} 
 
 		$query = "UPDATE usuario SET fotoPerfilUsuario = '$filePath' WHERE usuario = '$usuario'";
-		
-		//mysqli_query($con, $query) or die('Error');
-		//echo "<br>¡Archivo $fileName subido correctamente!<br>";
 
 		if(mysqli_query($con, $query)){
 			header("location: ../adminUsuario.php");

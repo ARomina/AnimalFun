@@ -39,88 +39,94 @@
 		<?php include("menuPaginas.php");?>
 		<!--Fin menu-->
 
-<!-- Sección: formulario de registro -->
-<div class="container">
-    <div class="omb_login">
-    	<h3 class="omb_authTitle">Regístrate con </h3>
-		<div class="row omb_row-sm-offset-3 omb_socialButtons">
-    	    <div class="col-xs-4 col-sm-2">
-		        <a href="#" class="btn btn-lg btn-block omb_btn-facebook">
-			        <i class="fa fa-facebook visible-xs"></i>
-			        <span class="hidden-xs">Facebook</span>
-		        </a>
-	        </div>
-        	<div class="col-xs-4 col-sm-2">
-		        <a href="#" class="btn btn-lg btn-block omb_btn-twitter">
-			        <i class="fa fa-twitter visible-xs"></i>
-			        <span class="hidden-xs">Twitter</span>
-		        </a>
-	        </div>	
-        	<div class="col-xs-4 col-sm-2">
-		        <a href="#" class="btn btn-lg btn-block omb_btn-google">
-			        <i class="fa fa-google-plus visible-xs"></i>
-			        <span class="hidden-xs">Google+</span>
-		        </a>
-	        </div>	
-		</div>
+	<div id="wrap">
 
-		<div class="row omb_row-sm-offset-3 omb_loginOr">
-			<div class="col-xs-12 col-sm-6">
-				<hr class="omb_hrOr">
-				<span class="omb_spanOr">ó</span>
+		<!-- Sección: formulario de registro -->
+		<div class="container">
+		    <div class="omb_login">
+		    	<h3 class="omb_authTitle">Regístrate con </h3>
+				<div class="row omb_row-sm-offset-3 omb_socialButtons">
+		    	    <div class="col-xs-4 col-sm-2">
+				        <a href="#" class="btn btn-lg btn-block omb_btn-facebook">
+					        <i class="fa fa-facebook visible-xs"></i>
+					        <span class="hidden-xs">Facebook</span>
+				        </a>
+			        </div>
+		        	<div class="col-xs-4 col-sm-2">
+				        <a href="#" class="btn btn-lg btn-block omb_btn-twitter">
+					        <i class="fa fa-twitter visible-xs"></i>
+					        <span class="hidden-xs">Twitter</span>
+				        </a>
+			        </div>	
+		        	<div class="col-xs-4 col-sm-2">
+				        <a href="#" class="btn btn-lg btn-block omb_btn-google">
+					        <i class="fa fa-google-plus visible-xs"></i>
+					        <span class="hidden-xs">Google+</span>
+				        </a>
+			        </div>	
+				</div>
+
+				<div class="row omb_row-sm-offset-3 omb_loginOr">
+					<div class="col-xs-12 col-sm-6">
+						<hr class="omb_hrOr">
+						<span class="omb_spanOr">ó</span>
+					</div>
+				</div>	
 			</div>
-		</div>	
-	</div>
 
-    <div id="login-overlay" class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <div class="well">
-                        <span><?php  ?></span>
-					        <form class="sa-innate-form" action="" method="POST">
-					        			<label for="usuario" class="control-label">Usuario </label>
-							            <input type="text" name="usuario" class="form-control" id="usuario"  value="" required="" title="nombre del perfil" placeholder="usuario"/>
-										      <span class="alerta" id="alertaUsuario">Campo obligatorio. Debe tener entre 4 y 10 caracteres, sólo letras y números</span></br>
-							            <label for="nombre" class="control-label">Nombre </label>
-							            <input type="text" name="nombre" class="form-control" id="nombre"  value="" required="" title="nombre del perfil" placeholder="nombre"/>
-										      <span class="alerta" id="alertaNombreUsuario">Campo obligatorio. Puede contener sólo letras y espacios</span></br>
-							           	<label for="apellido"lass="control-label">Apellido </label>
-							            <input type="text" name="apellido" class="form-control" id="apellido"  value="" required="" title="apellido del perfil" placeholder="apellido"/>
-										      <span class="alerta" id="alertaApellidoUsuario">Campo obligatorio. Puede contener sólo letras y espacios</span></br>
-										<label for="correo"lass="control-label">Correo electrónico </label>
-							            <input type="text" name="correo" class="form-control" id="correo"  value="" required="" title="correo" placeholder="correo"/>
-										      <span class="alerta" id="alertaCorreo">Campo obligatorio. La dirección debe tener un formato válido</span></br>
-										<label for="correo2"lass="control-label">Repita correo electrónico</label>
-							            <input type="text" name="correo2" class="form-control" id="correo2"  value="" required="" title="correo" placeholder="correo"/>
-										      <span class="alerta" id="alertaCorreo2">Campo obligatorio. La dirección debe tener un formato válido y concidir con lo ingresado antes</span></br>
-										<label >Contraseña</label>
-							            <input  class="form-control" type="password" name="password" placeholder="password"  value="" required="" title="Por favor, ingrese su contraseña"for="password" id="password" /></br>
-							            <span class="alerta" id="alertaContrasenia">La contraseña no puede estar vacía y debe tener entre 6 y 8 caracteres</span>
-							            <label >Repita contraseña</label>
-							            <input  class="form-control" type="password" name="repassword" placeholder="repassword"  value="" required="" title="Por favor, ingrese su contraseña"for="repassword" id="repassword" /></br>
-							            <span class="alerta" id="alertaContrasenia2">La contraseña no puede estar vacía, debe tener entre 6 y 8 caracteres y deb coincidir con lo ingresado antes</span>
-										<div id="loginErrorMsg" class="alert alert-error hide">Contraseña o usuario incorrectos</div>
-										<div class="checkbox">
-		                                   <!--  <label>
-		                                        <input type="checkbox" name="remember" id="remember"> Recordarme
-		                                    </label> -->
-											<label>
-		                                        <input type="checkbox" name="checkboxCondiciones" id="checkboxCondiciones"> Acepto los términos y condiciones
-		                                        <span class="alerta" id="alertaCheckbox">Debe leer y aceptar las condiciones del sitio</span> 
-		                                    </label>
-	                                    </div>
-							    		<button type="button" value="registro" name="submit" class="btn btn-lg btn-primary btn-block" onClick="registro()">¡Registrarme!</button>
-						    </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Fin registro -->
+		    <div id="login-overlay" class="modal-dialog">
+		        <div class="modal-content">
+		            <div class="modal-body">
+		                <div class="row">
+		                    <div class="col-xs-12">
+		                        <div class="well">
+		                        <span><?php  ?></span>
+							        <form class="sa-innate-form" action="" method="POST">
+							        			<label for="usuario" class="control-label">Usuario </label>
+									            <input type="text" name="usuario" class="form-control" id="usuario"  value="" required="" title="nombre del perfil" placeholder="usuario">
+												      <span class="alerta" id="alertaUsuario">Campo obligatorio. Debe tener entre 4 y 10 caracteres, sólo letras y números</span></br>
+									            <label for="nombre" class="control-label">Nombre </label>
+									            <input type="text" name="nombre" class="form-control" id="nombre"  value="" required="" title="nombre del perfil" placeholder="nombre">
+												      <span class="alerta" id="alertaNombreUsuario">Campo obligatorio. Puede contener sólo letras y espacios</span></br>
+									           	<label for="apellido"lass="control-label">Apellido </label>
+									            <input type="text" name="apellido" class="form-control" id="apellido"  value="" required="" title="apellido del perfil" placeholder="apellido">
+												      <span class="alerta" id="alertaApellidoUsuario">Campo obligatorio. Puede contener sólo letras y espacios</span></br>
+												<label for="correo"lass="control-label">Correo electrónico </label>
+									            <input type="text" name="correo" class="form-control" id="correo"  value="" required="" title="correo" placeholder="correo">
+												      <span class="alerta" id="alertaCorreo">Campo obligatorio. La dirección debe tener un formato válido</span></br>
+												<label for="correo2"lass="control-label">Repita correo electrónico</label>
+									            <input type="text" name="correo2" class="form-control" id="correo2"  value="" required="" title="correo" placeholder="correo">
+												      <span class="alerta" id="alertaCorreo2">Campo obligatorio. La dirección debe tener un formato válido y concidir con lo ingresado antes</span></br>
+												<label >Contraseña</label>
+									            <input  class="form-control" type="password" name="password" placeholder="password"  value="" required="" title="Por favor, ingrese su contraseña"for="password" id="password"></br>
+									            <span class="alerta" id="alertaContrasenia">La contraseña no puede estar vacía y debe tener entre 6 y 8 caracteres</span>
+									            <label >Repita contraseña</label>
+									            <input  class="form-control" type="password" name="repassword" placeholder="repassword"  value="" required="" title="Por favor, ingrese su contraseña"for="repassword" id="repassword"></br>
+									            <span class="alerta" id="alertaContrasenia2">La contraseña no puede estar vacía, debe tener entre 6 y 8 caracteres y deb coincidir con lo ingresado antes</span>
+												<div id="loginErrorMsg" class="alert alert-error hide">Contraseña o usuario incorrectos</div>
+												<div class="checkbox">
+				                                   <!--  <label>
+				                                        <input type="checkbox" name="remember" id="remember"> Recordarme
+				                                    </label> -->
+													<label>
+				                                        <input type="checkbox" name="checkboxCondiciones" id="checkboxCondiciones"> Acepto los términos y condiciones
+				                                        <span class="alerta" id="alertaCheckbox">Debe leer y aceptar las condiciones del sitio</span> 
+				                                    </label>
+			                                    </div>
+									    		<button type="button" value="registro" name="submit" class="btn btn-lg btn-primary btn-block" onClick="registro()">¡Registrarme!</button>
+								    </form>
+								</div>
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		</div><!-- div container -->
+		<!-- Fin registro -->
+
+	</div><!-- div wrap -->
+
+	<div id="push"></div>
 
      	<!-- FOOTER -->
 		<div class="row" id="div-footer">

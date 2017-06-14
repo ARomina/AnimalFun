@@ -1,6 +1,6 @@
 <!-- Materia: Programación Web 2  / UNLaM 2017 -->
 <!-- Profesores: Rusticcini, Alejandro / D'aranno, Facundo / Uran, Jhonatan-->
-<!-- Alumnos: Barraza, A. Romina / Miharu, Lucas-->
+<!-- Alumnos: Barraza, A. Romina / Miharu, Lucas / Suárez, Pablo -->
 
 <!DOCTYPE html>
 <html lang="en-US">
@@ -31,6 +31,7 @@
     <?php include("menuPaginas.php");?>
     <!--Fin menu-->
 	 
+  <div class="wrap">
   <!-- Sección: Login -->
   <div id="login-overlay" class="modal-dialog">
     <div class="modal-content">
@@ -56,7 +57,6 @@
                             <label>
                               <input type="checkbox" name="remember" id="remember"> Recordarme
                             </label>
-                           <!--  <p class="help-block">(if this is a private computer)</p> -->
                           </div>
 							            <button type="button" value="login" name="submit" class="btn btn-block botonVerde" onClick="login()">Entrar</button>
 						  </form>
@@ -85,8 +85,10 @@
               </div>
           </div>
       </div>
-
   </div>
+  </div><!-- div wrap -->
+
+  <div class="push"></div>
 
   <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
@@ -104,6 +106,20 @@
       </div>
     </div>
   </div>
+
+    <!-- FOOTER -->
+    <div class="row" id="div-footer">
+       <div class="col-xs-12 col-sm-12 col-md-4" id="footer-izquierda">
+        <p class="textoBoldBlanco">¿Preguntas, dudas? ¡Hacé click <a href="#">aquí</a>!</p>
+       </div>
+       <div class="col-xs-12 col-sm-12 col-md-4" id="footer-centro">
+        <p class="textoBoldBlanco">Programación Web 2</p>
+       </div>
+    </div>
+    
+   <!--  <div> -->
+
+    <!-- FOOTER -->
      
       <script type="text/javascript" src="js/jquery-3.2.0.js"></script>
       <script type="text/javascript" src="js/bootstrap.js"></script>

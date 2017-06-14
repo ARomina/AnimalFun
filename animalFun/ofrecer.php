@@ -53,6 +53,8 @@
     <!-- MENU -->
 		<?php include("menuPaginas.php");?>
     <!-- MENU -->
+
+    <div id="wrap">
 	<!--Jumbo-->
 	<!-- <br/></br></br></br><br/></br></br></br> -->
 		<!-- <div class="container"> -->
@@ -103,6 +105,10 @@
               </ul>
 			      </div>
         </div>
+
+    </div><!-- div wrapper -->
+
+    <div id="push"></div>
 					
 <!-- 	</br></br> -->
 		<!-- FOOTER -->

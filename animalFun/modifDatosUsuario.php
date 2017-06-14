@@ -54,6 +54,8 @@
     <!-- MENU -->
     <?php include("menuPaginas.php");?>
 
+    <div id="wrap">
+
     <!-- Sección Perfil Dueño -->
       <div class="row">
             <div class="col-md-12 text-center">
@@ -61,7 +63,7 @@
             </div>
       </div>
 
-      <div class="container">
+      <div class="container" id="contenedorGeneralBody">
         <div class="row">
           <div class="col-md-12 col-md-push-">
             <form class="form-horizontal" role="form">
@@ -80,11 +82,15 @@
             <div class="col-sm-offset-2 col-sm-10">
               <div class="pull-right">
            <!--      <button type="submit" class="btn btn-default">Cancel</button> -->
-                <button type="button" class="btn boton2" onClick="modificarDatosUsuario()">Modificar datos</a>
+                <button type="button" class="btn boton2" onClick="modificarDatosUsuario()">Modificar datos</button>
               </div>
             </div>
           </div>
       </div><!-- div container -->
+
+      </div><!-- div wrap -->
+
+      <div id="push"></div>
 
     <!-- FOOTER -->
     <div class="row" id="div-footer">

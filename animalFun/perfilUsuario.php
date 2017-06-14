@@ -54,6 +54,8 @@
     <!-- MENU -->
     <?php include("menuPaginas.php");?>
 
+    <div id="wrap">
+
     <!-- Sección Perfil Dueño -->
       <div class="row">
             <div class="col-md-12 text-center">
@@ -105,7 +107,10 @@
               </ul>
             </div>
         </div>
-       
+
+    </div><!-- div wrapper -->
+
+    <div id="push"></div>  
 
     <!-- FOOTER -->
     <div class="row" id="div-footer">
