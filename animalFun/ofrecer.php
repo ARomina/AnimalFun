@@ -139,5 +139,15 @@
         interval: 5000 //changes the speed
     })
     </script>
+			<script>
+			  $("#menu-close").click(function(e) {
+			e.preventDefault();
+			$("#sidebar-wrapper").toggleClass("active");
+		  });
+		  $("#menu-toggle").click(function(e) {
+			e.preventDefault();
+			$("#sidebar-wrapper").toggleClass("active");
+		  });
+			</script>
    </body>
 </html>

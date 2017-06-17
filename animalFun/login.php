@@ -124,6 +124,16 @@
       <script type="text/javascript" src="js/jquery-3.2.0.js"></script>
       <script type="text/javascript" src="js/bootstrap.js"></script>
     <!--   <script type="text/javascript" src="js/responsee.js"></script> -->
-    	<script type="text/javascript" src="js/loginValidacion.js"></script>	  
+    	<script type="text/javascript" src="js/loginValidacion.js"></script>	 
+		<script>
+			  $("#menu-close").click(function(e) {
+			e.preventDefault();
+			$("#sidebar-wrapper").toggleClass("active");
+		  });
+		  $("#menu-toggle").click(function(e) {
+			e.preventDefault();
+			$("#sidebar-wrapper").toggleClass("active");
+		  });
+			</script>
    </body>
 </html>

@@ -108,7 +108,17 @@
     <script type="text/javascript" src="js/carousel.js"></script>
     <script type="text/javascript" src="js/modificarDatosUsuario.js"></script>
        <!-- /.container -->
-
+	 
+		<script>
+			  $("#menu-close").click(function(e) {
+			e.preventDefault();
+			$("#sidebar-wrapper").toggleClass("active");
+		  });
+		  $("#menu-toggle").click(function(e) {
+			e.preventDefault();
+			$("#sidebar-wrapper").toggleClass("active");
+		  });
+			</script>
     <!-- Modal -->
       <div class="modal fade" id="myModal" role="dialog">
           <div class="modal-dialog">

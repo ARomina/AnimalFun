@@ -166,6 +166,7 @@
             
           </div>
           <div class="modal-footer">
+		   <div class="pull-left"><a href="#" class="btn btn-success" data-dismiss="modal">Generar QR</a></div>
             <a href="#" class="btn boton2" data-dismiss="modal">Editar datos</a>
             <a href="#" class="btn btn-default" data-dismiss="modal">Cerrar</a>
           </div>
@@ -191,6 +192,16 @@
       });
    </script>
   
+			<script>
+			  $("#menu-close").click(function(e) {
+			e.preventDefault();
+			$("#sidebar-wrapper").toggleClass("active");
+		  });
+		  $("#menu-toggle").click(function(e) {
+			e.preventDefault();
+			$("#sidebar-wrapper").toggleClass("active");
+		  });
+			</script>
        <!-- /.container -->
 
     <!-- jQuery -->

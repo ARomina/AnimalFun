@@ -50,7 +50,7 @@
    <body>
 
     <!-- MENU -->
-		<?php include("menuPrincipal.php");?>
+		<?php include("menuPaginas.php");?>
 
 		<!-- CAROUSEL -->
 		<?php include("carousel.php");?>
@@ -277,7 +277,17 @@
       $('.carousel').carousel({
           interval: 5000 //changes the speed
       })
-    </script>
+    </script>	
+	<script>
+			  $("#menu-close").click(function(e) {
+			e.preventDefault();
+			$("#sidebar-wrapper").toggleClass("active");
+		  });
+		  $("#menu-toggle").click(function(e) {
+			e.preventDefault();
+			$("#sidebar-wrapper").toggleClass("active");
+		  });
+			</script>
     
    </body>
 </html>
