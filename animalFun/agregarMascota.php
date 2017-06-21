@@ -119,7 +119,7 @@
     <!-- Custom CSS -->
     <link href="css/half-slider.css" rel="stylesheet">
     <link rel="stylesheet" href="css/estilos.css">
-    <link rel="stylesheet" href="css/estilosMenuPaginas.css">
+    <link rel="stylesheet" href="css/estilosMenu.css">
     <link href="css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" href="css/estilosPerfilUsuario.css">
     <link rel="stylesheet" href="css/estilosFotosBootstrap.css">
@@ -128,7 +128,7 @@
    <body>
 
     <!-- MENU -->
-    <?php include("menuPaginas.php");?>
+    <?php include("menu.php");?>
 
      <!-- Sección Perfil Dueño -->
       <div class="row">
@@ -143,7 +143,7 @@
       <div class="container" id="contenedorGeneralBody">
         <div class="row"><br>
           <div class="col-md-4">
-            <form class="form-horizontal" role="form">
+            <form class="form-horizontal" role="form" action="" method="POST" enctype="multipart/form-data">
               <fieldset>
                  <!-- Form Name -->
                 <legend>Foto de perfil de mi mascota</legend>
@@ -167,17 +167,17 @@
              <div class="col-md-12 text-center">
               <!--<div class="pull-right"-->
            <!--      <button type="submit" class="btn btn-default">Cancel</button> -->
-                <form action="extras/editarFotoPerfilMascota.php" method="POST" enctype="multipart/form-data" class="center-block">
+                <!-- <form action="extras/editarFotoPerfilMascota.php" method="POST" enctype="multipart/form-data" class="center-block"> -->
                   <input name="fotoMascota" type="file" id="fotoMascota">
                  <!--  <input name="upload" type="submit" class="btn boton2" id="upload" value="Agregar foto de perfil"> -->
-                </form>
+                <!-- </form> -->
               <!--</div>-->
             </div>
           </div>
           </div>
 
       <div class="col-md-8">
-        <form class="form-horizontal" role="form">
+        <!-- <form class="form-horizontal" role="form"> -->
 
           <fieldset>
 
@@ -188,18 +188,19 @@
               <div class="form-group">
                 <label class="col-sm-2 control-label" for="textinput">Nombre </label>
                 <div class="col-sm-10">
-                  <input type="text" placeholder="" class="form-control">
+                  <input type="text" placeholder="" class="form-control" id="nombre" name="nombre">
+                  <span class="alerta" id="alertaNombreMascota">En nombre no puede estar vacío, y solo puede contener letras y espacios</span>
                 </div>
               </div>
 
               <div class="form-group">
                       <label class="col-sm-2 control-label" for="tipo">Tipo </label>
                       <div class="col-sm-10">
-                         <select class="form-control" id="tipo">
+                         <select class="form-control" id="tipo" name="tipo">
                             <?php
                                 $cantTiposMascota = count($tiposMascota);
-                              if($cantTiposMascota > 0){
-                                echo '<option value="0" disabled="disabled" selected="selected">Seleccione un tipo</option>';
+                                if($cantTiposMascota > 0){
+                                echo '<option value="" disabled="disabled" selected="selected">Seleccione un tipo</option>';
                                 for($i=0; $i<$cantTiposMascota; $i++){
                                   echo '<option value="'.$tiposMascota[$i]['id'].'">'.$tiposMascota[$i]['descripcion'].'</option>';
                                   }
@@ -215,31 +216,21 @@
               <div class="form-group">
                       <label class="col-sm-2 control-label" for="raza">Raza </label>
                       <div class="col-sm-10">
-                         <select class="form-control" id="raza">
-                            <?php
-                                $cantRazasMascota = count($razasMascota);
-                                if($cantRazasMascota > 0){
-                                  echo '<option value="0" disabled="disabled" selected="selected">Seleccione una raza</option>';
-                                  for($i=0; $i<$cantRazasMascota; $i++){
-                                    echo '<option value="'.$razasMascota[$i]['id'].'">'.$razasMascota[$i]['descripcion'].'</option>';
-                                    }
-                                }else{
-                                    echo '<option value="">No hay opciones disponibles</option>';   //si no hay nada cargado en el array
-                                }
-                            ?>
-                         </select>
-                         <span class="alerta" id="alertaRaza">Debe seleccionar una opción</span>
+                        <select class="form-control" id="raza" name="raza">
+                          <option selected="selected" disabled value="">Seleccione una raza</option>
+                        </select>
+                        <span class="alerta" id="alertaRaza">Debe seleccionar una opción</span>
                       </div>
                     </div>
 
               <div class="form-group">
                       <label class="col-sm-2 control-label" for="tamano">Tamaño </label>
                       <div class="col-sm-10">
-                         <select class="form-control" id="tamano">
+                         <select class="form-control" id="tamano" name="tamano">
                             <?php
                                 $cantTamanosMascota = count($tamanosMascota);
                                 if($cantTamanosMascota > 0){
-                                  echo '<option value="0" disabled="disabled" selected="selected">Seleccione un tamaño</option>';
+                                  echo '<option value="" disabled="disabled" selected="selected">Seleccione un tamaño</option>';
                                   for($i=0; $i<$cantTamanosMascota; $i++){
                                     echo '<option value="'.$tamanosMascota[$i]['id'].'">'.$tamanosMascota[$i]['descripcion'].'</option>';
                                     }
@@ -254,18 +245,16 @@
 
               </div>
 
-
-
               <div class="col-md-6">
 
               <div class="form-group">
                       <label class="col-sm-2 control-label" for="sexo">Sexo </label>
                       <div class="col-sm-10">
-                         <select class="form-control" id="sexo" class="form-control">
+                         <select class="form-control" id="sexo" name="sexo" class="form-control">
                              <?php
                                 $cantSexosMascota = count($sexoMascota);
                                 if($cantSexosMascota > 0){
-                                  echo '<option value="0" disabled="disabled" selected="selected">Seleccione un sexo</option>';
+                                  echo '<option value="" disabled="disabled" selected="selected">Seleccione un sexo</option>';
                                   for($i=0; $i<$cantSexosMascota; $i++){
                                     echo '<option value="'.$sexoMascota[$i]['id'].'">'.$sexoMascota[$i]['descripcion'].'</option>';
                                     }
@@ -285,7 +274,7 @@
               <div class="form-group">
                 <div class="col-sm-12">
                     <label class="control-label" for="caracteristicas">Otras características</label>
-                    <textarea class="form-control" id="caracteristicas" rows="4"></textarea>
+                    <textarea class="form-control" id="caracteristicas" name="caracteristicas" rows="4"></textarea>
                   </div>
               </div>
 
@@ -295,7 +284,7 @@
                 <div class="col-sm-offset-2 col-sm-10">
                   <div class="pull-right">
                     <button type="button" class="btn btn-default">Cancelar</button>
-                    <button type="button" id="botonAgregarMascota" class="btn boton2 textoBoldBlanco">Agregar mascota <i class="fa fa-plus" aria-hidden="true" id="icono"></i></button>
+                    <button type="button" id="botonAgregarMascota" class="btn boton2 textoBoldBlanco" onclick="registroMascota()">Agregar mascota <i class="fa fa-plus" aria-hidden="true" id="icono"></i></button>
                   </div>
                 </div>
               </div>
@@ -306,11 +295,6 @@
         </div>
 
       </div>
-
-
-         
-          
-         
 
         <!--   <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
@@ -334,19 +318,53 @@
     </div>
     <!-- FOOTER -->
 
+    <!-- Modal -->
+      <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title text-center textoBold">Registro de mascota</h4>
+              </div>
+              <div class="modal-body text-center">
+                <p id="mensajeModal"></p>
+              </div>
+            </div>
+          </div>
+      </div>
+
     <script type="text/javascript" src="js/jquery-3.2.0.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
     <script type="text/javascript" src="js/carousel.js"></script>
+    <script type="text/javascript" src="js/registroMascota.js"></script>
 
     <!-- Script para la rotacion del icono del boton -->
     <script type="text/javascript">
-     /* $("#botonAgregarMascota").click(function(){
-       $(this).find('i').toggleClass('pressed');
-      });*/
         $('#botonAgregarMascota').click(function() {
             $(this).find('i').toggleClass('pressed');
           });
     
+    </script>
+
+    <!-- Script para mandar el id de los seleccionado en el select TIPO y llenar el select RAZA -->
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $("#tipo").change(function(){
+          var idTipo = $(this).val();
+
+          $.ajax({
+            type: "POST",
+            url: "extras/mostrarRazas.php",
+            data: {idTipo: idTipo},
+            cache: false,
+            success: function(html){
+              $("#raza").html(html);
+            } 
+            });
+        });
+      });
     </script>
   
        <!-- /.container -->

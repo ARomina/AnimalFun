@@ -43,14 +43,14 @@
     <!-- Custom CSS -->
     <link href="css/half-slider.css" rel="stylesheet">
     <link rel="stylesheet" href="css/estilos.css">
-    <link rel="stylesheet" href="css/estilosMenuPrincipal.css">
+    <link rel="stylesheet" href="css/estilosMenu.css">
     <link href="css/font-awesome.css" rel="stylesheet">
 
    </head>
    <body>
 
     <!-- MENU -->
-		<?php include("menuPaginas.php");?>
+		<?php include("menu.php");?>
 
 		<!-- CAROUSEL -->
 		<?php include("carousel.php");?>

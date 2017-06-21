@@ -3,34 +3,28 @@ var regexLetrasNumeros=/^[-\w\.\$]*$/;
 var regexLetrasEspacios=/^[a-zA-Z\s]*$/;
 
 //Inicialización de variables
+var foto = "";
 var nombre = "";
-var apellido = "";
-var correo = "";
-var correo2 = "";
-var password = "";
-var password2 = "";
-var checkboxCondiciones = "";
+var tipo = "";
+var raza = "";
+var tamano = "";
+var sexo = "";
+var caracteristicas = "";
 
 function registroMascota(){
 
     if(validacionRegistroMascota()){
-    	//alert("Exito!");
-    	console.log(nombre);
-    	// console.log(apellido);
-    	// console.log(correo);
-    	// console.log(correo2);
-    	// console.log(password);
-    	// console.log(password2);
-			/*$.ajax({
+			$.ajax({
 
-					url: "http://localhost/animalFun/extras/procesaRegistro.php", 
+					url: "http://localhost/animalFun/extras/procesaRegistroMascota.php", 
 	                type: "POST",
-	                data: {"usuario": usuario,
-	                	   "password": password,
-	                	   "repassword": password2,
+	                data: {"fotoMascota": foto,
 	                	   "nombre": nombre,
-	                	   "apellido": apellido,
-	                	   "correo":correo, 
+	                	   "tipo": tipo,
+	                	   "raza": raza,
+	                	   "tamano": tamano,
+	                	   "sexo":sexo,
+	                	   "caracteristicas": caracteristicas, 
 	                       },
 	                dataType: "html",
 	                cache: false,
@@ -38,34 +32,20 @@ function registroMascota(){
 	                    console.log("Processing...");
 	                },
 	                success: 
-	                      function(data){
-	                        switch (data) {
-					            case "USUARIO_REGISTRADO":
-					                $("#myModal").modal("toggle");
-        						    $("#mensajeModal").html("Usted se ha registrado correctamente");
-        						    setTimeout(function () {
-								    window.location.href = "http://localhost/animalFun/index.php";
-									}, 1200);
-					                break;
-					            case "CLAVES_NO_IGUALES":
-					                $("#myModal").modal("toggle");
-        							$("#mensajeModal").html("Las claves no son iguales, intente nuevamente");
-					                break;
-					            case "USUARIO_REGISTRADO_ANTERIORMENTE":
-					                $("#myModal").modal("toggle");
-        							$("#mensajeModal").html("Este usuario ya ha sido registrado anteriormente");
-					                break;
-					            case "CAMPOS_VACIOS":
-					                $("#myModal").modal("toggle");
-        							$("#mensajeModal").html("Por favor llene todos los campos");
-					                break;  
-					            default: 
-					            	$("#myModal").modal("toggle");
-        							$("#mensajeModal").html("No se pudo realizar la operación");
-        					}
+	                    function(data){
+	                        if(data == "REGISTRO EXITOSO"){
+					            $("#myModal").modal("toggle");
+        						$("#mensajeModal").html("¡Se ha registrado la mascota correctamente!<br>Será redirigido en breve...");
+        						setTimeout(function (){
+								window.location.href = "http://localhost/animalFun/adminUsuarioMascotas.php";
+								}, 1200);
+					        }else{
+					            $("#myModal").modal("toggle");
+        						$("#mensajeModal").html("No se pudo realizar el registro, por favor intente nuevamente");
+	                    	}
 	                    }
 
-        });*/
+        });
 
     }else{
         alert("Datos incorrectos");
@@ -76,9 +56,14 @@ function registroMascota(){
 	function validacionRegistroMascota(){
 
     	//Tomo los elementos
+
+    	//Por un tema de seguridad del browser, se pone esto en vez de .value (sino tira C://fakepath)
+    	foto = document.getElementById("fotoMascota").files[0].name;
+    	console.log("Foto: "+foto);
+
     	nombreElemento = document.getElementById("nombre");
     	nombre = document.getElementById("nombre").value;
-    	console.log(nombre);
+    	console.log("Nombre: "+nombre);
 
     	tipoElemento = document.getElementById("tipo");
         tipo = tipoElemento.options[tipoElemento.selectedIndex].value;
@@ -86,11 +71,11 @@ function registroMascota(){
         if(tipo == "Seleccione una opción"){
         	tipo = "";  //para que tenga value vacío
         }
- 		console.log(tipo);
+ 		console.log("Tipo: "+tipo);
 
         razaElemento = document.getElementById("raza");
        	raza = razaElemento.options[razaElemento.selectedIndex].value;
-       	console.log(raza);
+       	console.log("Raza"+raza);
 
         tamanoElemento = document.getElementById("tamano");
        	tamano = tamanoElemento.options[tamanoElemento.selectedIndex].value;
@@ -98,7 +83,7 @@ function registroMascota(){
         if(tamano == "Seleccione una opción"){
         	tamano = "";  //para que tenga value vacío
         }
-        console.log(tamano);
+        console.log("Tamaño: "+tamano);
 
         sexoElemento = document.getElementById("sexo");
        	sexo = sexoElemento.options[sexoElemento.selectedIndex].value;
@@ -106,36 +91,32 @@ function registroMascota(){
         if(sexo == "Seleccione una opción"){
        		sexo = "";  //para que tenga value vacío
         }
-        console.log(sexo);
+        console.log("Sexo: "+sexo);
 
         caracteristicas = document.getElementById("caracteristicas").value;
-        console.log(caracteristicas);
+        console.log("Caracteristicas: "+caracteristicas);
 
-
-       
-    	/*apellidoElemento = document.getElementById("apellido");
-    	apellido = document.getElementById("apellido").value;
-    	correoElemento = document.getElementById("correo");
-    	correo = document.getElementById("correo").value;
-    	correo2Elemento = document.getElementById("correo2");
-    	correo2 = document.getElementById("correo2").value;
-    	passwordElemento = document.getElementById("password");
-    	password = document.getElementById("password").value;
-    	password2Elemento = document.getElementById("repassword");
-    	password2 = document.getElementById("repassword").value;
-    	checkboxCondiciones = document.getElementById("checkboxCondiciones");*/
-
-        /*if(validacionNombreMascota()){
+        if(validacionNombreMascota()){
         	if(validacionTipoMascota()){
-        		return true;
+        		if(validacionTamanoMascota()){
+        			if(validacionSexoMascota()){
+						return true;
+        			}
+
+        		}
+        		
         	}
         }
 
-       return false;*/
+       return false;
         
 	}
 
 	//Validaciones de los campos
+	function validacionFotoMascota(){
+
+	}
+
     function validacionNombreMascota(){
     	if((nombre.length == 0) || (!nombre.match(regexLetrasEspacios)) || (nombre == "")){
 			nombreElemento.classList.add("error");
@@ -161,87 +142,28 @@ function registroMascota(){
 
 	}
 
-	 function validacionTipoMascota(){
-		if(tipo == ""){
-				tipoElemento.classList.add("error");
-				document.getElementById("alertaTipo").style.visibility = "visible";
+	function validacionTamanoMascota(){
+		if(tamano == ""){
+				tamanoElemento.classList.add("error");
+				document.getElementById("alertaTamano").style.visibility = "visible";
 				return false;
 			}else{
-				tipoElemento.classList.remove("error");
-				document.getElementById("alertaTipo").style.visibility = "hidden";
+				tamanoElemento.classList.remove("error");
+				document.getElementById("alertaTamano").style.visibility = "hidden";
 				return true;
 			}
 
 	}
 
-
-
-   /* function validacionApellidoUsuario(){
-    	if((apellido.length == 0) || (!apellido.match(regexLetrasEspacios))){
-			apellidoElemento.classList.add("error");
-			document.getElementById("alertaApellidoUsuario").style.visibility = "visible";
-			return false;
-		}else{
-			apellidoElemento.classList.remove("error");
-			document.getElementById("alertaApellidoUsuario").style.visibility = "hidden";
-			return true;
-		}
-    }
-
-    function validacionCorreo(){
-    	if((correo.length == 0) || (!correo.match(regexMail))){
-			correoElemento.classList.add("error");
-			document.getElementById("alertaCorreo").style.visibility = "visible";
-			return false;
-		}else{
-			correoElemento.classList.remove("error");
-			document.getElementById("alertaCorreo").style.visibility = "hidden";
-			return true;
-		}
-    }
-
-    function validacionCorreo2(){
-    	if((correo2.length == 0) || (!correo2.match(regexMail)) || (correo != correo2)){
-			correo2Elemento.classList.add("error");
-			document.getElementById("alertaCorreo2").style.visibility = "visible";
-			return false;
-		}else{
-			correo2Elemento.classList.remove("error");
-			document.getElementById("alertaCorreo2").style.visibility = "hidden";
-			return true;
-		}
-    }
-
-    function validacionPassword(){
-		if((password.length == 0) || (!password.match(regexLetrasNumeros2))){
-			passwordElemento.classList.add("error");
-			document.getElementById("alertaContrasenia").style.visibility = "visible";
-			return false;
-		}else{
-			passwordElemento.classList.remove("error");
-			document.getElementById("alertaContrasenia").style.visibility = "hidden";
-			return true;
-		}
-    }
-
-    function validacionPassword2(){
-		if((password2.length == 0) || (!password2.match(regexLetrasNumeros2)) || (password != password2)){
-			password2Elemento.classList.add("error");
-			document.getElementById("alertaContrasenia2").style.visibility = "visible";
-			return false;
-		}else{
-			password2Elemento.classList.remove("error");
-			document.getElementById("alertaContrasenia2").style.visibility = "hidden";
-			return true;
-		}
-    }
-
-    function validacionCheckbox(){
-		if(!(checkboxCondiciones.checked)){
-			document.getElementById("alertaCheckbox").style.visibility = "visible";
-			return false;
-		}else{
-			document.getElementById("alertaCheckbox").style.visibility = "hidden";
-			return true;
-		}
-    }*/
+	function validacionSexoMascota(){
+		if(sexo == ""){
+				sexoElemento.classList.add("error");
+				document.getElementById("alertaSexo").style.visibility = "visible";
+				return false;
+			}else{
+				sexoElemento.classList.remove("error");
+				document.getElementById("alertaSexo").style.visibility = "hidden";
+				return true;
+			}
+			
+	}

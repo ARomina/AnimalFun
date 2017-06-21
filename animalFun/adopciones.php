@@ -91,7 +91,7 @@
     <!-- Custom CSS -->
     <link href="css/half-slider.css" rel="stylesheet">
     <link rel="stylesheet" href="css/estilos.css">
-    <link rel="stylesheet" href="css/estilosMenuPaginas.css">
+    <link rel="stylesheet" href="css/estilosMenu.css">
     <link href="css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" href="css/estilosPerfilUsuario.css">
 
@@ -99,7 +99,7 @@
    <body>
 	
     <!-- MENU -->
-		<?php include("menuPaginas.php");?>
+		<?php include("menu.php");?>
     <!-- MENU -->
 
 	<!--Jumbo-->

@@ -10,6 +10,7 @@
 
   if(isset($_SESSION['usuario'])){
     $usuario = $_SESSION['usuario'];
+    $id = $_SESSION['id'];
   }
 
 ?>
@@ -47,7 +48,7 @@
     <!-- Custom CSS -->
     <link href="css/half-slider.css" rel="stylesheet">
     <link rel="stylesheet" href="css/estilos.css">
-    <link rel="stylesheet" href="css/estilosMenuPaginas.css">
+    <link rel="stylesheet" href="css/estilosMenu.css">
     <link href="css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" href="css/estilosPerfilUsuario.css">
     <link rel="stylesheet" href="css/estilosFotosBootstrap.css">
@@ -56,7 +57,7 @@
    <body>
 
     <!-- MENU -->
-    <?php include("menuPaginas.php");?>
+    <?php include("menu.php");?>
 
     <div id="wrap">
 
@@ -73,7 +74,7 @@
         <div class="row">
           <div class="col-md-12">
             <br>
-                <div class="col-lg-3 col-sm-4 col-xs-6">
+                <!-- <div class="col-lg-3 col-sm-4 col-xs-6">
                   <a title="Alby" href="#">
                     <img class="thumbnail img-responsive" src="img/mascotas/600x350gato_ocicat.jpg">
                   </a>
@@ -112,7 +113,7 @@
                   <a title="Scorpius" href="#">
                     <img class="thumbnail img-responsive" src="img/mascotas/600x350perrojugando.jpg">
                   </a>
-                </div>
+                </div> -->
                 <br>
             </div>
         </div>

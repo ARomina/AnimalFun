@@ -47,7 +47,7 @@
        //Comprobación
 
        //Armo la query
-       $sql = "SELECT id, nombre, apellido, correo, sexo, telefono, fechaNac, posicion, foto FROM usuario WHERE BINARY usuario = ? AND password = sha1(?)";
+       $sql = "SELECT id, nombre, apellido, correo, sexo, telefono, fechaNac, posicion, foto FROM usuario WHERE BINARY usuario = ? AND password = md5(?)";
 
         //Preparo la query
         if($stmt = $con->prepare($sql)){

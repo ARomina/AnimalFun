@@ -39,7 +39,7 @@
 					$nombre = $_POST['nombre']; 
 					$apellido = $_POST['apellido']; 
 					$correo = $_POST['correo']; 
-	                $sql = "INSERT INTO usuario (usuario,password,nombre,apellido,correo) VALUES ('$usuario', sha1('$password'),'$nombre','$apellido','$correo')";
+	                $sql = "INSERT INTO usuario (usuario,password,nombre,apellido,correo) VALUES ('$usuario', md5('$password'),'$nombre','$apellido','$correo')";
 	                mysqli_query($con, $sql); 
 	  
 	  				echo "USUARIO_REGISTRADO";
