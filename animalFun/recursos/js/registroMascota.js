@@ -66,19 +66,19 @@ function registroMascota(){
     	tipoElemento = document.getElementById("tipo");
         tipo = tipoElemento.options[tipoElemento.selectedIndex].value;
         
-        if(tipo == "Seleccione una opción"){
+        if(tipo == ""){
         	tipo = "";  //para que tenga value vacío
         }
  		console.log("Tipo: "+tipo);
 
         razaElemento = document.getElementById("raza");
        	raza = razaElemento.options[razaElemento.selectedIndex].value;
-       	console.log("Raza"+raza);
+       	console.log("Raza: "+raza);
 
         tamanoElemento = document.getElementById("tamano");
        	tamano = tamanoElemento.options[tamanoElemento.selectedIndex].value;
         
-        if(tamano == "Seleccione una opción"){
+        if(tamano == ""){
         	tamano = "";  //para que tenga value vacío
         }
         console.log("Tamaño: "+tamano);
@@ -86,20 +86,23 @@ function registroMascota(){
         sexoElemento = document.getElementById("sexo");
        	sexo = sexoElemento.options[sexoElemento.selectedIndex].value;
         
-        if(sexo == "Seleccione una opción"){
+        if(sexo == ""){
        		sexo = "";  //para que tenga value vacío
         }
         console.log("Sexo: "+sexo);
 
         estadoElemento = document.getElementById("estado");
-       	estado = sexoElemento.options[estadoElemento.selectedIndex].value;
+       	estado = estadoElemento.options[estadoElemento.selectedIndex].value;
         
-        if(estado == "Seleccione una opción"){
+        if(estado == ""){
        		estado = "";  //para que tenga value vacío
         }
         console.log("Estado: "+estado);
 
         caracteristicas = document.getElementById("caracteristicas").value;
+        if(caracteristicas == ""){
+       		carcateristicas = "";  //para que tenga value vacío
+        }
         console.log("Caracteristicas: "+caracteristicas);
 
         if(validacionFotoMascota()){
