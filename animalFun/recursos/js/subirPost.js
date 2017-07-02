@@ -1,20 +1,28 @@
-//Expresiones regulares para la validacion
-var regexLetrasNumeros=/^[-\w\.\$]*$/;
-var regexLetrasEspacios=/^[a-zA-Z\s]*$/;
-
-//Inicialización de variables
-var idMascota = "";
-var nombre = "";
-var tipo = "";
-var raza = "";
-var tamano = "";
-var sexo = "";
-var estado = "";
-var caracteristicas = "";
+var idMascota = document.getElementById("idMascota").value;
+console.log(idMascota);
 
 function subirPostMascota(){
+
+	/*var contenidoPost = document.getElementById("contenidoPost").value;
+	console.log(contenidoPost);
+
+	var pathFoto = "";
+	if(document.getElementById("fotoPost").value != undefined){
+		pathFoto = document.getElementById("fotoPost").value;
+	}else{
+		pathFoto = "";
+	}
+	console.log(pathFoto);
+
+	var link = "";
+	if(document.getElementById("videoPost").value != undefined){
+		link = document.getElementById("videoPost").value;
+	}else{
+		link = "";
+	}
+	console.log(link);*/
 		
-	  var data = new FormData(document.getElementById('formularioPost'));
+	 var data = new FormData(document.getElementById('formularioPost'));
 
 			$.ajax({
 
@@ -41,9 +49,9 @@ function subirPostMascota(){
 	                        if(data == "OK"){
 					            $("#myModal").modal("toggle");
         						$("#mensajeModal").html("¡Se ha publicado el post exitosamente!");
-        						/*setTimeout(function (){
-								window.location.href = "http://animalFun.fun/animalFun/vistas/usuarios/verPerfilMascota.php";
-								}, 1200);*/
+        						setTimeout(function (){
+									location.reload();
+								}, 1200);
 					        }else{
 					            $("#myModal").modal("toggle");
         						$("#mensajeModal").html("No se pudo publicar lo ingresado, por favor intente nuevamente");

@@ -58,6 +58,7 @@ body{
 	background-color: #FF9D27;
 }
 
+/* Naranja con hover */
 .boton2{
 	background-color: #FF9D27;
 	color: #ffffff;
@@ -68,6 +69,7 @@ body{
 	color: #ffffff;
 }
 
+/* Turquesa y azul oscuro en hover */
 .boton3{
 	background-color: #1FC5A3;
 	color: #001E22;
@@ -75,6 +77,18 @@ body{
 
 .boton3:hover{
 	background-color: #001E22;
+	color: #ffffff;
+}
+
+/* Verdoso y naranja en hover */
+.boton4{
+	background-color:  #2C8E78;
+	color: #ffffff;
+
+}
+
+.boton4:hover{
+	background-color: #FF9D27;
 	color: #ffffff;
 }
 
@@ -499,4 +513,33 @@ body{
 	-webkit-box-shadow: 5px 7px 18px 0px rgba(0,0,0,0.4);
     -moz-box-shadow: 5px 7px 18px 0px rgba(0,0,0,0.4);
     box-shadow: 5px 7px 18px 0px rgba(0,0,0,0.4);
+}
+
+/* -------------------------------------------------------------------------- */
+
+/* Perfil Mascota */
+.label-pill{
+  padding-right: .6em;
+  padding-left: .6em;
+  border-radius: 10rem;
+}
+
+.label-as-badge {
+    border-radius: 1em;
+}
+
+.nav-tabs>li>a {
+    margin-right: 2px;
+    line-height: 1.428571429;
+    border: none !important;
+    border-radius: none !important;
+    text-transform: none !important;
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+    color: #fff;
+    background-color: #2C8E78;
+    border: none !important;
+    border-bottom-color: transparent;
+    border-radius: none !important;
 }

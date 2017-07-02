@@ -267,6 +267,20 @@
               margin-top: 15px;
           }
           .input-group-addon{border-radius: 0px;}
+
+          /* Panel de opciones para foto o video */
+          .nav-tabs{
+              border-bottom: 1px solid #ddd !important;
+          }
+          .nav-tabs > li {
+              float:none;
+              display:inline-block;
+              zoom:1;
+          }
+
+          .nav-tabs {
+              text-align:center;
+          }
         </style>
 
    </head>
@@ -309,7 +323,7 @@
                               while ($row = $resultado->fetch_row()) {
 
                                   if($row[0] == 0){
-                                     echo '<h2 class="title-widget-sidebar">Seguidores <span class="badge badge-pill badge-success">'.$row[0].'</span></h2>
+                                     echo '<h2 class="title-widget-sidebar">Seguidores <span class="label label-warning label-as-badge">'.$row[0].'</span></h2>
                                               <div class="content-widget-sidebar">
                                                   <div class="center-block">
                                                     <ul style="list-style: none; padding-left: 0;">
@@ -319,7 +333,7 @@
                                                   </div>
                                               </div>';
                                   }else{
-                                    echo '<h2 class="title-widget-sidebar">Seguidores <span class="badge badge-pill badge-success">'.$row[0].'</span></h2>
+                                    echo '<h2 class="title-widget-sidebar">Seguidores <span class="label label-warning label-as-badge">'.$row[0].'</span></h2>
                                           <div class="content-widget-sidebar">
                                             <div class="center-block">
                                               <ul style="list-style: none; padding-left: 0;">';
@@ -343,7 +357,7 @@
           <div class="row">
 
                 <div class="col-lg-12 col-md-12">
-                     <aside>
+                     <aside id="div_post">
                        <div class="content-title">
                           <div class="form-group">
                             <div class="content-footer">
@@ -358,13 +372,38 @@
                             </div>
                             <form action="#" method="POST" enctype="multipart/form-data" id="formularioPost">
                               <textarea class="form-control" rows="5" id="contenidoPost" name="contenidoPost" placeholder="Contenido del posteo..."></textarea>
-                              <label for="fotoPost" class="control-label">Subir foto</label>
+                             <!--  <label for="fotoPost" class="control-label">Subir foto</label>
                               <input name="fotoPost" type="file" id="fotoPost"/>
-                              <!-- <label for="fotoVideo" class="control-label">Subir URL de video</label>
+                              <label for="fotoVideo" class="control-label">Copiar URL de video (desde YouTube)</label>
                               <input name="videoPost" type="text" id="videoPost" class="form-control"/> -->
+
+
+                              <div class="">
+                              <hr>
+                                <ul class="nav nav-tabs">
+                                  <li class="active"><a href="#foto" data-toggle="tab">Subir foto</a></li>
+                                  <li><a href="#video" data-toggle="tab">Copiar URL de video</a></li>
+                                </ul>
+                                <div id="myTabContent" class="tab-content">
+                                  <div class="tab-pane active in" id="foto">
+                                    <div id="tab">
+                                        <input name="fotoPost" type="file" id="fotoPost"/>
+                                    </div>
+                                  </div>
+                                  <div class="tab-pane fade" id="video">
+                                  <div id="tab2">
+                                      <br>
+                                      <input name="videoPost" type="text" id="videoPost" class="form-control" placeholder="URL de YouTube..."/>
+                                  </div>
+                                  </div>
+                                </div>
+                              </div>
+
+
+
                               <hr>
                               <input type="hidden" value="<?php echo $idMascota?>" id="idMascota" name="idMascota"/>
-                              <button type="button" class="btn btn-success pull-right" onClick="subirPostMascota()">Postear</button>
+                              <button type="button" class="btn boton4 pull-right" onClick="subirPostMascota()">Postear</button>
                               <br>
                             </form>
                           </div>
@@ -373,6 +412,32 @@
                 </div>
 
 		       <?php include("../../extras/verPostsPerfilMascota.php");?>
+
+           <?php 
+
+            $sql = "SELECT count(*) FROM post p WHERE p.mascota = '$idMascota'";
+
+            if ($resultado = $con->query($sql)) {
+
+              while ($row = $resultado->fetch_row()) {
+
+                if($row[0]  > 2){
+
+                   echo '<br><br>
+                              <div class="col-lg-12 col-md-12">
+                                <aside>
+                                  <div class="content-footer text-center">
+                                    <a class="btn boton2">Ver más posts</a>
+                                  </div>
+                                 </aside>  
+                              </div>';
+                }
+
+              }
+
+            }
+
+           ?>
               
             </div><!-- row -->
           </div><!-- col-4 -->
