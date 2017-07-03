@@ -4,7 +4,7 @@
      Profesores: Rusticcini, Alejandro / D'aranno, Facundo / Uran, Jhonatan
      Alumnos: Barraza, A. Romina / Miharu, Lucas */
 
-  include_once "conexion.php";
+  include_once "../../conexion.php";
 
   session_start();
 
@@ -38,21 +38,21 @@
     <meta name="author" content=""> -->
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../recursos/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/half-slider.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/estilos.css">
-    <link rel="stylesheet" href="css/estilosMenuPaginas.css">
-    <link href="css/font-awesome.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/estilosPerfilUsuario.css">
-    <link href="css/font-awesome.css" rel="stylesheet">
+    <link href="../../recursos/css/half-slider.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../recursos/css/estilos.css">
+    <link rel="stylesheet" href="../../recursos/css/estilosMenuPaginas.css">
+    <link href="../../recursos/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../recursos/css/estilosPerfilUsuario.css">
+    <link href="../../recursos/css/font-awesome.css" rel="stylesheet">
 
    </head>
    <body>
   
     <!-- MENU -->
-    <?php include("menuPaginas.php");?>
+    <?php include("../../vistas/menuPaginas.php");?>
 
     <div id="wrap">
 
@@ -64,19 +64,16 @@
       </div>
       <div class="container">
         <div class="row">
-          <div class="col-lg-4">
+       <!--   <div class="col-lg-4">
             <div id="fotoPerfil" class="divCirculo"></div>
-          </div>
+          </div> -->
           <div class="col-lg-4">
             <div class="panel panel-default panelDatos">
               <div class="panel-heading headingPanel">
                 <h3 class="panel-title"><i class="fa fa-address-card-o" aria-hidden="true"></i> Mis datos de contacto</h3>
               </div>
               <div class="panel-body">
-                <p><i class="fa fa-location-arrow" aria-hidden="true"></i> dsafhkjghkba 2543</p>
-                <p><i class="fa fa-envelope" aria-hidden="true"></i> safsadg@fsdgs.com</p>
-                <p><i class="fa fa-phone" aria-hidden="true"></i> 42352454</p>
-                <p><i class="fa fa-birthday-cake" aria-hidden="true"></i> 12/44/2343</p>
+				<?php include("../../extras/verUsuario.php"); ?>
               </div>
             </div>
           </div>
@@ -86,7 +83,7 @@
                 <h3 class="panel-title"><i class="fa fa-map-marker" aria-hidden="true"></i> Mi ubicación</h3>
               </div>
               <div class="panel-body">
-                <img src="img/mapa.jpg" alt="" class="img-responsive center-block" />
+                <img src="../../recursos/img/mapa.jpg" alt="" class="img-responsive center-block" />
               </div>
             </div>
           </div>
@@ -96,14 +93,15 @@
         <!-- Sector mascotas del dueño -->
         <div class="row" style="margin-top: -20px;">
             <div class="col-md-12 text-center">
-               <h2 class="titulo-central">Mascotas de {dueño}</h2>
+               <h2 class="titulo-central">Mascotas de <?php echo $_SESSION['usuario'];?></h2>
             </div>
             <div class="col-lg-12 divFotosMascotas">
               <ul class="fotos-Polaroid fotosMascotas">
-                <a href="" title="Sparkie"><img height="200" src="img/perro1.jpg" alt="Perro - Sparkie" title="Sparkie"/></a>
-                <a href="" title="Oliver"><img height="200" src="img/perro2.jpg" alt="Perro - Oliver" title="Oliver"/></a>
-                <a href="" title="Jason"><img height="200" src="img/perro3.jpg" alt="Perro - Jason" title="Jason"/></a>
-                <a href="" title="Emmet"><img height="200" src="img/perro4.jpg" alt="Perro - Emmet" title="Emmet"/></a>
+			  <?php include("../../extras/verMascotasUsuario.php"); ?>
+          <!--      <a href="" title="Sparkie"><img height="200" src="../../recursos/img/perro1.jpg" alt="Perro - Sparkie" title="Sparkie"/></a>
+                <a href="" title="Oliver"><img height="200" src="../../recursos/img/perro2.jpg" alt="Perro - Oliver" title="Oliver"/></a>
+                <a href="" title="Jason"><img height="200" src="../../recursos/img/perro3.jpg" alt="Perro - Jason" title="Jason"/></a>
+                <a href="" title="Emmet"><img height="200" src="../../recursos/img/perro4.jpg" alt="Perro - Emmet" title="Emmet"/></a>-->
               </ul>
             </div>
         </div>
