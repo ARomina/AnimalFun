@@ -76,9 +76,9 @@
                           <?php include("extras/verHistoriasRecientes.php");?>
                         </tbody>
                       </table>          
-                    <div class="text-center">
+                   <!--  <div class="text-center">
                       <a href="#" class="btn boton">Ver más</a>
-                    </div>
+                    </div> -->
                   </div>
                   <div class="col-md-4 text-center">
                      <h3 class="titulos">Ránking de mascotas</h3>
@@ -136,9 +136,9 @@
                           <?php include("extras/verActividadReciente.php");?>
                         </tbody>
                       </table>   
-                     <div class="text-center">
+                    <!--  <div class="text-center">
                         <a href="#" class="btn boton">Ver más</a>
-                     </div>
+                     </div> -->
                   </div>
                </div>
             </div>

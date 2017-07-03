@@ -223,22 +223,6 @@
 	font-size: 14px;
 }
 	  </style>
-   <!--    <link rel="stylesheet" href="css/estilos.css"> -->
-<!--       <link rel="stylesheet" href="css/components.css"> -->
-<!--       <link rel="stylesheet" href="css/responsee.css"> -->
-     
-     <!--  <link rel="stylesheet" href="owl-carousel/owl.carousel.css">
-      <link rel="stylesheet" href="owl-carousel/owl.theme.css"> -->
-      <!-- CUSTOM STYLE -->  
-     <!--  <link rel="stylesheet" href="css/template-style.css"> -->
-     <!--  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'> -->
-     <!--  <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script> -->
-      <!-- <script type="text/javascript" src="js/jquery-ui.min.js"></script>    
-      <script type="text/javascript" src="js/modernizr.js"></script>
-      <script type="text/javascript" src="js/responsee.js"></script>    -->
-   
-   <!--  <meta name="description" content="">
-    <meta name="author" content=""> -->
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -272,12 +256,12 @@
 					<div class="panel-body">
 						Puesto
 						<div class="pull-right">
-							<div class="btn-group">
+							<!-- <div class="btn-group">
 								<button type="button" class="btn btn-success btn-filter " data-target="semanal">Semanal</button>
 								<button type="button" class="btn btn-warning btn-filter" data-target="mensual">Mensual</button>
 								<button type="button" class="btn btn-danger btn-filter" data-target="cancelado">General</button>
 								
-							</div>
+							</div> -->
 						</div>
 						
 						<div class="table-container">
@@ -288,29 +272,20 @@
 
 	$sql = "SELECT M.id,M.nombre,M.foto,(SELECT COUNT(*)
 					  FROM valoracion v1
-					  JOIN post p1 ON v1.post=p1.id
+					  JOIN post p1 ON v1.post = p1.id
 					  WHERE p1.mascota=M.id)*10+
 					 (SELECT COUNT(*)
-					  FROM visita
-					  WHERE mascota=M.id)+
+					  FROM visita v
+					  WHERE v.mascota = M.id)+
 					 (SELECT COUNT(*)
-					  FROM seguimiento
-					  WHERE mascota=M.id
+					  FROM seguimiento s
+					  WHERE s.mascota = M.id
 					 )*50 AS puntaje
 			FROM mascota M
 			ORDER BY puntaje DESC
 			LIMIT 10";
 
-			
-			
-			
-			
-			
-
-			
-			
-			
-			
+		
 	$puesto = 1;
 
 	if($resultado = $con->query($sql)){
@@ -331,7 +306,7 @@
 											
 												<div class="col-md-3 center-block">
 		                                        <a href="#">
-		                                          <img src="'.str_replace('../recursos/', 'recursos/', $row['foto']).'" width="50" height="60" alt="'.$row['nombre'].'" class="img-circle" style="margin-bottom: 4px;">
+		                                          <img src="'.str_replace('../recursos/', '../../recursos/', $row['foto']).'" width="50" height="60" alt="'.$row['nombre'].'" class="img-circle" style="margin-bottom: 4px;">
 		                                       </a>
 	                                       </div>
 										
@@ -466,12 +441,12 @@
 					<div class="panel-body">
 						Puesto
 						<div class="pull-right">
-							<div class="btn-group">
+							<!-- <div class="btn-group">
 								<button type="button" class="btn btn-success btn-filter2 " data-target="popularessemanal">Semanal</button>
 								<button type="button" class="btn btn-warning btn-filter2" data-target="popularmensual">Mensual</button>
 								<button type="button" class="btn btn-danger btn-filter2" data-target="popularcancelado">General</button>
 								
-							</div>
+							</div> -->
 						</div>
 						<div class="table-container">
 							<table class="table table-filter">
@@ -505,7 +480,7 @@
 											
 												<div class="col-md-3 center-block">
 		                                        <a href="#">
-		                                          <img src="'.str_replace('../recursos/', 'recursos/', $row['foto']).'" width="50" height="60" alt="'.$row['nombre'].'" class="img-circle" style="margin-bottom: 4px;">
+		                                          <img src="'.str_replace('../recursos/', '../../recursos/', $row['foto']).'" width="50" height="60" alt="'.$row['nombre'].'" class="img-circle" style="margin-bottom: 4px;">
 		                                       </a>
 	                                       </div>
 										
@@ -548,12 +523,12 @@
 					<div class="panel-body">
 						Puesto
 						<div class="pull-right">
-							<div class="btn-group">
+						<!-- 	<div class="btn-group">
 								<button type="button" class="btn btn-success btn-filter3 " data-target="seguidoressemanal">Semanal</button>
 								<button type="button" class="btn btn-warning btn-filter3" data-target="seguidoresmensual">Mensual</button>
 								<button type="button" class="btn btn-danger btn-filter3" data-target="seguidorescancelado">General</button>
 								
-							</div>
+							</div> -->
 						</div>
 						<div class="table-container">
 							<table class="table table-filter">
@@ -589,7 +564,7 @@
 											
 												<div class="col-md-3 center-block">
 		                                        <a href="#">
-		                                          <img src="'.str_replace('../recursos/', 'recursos/', $row['foto']).'" width="50" height="60" alt="'.$row['nombre'].'" class="img-circle" style="margin-bottom: 4px;">
+		                                          <img src="'.str_replace('../recursos/', '../../recursos/', $row['foto']).'" width="50" height="60" alt="'.$row['nombre'].'" class="img-circle" style="margin-bottom: 4px;">
 		                                       </a>
 	                                       </div>
 										
@@ -622,16 +597,16 @@
 		
 		</div>
 	</div>
-	<div class="col-md-4">
+	<!-- <div class="col-md-4">
 		   <div class="panel panel-default">
 			  <div class="panel-heading">Porcentajes de mascotas</div>
-			 <div class="panel-body"><?php include_once('../usuarios/ranktipos.php')?></div>
+			 <div class="panel-body"><?php //include_once('../usuarios/ranktipos.php');?></div>
 			</div>	
 			</div>
 			<div class="col-md-4">
 		   <div class="panel panel-default">
 			  <div class="panel-heading">Estadisticas de likes por tipo</div>
-			  <div class="panel-body"><?php include_once('../usuarios/ranklikes.php')?></div>
+			  <div class="panel-body"><?php //include_once('../usuarios/ranklikes.php');?></div>
 			</div>	
 			</div>
 			<div class="col-md-4">
@@ -649,7 +624,7 @@
 					</br>
 				  </div>
 			</div>	
-			</div>
+			</div> -->
 
 		 
     </div><!-- div wrap -->

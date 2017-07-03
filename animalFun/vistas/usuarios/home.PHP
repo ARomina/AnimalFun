@@ -312,7 +312,7 @@
           </div><!-- col-lg-8 -->
            
 <!-- // RECENT POST===========-->
-         <div class="col-lg-4">           
+       <!--   <div class="col-lg-4">           
                <div class="widget-sidebar">
                  <h2 class="title-widget-sidebar">Ultimos encuentros</h2>
                    <div class="content-widget-sidebar">
@@ -397,7 +397,7 @@
            </div>
 		  
 		    	
-         </div>
+         </div> -->
      
     </section>
 
