@@ -10,6 +10,7 @@
   session_start();
 
   if(isset($_SESSION['usuario'])){
+    $id = $_SESSION['id'];
     $usuario = $_SESSION['usuario'];
     $fotoPerfilUsuario = $_SESSION['foto'];
 	
@@ -264,246 +265,51 @@
        <div class="row">
          <div class="col-lg-8">
            <div class="row">
-		    <div class="col-lg-12 col-md-12">
-             <aside>
-               <div class="content-title">
-				<div class="form-group">
-				<div class="content-footer">
-				<img class="user-small-img" src="http://cache.ppomppu.co.kr/zboard/data3/2016/0831/900w_1472593942_GRTpXtlIDs.jpg">
-				<span style="font-size: 16px;color: #fff;">Escribe tu comentario..</span>
-					<span class="pull-right">
-					<div class="form-group pull-right">
-						  <select class="form-control" id="sel1">
-							<option>Mascota 1</option>
-							<option>Mascota 2</option>
-							<option>Mascota 3</option>
-							<option>Mascota 4</option>
-						  </select>
-					</div>
-					</span>
-                    </br></br>
-				
-				</div>
-					  <textarea class="form-control" rows="5" id="comment"></textarea>
-					  <span class="pull-right"><button type="button" class="btn btn-success">Success</button></span>
-					</div>
-					</br></br>
-				</div>
-				
-             </aside>
-            </div>       
-              <div class="col-lg-12 col-md-12">
-             <aside>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuJGS4RrnjHo4ElzZtiV2mg7SxvXk89FQT5QpUmwsknqll1YD8" class="img-responsive center-block">
-                <div class="content-title">
-				<div class="text-center">
-				<h3><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eget arcu ut nunc dignissim convallis et eget libero. Integer vulputate, eros commodo pulvinar ornare, nisl nulla iaculis augue, </a></h3>
-				</div>
-				</div>
-				<div class="content-footer">
-				<img class="user-small-img" src="http://www.fotonostra.com/fotografia/fotos/fotografiarpaisajes.jpg">
-				<span style="font-size: 16px;color: #fff;">Sumit Kumar</span>
-				<span class="pull-right">
-				<a href="#" data-toggle="tooltip" data-placement="left" title="Comments"><i class="fa fa-commenting" ></i> 30</a>
-				<a href="#" data-toggle="tooltip" data-placement="right" title="Loved"><i class="fa fa-thumbs-o-up"></i> 20</a>                  
-				</span>
-                    <div class="user-ditels">
-                    <div class="user-img"><img src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg" class="img-responsive"></div>
-                        <span class="user-full-ditels">
-                        <h3>Sumit Kumar</h3>
-                        <p>Web & Graphics Disigner</p>
-                        </span>
-                    </div>
-				</div>
-             </aside>
-            </div>
-               
-               <div class="col-lg-12 col-md-12">
-             <aside>
-               <div class="content-title">
-				<div class="text-center">
-				<h3><a href="#">Quisque at tristique neque. Vivamus rutrum posuere risus, id mattis elit volutpat quis. Duis a est id odio faucibus mattis quis nec tortor. Orci varius natoque penatibus et magnis dis parturient montes, </a></h3>
-				</div>
-				</div>
-				<div class="content-footer">
-				<img class="user-small-img" src="http://cache.ppomppu.co.kr/zboard/data3/2016/0831/900w_1472593942_GRTpXtlIDs.jpg">
-				<span style="font-size: 16px;color: #fff;">Sumit Kumar</span>
-				<span class="pull-right">
-				<a href="#" data-toggle="tooltip" data-placement="left" title="Comments"><i class="fa fa-commenting" ></i> 30</a>
-				<a href="#" data-toggle="tooltip" data-placement="right" title="Loved"><i class="fa fa-thumbs-o-up"></i> 20</a>                  
-				</span>
-                    <div class="user-ditels">
-                    <div class="user-img"><img src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg" class="img-responsive center-block"></div>
-                        <span class="user-full-ditels">
-                        <h3>Sumit Kumar</h3>
-                        <p>Web & Graphics Disigner</p>
-                        </span>
-                       
-                    </div>
-				</div>
-             </aside>
-            </div>       
-               
-               <div class="col-lg-12 col-md-12">
-             <aside>
-                <img src="http://www.fotonostra.com/fotografia/fotos/fotografiarpaisajes.jpg" class="img-responsive center-block">
-                <div class="content-title">
-				<div class="text-center">
-				<h3><a href="#">In dignissim leo eu scelerisque mollis. Aliquam sed purus non augue gravida aliquet et id felis. Sed dui massa, imperdiet a turpis at, molestie hendrerit magna. </a></h3>
-				</div>
-				</div>
-				<div class="content-footer">
-				<img class="user-small-img" src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg">
-				<span style="font-size: 16px;color: #fff;">Sumit Kumar</span>
-				<span class="pull-right">
-				<a href="#" data-toggle="tooltip" data-placement="left" title="Comments"><i class="fa fa-commenting" ></i> 30</a>
-				<a href="#" data-toggle="tooltip" data-placement="right" title="Loved"><i class="fa fa-thumbs-o-up"></i> 20</a>                  
-				</span>
-                    <div class="user-ditels">
-                    <div class="user-img"><img src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg" class="img-responsive"></div>
-                        <span class="user-full-ditels">
-                        <h3>Sumit Kumar</h3>
-                        <p>Web & Graphics Disigner</p>
-                        </span>
-                       
-                    </div>
-				</div>
-             </aside>
-            </div>       
-               
-               <div class="col-lg-12 col-md-12">
-             <aside>
-               <div class="content-title">
-				<div class="text-center">
-				<h3><a href="#">Phasellus leo urna, egestas eu facilisis non, posuere et nulla. Proin vestibulum, nulla ornare gravida auctor, augue risus viverra neque, quis eleifend </a></h3>
-				</div>
-				</div>
-				<div class="content-footer">
-				<img class="user-small-img" src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg">
-				<span style="font-size: 16px;color: #fff;">Sumit Kumar</span>
-				<span class="pull-right">
-				<a href="#" data-toggle="tooltip" data-placement="left" title="Comments"><i class="fa fa-commenting" ></i> 30</a>
-				<a href="#" data-toggle="tooltip" data-placement="right" title="Loved"><i class="fa fa-thumbs-o-up"></i> 20</a>                  
-				</span>
-                    <div class="user-ditels">
-                    <div class="user-img"><img src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg" class="img-responsive"></div>
-                        <span class="user-full-ditels">
-                        <h3>Sumit Kumar</h3>
-                        <p>Web & Graphics Disigner</p>
-                        </span>
-                      
-                    </div>
-				</div>
-             </aside>
-            </div>       
-               
-               <div class="col-lg-12 col-md-12">
-             <aside>
-                <img src="" class="img-responsive">
-                <div class="content-title">
-				<div class="text-center">
-				<h3><a href="#">Sed ante ligula, lobortis id hendrerit at, scelerisque sed dolor. In feugiat volutpat lobortis. Fusce quis libero vehicula, tempor purus vel, sodales quam. Nunc vestibulum sodales</a></h3>
-				</div>
-				</div>
-				<div class="content-footer">
-				<img class="user-small-img" src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg">
-				<span style="font-size: 16px;color: #fff;">Sumit Kumar</span>
-				<span class="pull-right">
-				<a href="#" data-toggle="tooltip" data-placement="left" title="Comments"><i class="fa fa-commenting" ></i> 30</a>
-				<a href="#" data-toggle="tooltip" data-placement="right" title="Loved"><i class="fa fa-thumbs-o-up"></i> 20</a>                  
-				</span>
-                    <div class="user-ditels">
-                    <div class="user-img"><img src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg" class="img-responsive"></div>
-                        <span class="user-full-ditels">
-                        <h3>Sumit Kumar</h3>
-                        <p>Web & Graphics Disigner</p>
-                        </span>
-                      
-                    </div>
-				</div>
-             </aside>
-            </div>       
-               
-               <div class="col-lg-12 col-md-12">
-             <aside>
-                <div class="content-title">
-				<div class="text-center">
-				<h3><a href="#">Nunc id leo pulvinar, auctor justo sed, imperdiet nisi. Praesent purus nulla, convallis sodales ligula vel, fringilla ullamcorper dui. Suspendisse tempor pretium massa id tincidunt. Praesent quis urna non sapien porta maximus.</a></h3>
-				</div>
-				</div>
-				<div class="content-footer">
-				<img class="user-small-img" src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg">
-				<span style="font-size: 16px;color: #fff;">Sumit Kumar</span>
-				<span class="pull-right">
-				<a href="#" data-toggle="tooltip" data-placement="left" title="Comments"><i class="fa fa-commenting" ></i> 30</a>
-				<a href="#" data-toggle="tooltip" data-placement="right" title="Loved"><i class="fa fa-thumbs-o-up"></i> 20</a>                  
-				</span>
-                    <div class="user-ditels">
-                    <div class="user-img"><img src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg" class="img-responsive"></div>
-                        <span class="user-full-ditels">
-                        <h3>Sumit Kumar</h3>
-                        <p>Web & Graphics Disigner</p>
-                        </span>
-                      
-                    </div>
-				</div>
-             </aside>
-            </div>       
-               
-               <div class="col-lg-12 col-md-12">
-             <aside>
-                <div class="content-title">
-				<div class="text-center">
-				<h3><a href="#">attis est mattis vitae. Cras placerat suscipit orci vitae maximus. Curabitur scelerisque mauris id est conva</a></h3>
-				</div>
-				</div>
-				<div class="content-footer">
-				<img class="user-small-img" src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg">
-				<span style="font-size: 16px;color: #fff;">Sumit Kumar</span>
-				<span class="pull-right">
-				<a href="#" data-toggle="tooltip" data-placement="left" title="Comments"><i class="fa fa-commenting" ></i> 30</a>
-				<a href="#" data-toggle="tooltip" data-placement="right" title="Loved"><i class="fa fa-thumbs-o-up"></i> 20</a>                  
-				</span>
-                    <div class="user-ditels">
-                    <div class="user-img"><img src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg" class="img-responsive"></div>
-                        <span class="user-full-ditels">
-                        <h3>Sumit Kumar</h3>
-                        <p>Web & Graphics Disigner</p>
-                        </span>
-                       
-                    </div>
-				</div>
-             </aside>
-            </div>       
-               
-               <div class="col-lg-12 col-md-12">
-             <aside>
-                <img src="https://k38.kn3.net/taringa/2/4/3/0/6/6/13/soyluuchoox/A1D.jpg?1843" class="img-responsive class-block">
-                <div class="content-title">
-				<div class="text-center">
-				<h3><a href="#">Niki Postingan Sing Kepisan Njeh, Perdana Ngoten</a></h3>
-				</div>
-				</div>
-				<div class="content-footer">
-				<img class="user-small-img" src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg">
-				<span style="font-size: 16px;color: #fff;">Sumit Kumar</span>
-				<span class="pull-right">
-				<a href="#" data-toggle="tooltip" data-placement="left" title="Comments"><i class="fa fa-commenting" ></i> 30</a>
-				<a href="#" data-toggle="tooltip" data-placement="right" title="Loved"><i class="fa fa-thumbs-o-up"></i> 20</a>                  
-				</span>
-                    <div class="user-ditels">
-                    <div class="user-img"><img src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg" class="img-responsive"></div>
-                        <span class="user-full-ditels">
-                        <h3>Sumit Kumar</h3>
-                        <p>Web & Graphics Disigner</p>
-                        </span>
-                     
-                    </div>
-				</div>
-             </aside>
-            </div>  
-           </div>
-          </div>
+		          <div class="col-lg-12 col-md-12">
+                  <aside>
+                    <div class="content-footer">
+                      <h4 class="textoBoldBlanco text-center">Posts recientes</h4>
+                    </div> 
+                  </aside>
+              </div>       
+                      <?php 
+
+                          $sql = "SELECT count(*) FROM seguimiento s WHERE s.usuario = '$id'";
+
+                          if ($resultado = $con->query($sql)) {
+
+                              while ($row = $resultado->fetch_row()) {
+
+                                  if($row[0] == 0){
+                                     echo '<div class="content-widget-sidebar">
+                                                  <div class="center-block">
+                                                    <ul style="list-style: none; padding-left: 0;">
+                                                      <li style="padding-bottom: 10px;">
+                                                          <p>Aún no sigues a nadie por lo cual no hay posts para mostrar. ¿Por qué no probás siguiendo a alguien? Buscá en nuestra sección <a href="../secciones/explorar.php">Explorar<a></p>
+                                                      </li>
+                                                    </ul>
+                                                  </div>
+                                              </div>';
+                                  }else{
+                                    include("../../extras/verPostsEnPerfilUsuario.php");
+                                    echo '<br>'; 
+                                  }
+
+                                 /* if($row[0] > 2){
+                                    echo '<div class="col-md-4 col-md-offset-4">
+                                            <div class="last-post center-block">
+                                              <button class="accordion">Ver más posts</button>    
+                                            </div>
+                                          </div>';
+                                  }*/
+                                       
+                              }
+                          }
+
+                        ?>
+
+           </div><!-- row -->
+          </div><!-- col-lg-8 -->
            
 <!-- // RECENT POST===========-->
          <div class="col-lg-4">           
@@ -584,29 +390,13 @@
                 </div>
                  <hr>
                  
-             </div>
-             
-        <!--=====================
-               CATEGORIES
-          ======================-->
-             <div class="widget-sidebar">
-              <h2 class="title-widget-sidebar">// CATEGORIES</h2>
-                 <button class="categories-btn">Audio</button>
-                 <button class="categories-btn">Blog</button>
-                 <button class="categories-btn">Gallery</button>
-                 <button class="categories-btn">Images</button>
-             </div>  
+             </div> 
                  
              </div>
 			
            </div>
-		   </br></br>
-		    <div class="col col-md-4 col-md-offset-2">
-			 <div class="last-post">
-                  <button class="accordion">Ver mas </button>
-                   
-                </div>
-			</div>	
+		  
+		    	
          </div>
      
     </section>

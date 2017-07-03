@@ -15,6 +15,7 @@
   }
 
  
+  //Query para traer el nombre de la mascota
   $sql = "SELECT count(*) AS cantidad FROM `post`";
 
   $resultado = mysqli_query($con, $sql);
@@ -23,8 +24,8 @@
         $post = $row['cantidad'];
      
     }
-
-  $sql = "SELECT COUNT(*) AS cantidad FROM valoracion JOIN mascota  ON valoracion.mascota=mascota.id JOIN tipo ON mascota.tipo=tipo.id where tipo.descripcion='perro'";
+  //Query para traer el nombre de la mascota
+  $sql = "SELECT COUNT(*) AS cantidad FROM valoracion JOIN post ON valoracion.post=post.id JOIN mascota ON post.mascota=mascota.id JOIN tipo ON mascota.tipo=tipo.id where tipo.descripcion='perro'";
 
   $resultado = mysqli_query($con, $sql);
 
@@ -32,8 +33,8 @@
         $guaus = $row['cantidad'];
      
     }
-
-  $sql = "SELECT COUNT(*) AS cantidad FROM valoracion JOIN mascota  ON valoracion.mascota=mascota.id JOIN tipo ON mascota.tipo=tipo.id where tipo.descripcion='gato'";
+	//Query para traer el nombre de la mascota
+  $sql = "SELECT COUNT(*) AS cantidad FROM valoracion JOIN post ON valoracion.post=post.id JOIN mascota ON post.mascota=mascota.id JOIN tipo ON mascota.tipo=tipo.id where tipo.descripcion='gato'";
 
   $resultado = mysqli_query($con, $sql);
 
@@ -41,8 +42,8 @@
         $miaus = $row['cantidad'];
      
     }
-
-  $sql = "SELECT COUNT(*) AS cantidad FROM valoracion JOIN mascota  ON valoracion.mascota=mascota.id JOIN tipo ON mascota.tipo=tipo.id where tipo.descripcion='pez'";
+//Query para traer el nombre de la mascota
+  $sql = "SELECT COUNT(*) AS cantidad FROM valoracion JOIN post ON valoracion.post=post.id JOIN mascota ON post.mascota=mascota.id JOIN tipo ON mascota.tipo=tipo.id where tipo.descripcion='gluglus'";
 
   $resultado = mysqli_query($con, $sql);
 
@@ -50,8 +51,8 @@
         $gluglus = $row['cantidad'];
      
     }
-
-  $sql = "SELECT COUNT(*) AS cantidad FROM valoracion JOIN mascota  ON valoracion.mascota=mascota.id JOIN tipo ON mascota.tipo=tipo.id where tipo.descripcion='ave'";
+//Query para traer el nombre de la mascota
+  $sql = "SELECT COUNT(*) AS cantidad FROM valoracion JOIN post ON valoracion.post=post.id JOIN mascota ON post.mascota=mascota.id JOIN tipo ON mascota.tipo=tipo.id where tipo.descripcion='pios'";
 
   $resultado = mysqli_query($con, $sql);
 
@@ -59,7 +60,7 @@
         $pios = $row['cantidad'];
      
     }
-
+//Query para traer el nombre de la mascota
   $sql = "SELECT COUNT(*) AS cantidad FROM cita";
 
   $resultado = mysqli_query($con, $sql);
@@ -68,7 +69,7 @@
         $citas = $row['cantidad'];
      
     }
-    
+//Query para traer el nombre de la mascota
   $sql = "SELECT COUNT(*) AS cantidad FROM adopcion";
 
   $resultado = mysqli_query($con, $sql);
@@ -260,39 +261,12 @@
 	            </div>
 				
     <div id="wrap">
-			<div class="col-md-4">
-		   <div class="panel panel-default">
-			  <div class="panel-heading">Porcentajes de mascotas</div>
-			 <div class="panel-body"><?php include_once('../usuarios/ranktipos.php')?></div>
-			</div>	
-			</div>
-			<div class="col-md-4">
-		   <div class="panel panel-default">
-			  <div class="panel-heading">Estadisticas de likes por tipo</div>
-			  <div class="panel-body"><?php include_once('../usuarios/ranklikes.php')?></div>
-			</div>	
-			</div>
-			<div class="col-md-4">
-		   <div class="panel panel-default">
-			  <div class="panel-heading">Estadisticas Mascotas</div>
-				  <div class="panel-body">
-				  </br>
-				  <h3>Cantidad de posteos <div class="pull-right"><span class="label label-default"><?php echo $post;?></span></div></h3>
-				   <h3>Cantidad de Guaus <div class="pull-right"><span class="label label-default"><?php echo $guaus;?></span></div></h3>
-				   <h3>Cantidad de Miaus <div class="pull-right"><span class="label label-default"><?php echo $miaus;?></span></div></h3>
-				   <h3>Cantidad de Gluglus <div class="pull-right"><span class="label label-default"><?php echo $gluglus;?></span></div></h3>
-				   <h3>Cantidad de Pios <div class="pull-right"><span class="label label-default"><?php echo $pios;?></span></div></h3>
-				   <h3>Encuentros <div class="pull-right"><span class="label label-default"><?php echo $citas;?></span></div></h3>
-				   <h3>Adopciones <div class="pull-right"><span class="label label-default"><?php echo $adopcion;?></span></div></h3>
-					</br>
-				  </div>
-			</div>	
-			</div>
+			
     <div class="col col-md-4">
 		<div class="row">
 
 			<section class="content">
-			<h1>Ranking de Likes</h1>
+			<h1>Ranking de popularidad</h1>
 			<div class="col-md-12 ">
 				<div class="panel panel-default">
 					<div class="panel-body">
@@ -305,164 +279,81 @@
 								
 							</div>
 						</div>
+						
 						<div class="table-container">
 							<table class="table table-filter">
 								<tbody>
-									<tr data-status="semanal">
-										<td>
-											<div class="ckbox">
-												<h1>1</h1>
-											</div>
-										</td>
-										<td>
-										</td>
-										<td>
-											<div class="media">
-											
-												<div class="pull-left">
-													<img src="../../recursos/img/cat-icon.png" height="45px">
-												</div>
-												<div class="media-body">
-													<span class=" pull-right"><h1>33</h1></span>
-													<span class=" pull-left"><h1>Marley</h1></span>
 								
-												</div>
-											</div>
-										</td>
-									</tr>
-									<tr data-status="semanal">
-										<td>
-											<div class="ckbox">
-												<h1>2</h1>
-											</div>
-										</td>
-										<td>
-										</td>
-										<td>
-											<div class="media">
+<?php
+
+	$sql = "SELECT M.id,M.nombre,M.foto,(SELECT COUNT(*)
+					  FROM valoracion v1
+					  JOIN post p1 ON v1.post=p1.id
+					  WHERE p1.mascota=M.id)*10+
+					 (SELECT COUNT(*)
+					  FROM visita
+					  WHERE mascota=M.id)+
+					 (SELECT COUNT(*)
+					  FROM seguimiento
+					  WHERE mascota=M.id
+					 )*50 AS puntaje
+			FROM mascota M
+			ORDER BY puntaje DESC
+			LIMIT 10";
+
+			
+			
+			
+			
+			
+
+			
+			
+			
+			
+	$puesto = 1;
+
+	if($resultado = $con->query($sql)){
+
+	    while ($row = $resultado->fetch_assoc()){
+
+	    		echo '
+	                          <tr data-status="semanal">
+	                            
+								<td>
+										
+	                                  <div class="row">
+	                                  	   <div class="col-md-3" style="padding-top:5%;">
+	                                       		<h3><p class="text-center texto-azul textoBold" style="vertical-align: middle;">'.
+	                                       			$puesto.'° - </p></h3>
+	                                       </div>
+										   <div class="media">
 											
-												<div class="pull-left">
-													<img src="../../recursos/img/dog-icon.png" height="45px">
-												</div>
-												<div class="media-body">
-													<span class=" pull-right"><h1>32</h1></span>
-													<span class=" pull-left"><h1>Hunter</h1></span>
-								
-												</div>
-											</div>
-										</td>
-									</tr>
-									<tr data-status="semanal">
-										<td>
-											<div class="ckbox">
-												<h1>3</h1>
-											</div>
-										</td>
-										<td>
-										</td>
-										<td>
-											<div class="media">
-											
-												<div class="pull-left">
-													<img src="../../recursos/img/dog-icon.png" height="45px">
-												</div>
-												<div class="media-body">
-													<span class=" pull-right"><h1>29</h1></span>
-													<span class=" pull-left"><h1>goku</h1></span>
-								
-												</div>
-											</div>
-										</td>
-									</tr>
-									<tr data-status="semanal">
-										<td>
-											<div class="ckbox">
-												<h3>4</h3>
-											</div>
-										</td>
-										<td>
-										</td>
-										<td>
-											<div class="media">
-											
-												<div class="pull-left">
-													<img src="../../recursos/img/cat-icon.png" height="45px">
-												</div>
-												<div class="media-body">
-													<span class=" pull-right"><h3>28</h3></span>
-													<span class=" pull-left"><h3>yeni</h3></span>
-								
-												</div>
-											</div>
-										</td>
-									</tr>
-									<tr data-status="semanal">
-										<td>
-											<div class="ckbox">
-												<h3>5</h3>
-											</div>
-										</td>
-										<td>
-										</td>
-										<td>
-											<div class="media">
-											
-												<div class="pull-left">
-													<img src="../../recursos/img/dog-icon.png" height="45px">
-												</div>
-												<div class="media-body">
-													<span class=" pull-right"><h3>23</h3></span>
-													<span class=" pull-left"><h3>manchita</h3></span>
-								
-												</div>
-											</div>
-										</td>
-									</tr>
-									<tr data-status="semanal">
-										<td>
-											<div class="ckbox">
-												<h3>6</h3>
-											</div>
-										</td>
-										<td>
-										</td>
-										<td>
-											<div class="media">
-											
-												<div class="pull-left">
-													<img src="../../recursos/img/cat-icon.png" height="45px">
-												</div>
-												<div class="media-body">
-													<span class=" pull-right"><h3>22</h3></span>
-													<span class=" pull-left"><h3>lobito</h3></span>
-								
-												</div>
-											</div>
-										</td>
-									</tr>
-									<tr data-status="semanal">
-										<td>
-											<div class="ckbox">
-												<h3>7</h3>
-											</div>
-										</td>
-										<td>
-										</td>
-										<td>
-											<div class="media">
-											
-												<div class="pull-left">
-													<img src="../../recursos/img/cat-icon.png" height="45px">
-												</div>
-												<div class="media-body">
-													<span class=" pull-right"><h3>20</h3></span>
-													<span class=" pull-left"><h3>satanas</h3></span>
-								
-												</div>
-											</div>
-										</td>
-									</tr>
-									<tr data-status="mensual">
+												<div class="col-md-3 center-block">
+		                                        <a href="#">
+		                                          <img src="'.str_replace('../recursos/', 'recursos/', $row['foto']).'" width="50" height="60" alt="'.$row['nombre'].'" class="img-circle" style="margin-bottom: 4px;">
+		                                       </a>
+	                                       </div>
+										
+	                                  	   <div class="col-md-3 center-block">
+		                                       
+	                                       </div>
+	                                       <div class="col-md-6" style="padding-top:5%;">
+	                                       		<p class="text-center texto-azul textoBold" style="vertical-align: middle;">'.$row['nombre'].'</p>
+	                                       </div>
+										   </div>
+	                                       
+	                                 </div> 
+	                             </td>
+	                           </tr>';
+	                           $puesto+=1;
+	    	}
+
+   }
+
+?>
+									
+								<!--/* 	<tr data-status="mensual">
 										<td>
 											<div class="ckbox">
 												<h1>1</h1>
@@ -551,7 +442,7 @@
 											</div>
 										</td>
 									</tr>
-									
+									 */-->
 									
 								</tbody>
 							</table>
@@ -569,7 +460,7 @@
 		<div class="row">
 
 						<section class="content">
-			<h1>Ranking de popularidad</h1>
+			<h1>Ranking de likes</h1>
 			<div class="col-md-12 ">
 				<div class="panel panel-default">
 					<div class="panel-body">
@@ -585,251 +476,56 @@
 						<div class="table-container">
 							<table class="table table-filter">
 								<tbody>
-									<tr data-status="popularsemanal">
-										<td>
-											<div class="ckbox">
-												<h1>1</h1>
-											</div>
-										</td>
-										<td>
-										</td>
-										<td>
-											<div class="media">
+									<?php
+
+	$sql = "SELECT mascota.id,mascota.nombre, mascota.foto, COUNT(*) AS puntaje 
+	FROM valoracion JOIN post ON valoracion.post=post.id 
+	JOIN mascota ON post.mascota=mascota.id 
+	JOIN tipo ON mascota.tipo=tipo.id 
+	GROUP BY mascota.id 
+	ORDER BY puntaje DESC LIMIT 10";
+
+	$puesto = 1;
+
+	if($resultado = $con->query($sql)){
+
+	    while ($row = $resultado->fetch_assoc()){
+
+	    		echo '
+	                          <tr data-status="popularessemanal">
+	                            
+								<td>
+										
+	                                  <div class="row">
+	                                  	   <div class="col-md-3" style="padding-top:5%;">
+	                                       		<h3><p class="text-center texto-azul textoBold" style="vertical-align: middle;">'.
+	                                       			$puesto.'° - </p></h3>
+	                                       </div>
+										   <div class="media">
 											
-												<div class="pull-left">
-													<img src="../../recursos/img/cat-icon.png" height="45px">
-												</div>
-												<div class="media-body">
-													
-													<span class=" pull-left"><h1>Toby</h1></span>
-								
-												</div>
-											</div>
-										</td>
-									</tr>
-									<tr data-status="popularsemanal">
-										<td>
-											<div class="ckbox">
-												<h1>2</h1>
-											</div>
-										</td>
-										<td>
-										</td>
-										<td>
-											<div class="media">
-											
-												<div class="pull-left">
-													<img src="../../recursos/img/dog-icon.png" height="45px">
-												</div>
-												<div class="media-body">
-													
-													<span class=" pull-left"><h1>Hunter</h1></span>
-								
-												</div>
-											</div>
-										</td>
-									</tr>
-									<tr data-status="popularsemanal">
-										<td>
-											<div class="ckbox">
-												<h1>3</h1>
-											</div>
-										</td>
-										<td>
-										</td>
-										<td>
-											<div class="media">
-											
-												<div class="pull-left">
-													<img src="../../recursos/img/dog-icon.png" height="45px">
-												</div>
-												<div class="media-body">
-													
-													<span class=" pull-left"><h1>Dumbo</h1></span>
-								
-												</div>
-											</div>
-										</td>
-									</tr>
-									<tr data-status="popularsemanal">
-										<td>
-											<div class="ckbox">
-												<h3>4</h3>
-											</div>
-										</td>
-										<td>
-										</td>
-										<td>
-											<div class="media">
-											
-												<div class="pull-left">
-													<img src="../../recursos/img/cat-icon.png" height="45px">
-												</div>
-												<div class="media-body">
-													
-													<span class=" pull-left"><h3>mandy</h3></span>
-								
-												</div>
-											</div>
-										</td>
-									</tr>
-									<tr data-status="popularsemanal">
-										<td>
-											<div class="ckbox">
-												<h3>5</h3>
-											</div>
-										</td>
-										<td>
-										</td>
-										<td>
-											<div class="media">
-											
-												<div class="pull-left">
-													<img src="../../recursos/img/dog-icon.png" height="45px">
-												</div>
-												<div class="media-body">
-													
-													<span class=" pull-left"><h3>Señor Perro</h3></span>
-								
-												</div>
-											</div>
-										</td>
-									</tr>
-									<tr data-status="popularsemanal">
-										<td>
-											<div class="ckbox">
-												<h3>6</h3>
-											</div>
-										</td>
-										<td>
-										</td>
-										<td>
-											<div class="media">
-											
-												<div class="pull-left">
-													<img src="../../recursos/img/dog-icon.png" height="45px">
-												</div>
-												<div class="media-body">
-													
-													<span class=" pull-left"><h3>Dany</h3></span>
-								
-												</div>
-											</div>
-										</td>
-									</tr>
-									<tr data-status="popularsemanal">
-										<td>
-											<div class="ckbox">
-												<h3>7</h3>
-											</div>
-										</td>
-										<td>
-										</td>
-										<td>
-											<div class="media">
-											
-												<div class="pull-left">
-													<img src="../../recursos/img/cat-icon.png" height="45px">
-												</div>
-												<div class="media-body">
-													
-													<span class=" pull-left"><h3>ozky</h3></span>
-								
-												</div>
-											</div>
-										</td>
-									</tr>
-									<tr data-status="popularmensual">
-										<td>
-											<div class="ckbox">
-												<h1>1</h1>
-											</div>
-										</td>
-										<td>
-										</td>
-										<td>
-											<div class="media">
-											
-												<div class="pull-left">
-													<img src="../../recursos/img/cat-icon.png" height="45px">
-												</div>
-												<div class="media-body">
-													
-													<span class=" pull-left"><h1>Marley</h1></span>
-								
-												</div>
-											</div>
-										</td>
-									</tr>
-									<tr data-status="popularmensual">
-										<td>
-											<div class="ckbox">
-												<h1>2</h1>
-											</div>
-										</td>
-										<td>
-										</td>
-										<td>
-											<div class="media">
-											
-												<div class="pull-left">
-													<img src="../../recursos/img/dog-icon.png" height="45px">
-												</div>
-												<div class="media-body">
-													
-													<span class=" pull-left"><h1>maty</h1></span>
-								
-												</div>
-											</div>
-										</td>
-									</tr>
-									
-									<tr data-status="popularmensual">
-										<td>
-											<div class="ckbox">
-												<h1>3</h1>
-											</div>
-										</td>
-										<td>
-										</td>
-										<td>
-											<div class="media">
-											
-												<div class="pull-left">
-													<img src="../../recursos/img/cat-icon.png" height="45px">
-												</div>
-												<div class="media-body">
-													
-													<span class=" pull-left"><h1>husky</h1></span>
-								
-												</div>
-											</div>
-										</td>
-									</tr>
-									<tr data-status="popularmensual">
-										<td>
-											<div class="ckbox">
-												<h3>4</h3>
-											</div>
-										</td>
-										<td>
-										</td>
-										<td>
-											<div class="media">
-											
-												<div class="pull-left">
-													<img src="../../recursos/img/cat-icon.png" height="45px">
-												</div>
-												<div class="media-body">
-													
-													<span class=" pull-left"><h3>lola</h3></span>
-								
-												</div>
-											</div>
-										</td>
-									</tr>
-									
-									
+												<div class="col-md-3 center-block">
+		                                        <a href="#">
+		                                          <img src="'.str_replace('../recursos/', 'recursos/', $row['foto']).'" width="50" height="60" alt="'.$row['nombre'].'" class="img-circle" style="margin-bottom: 4px;">
+		                                       </a>
+	                                       </div>
+										
+	                                  	   <div class="col-md-3 center-block">
+		                                       
+	                                       </div>
+	                                       <div class="col-md-6" style="padding-top:5%;">
+	                                       		<p class="text-center texto-azul textoBold" style="vertical-align: middle;">'.$row['nombre'].'</p>
+	                                       </div>
+										   </div>
+	                                       
+	                                 </div> 
+	                             </td>
+	                           </tr>';
+	                           $puesto+=1;
+	    	}
+
+   }
+
+?>
 								</tbody>
 							</table>
 						</div>
@@ -862,250 +558,58 @@
 						<div class="table-container">
 							<table class="table table-filter">
 								<tbody>
-									<tr data-status="seguidoressemanal">
-										<td>
-											<div class="ckbox">
-												<h1>1</h1>
-											</div>
-										</td>
-										<td>
-										</td>
-										<td>
-											<div class="media">
+									<?php
+
+	$sql = "
+	
+	SELECT mascota.id,mascota.nombre, mascota.foto, COUNT(*) AS puntaje  
+	FROM seguimiento join mascota ON seguimiento.mascota=mascota.id
+	GROUP BY mascota.id
+	ORDER BY puntaje DESC
+	LIMIT 10
+	";
+
+	$puesto = 1;
+
+	if($resultado = $con->query($sql)){
+
+	    while ($row = $resultado->fetch_assoc()){
+
+	    		echo '
+	                          <tr data-status="seguidoressemanal">
+	                            
+								<td>
+										
+	                                  <div class="row">
+	                                  	   <div class="col-md-3" style="padding-top:5%;">
+	                                       		<h3><p class="text-center texto-azul textoBold" style="vertical-align: middle;">'.
+	                                       			$puesto.'° - </p></h3>
+	                                       </div>
+										   <div class="media">
 											
-												<div class="pull-left">
-													<img src="../../recursos/img/cat-icon.png" height="45px">
-												</div>
-												<div class="media-body">
-													<span class=" pull-right"><h1>467</h1></span>
-													<span class=" pull-left"><h1>Hunter</h1></span>
-								
-												</div>
-											</div>
-										</td>
-									</tr>
-									<tr data-status="seguidoressemanal">
-										<td>
-											<div class="ckbox">
-												<h1>2</h1>
-											</div>
-										</td>
-										<td>
-										</td>
-										<td>
-											<div class="media">
-											
-												<div class="pull-left">
-													<img src="../../recursos/img/dog-icon.png" height="45px">
-												</div>
-												<div class="media-body">
-													<span class=" pull-right"><h1>466</h1></span>
-													<span class=" pull-left"><h1>mary</h1></span>
-								
-												</div>
-											</div>
-										</td>
-									</tr>
-									<tr data-status="seguidoressemanal">
-										<td>
-											<div class="ckbox">
-												<h1>3</h1>
-											</div>
-										</td>
-										<td>
-										</td>
-										<td>
-											<div class="media">
-											
-												<div class="pull-left">
-													<img src="../../recursos/img/dog-icon.png" height="45px">
-												</div>
-												<div class="media-body">
-													<span class=" pull-right"><h1>462</h1></span>
-													<span class=" pull-left"><h1>firulais</h1></span>
-								
-												</div>
-											</div>
-										</td>
-									</tr>
-									<tr data-status="seguidoressemanal">
-										<td>
-											<div class="ckbox">
-												<h3>4</h3>
-											</div>
-										</td>
-										<td>
-										</td>
-										<td>
-											<div class="media">
-											
-												<div class="pull-left">
-													<img src="../../recursos/img/cat-icon.png" height="45px">
-												</div>
-												<div class="media-body">
-													<span class=" pull-right"><h3>453</h3></span>
-													<span class=" pull-left"><h3> Manchi</h3></span>
-								
-												</div>
-											</div>
-										</td>
-									</tr>
-									<tr data-status="seguidoressemanal">
-										<td>
-											<div class="ckbox">
-												<h3>5</h3>
-											</div>
-										</td>
-										<td>
-										</td>
-										<td>
-											<div class="media">
-											
-												<div class="pull-left">
-													<img src="../../recursos/img/dog-icon.png" height="45px">
-												</div>
-												<div class="media-body">
-													<span class=" pull-right"><h3>420</h3></span>
-													<span class=" pull-left"><h3>jaz</h3></span>
-								
-												</div>
-											</div>
-										</td>
-									</tr>
-									<tr data-status="seguidoressemanal">
-										<td>
-											<div class="ckbox">
-												<h3>6</h3>
-											</div>
-										</td>
-										<td>
-										</td>
-										<td>
-											<div class="media">
-											
-												<div class="pull-left">
-													<img src="../../recursos/img/cat-icon.png" height="45px">
-												</div>
-												<div class="media-body">
-													<span class=" pull-right"><h3>412</h3></span>
-													<span class=" pull-left"><h3>ozky</h3></span>
-								
-												</div>
-											</div>
-										</td>
-									</tr>
-									<tr data-status="seguidoressemanal">
-										<td>
-											<div class="ckbox">
-												<h3>7</h3>
-											</div>
-										</td>
-										<td>
-										</td>
-										<td>
-											<div class="media">
-											
-												<div class="pull-left">
-													<img src="../../recursos/img/cat-icon.png" height="45px">
-												</div>
-												<div class="media-body">
-													<span class=" pull-right"><h3>409</h3></span>
-													<span class=" pull-left"><h3>fun</h3></span>
-								
-												</div>
-											</div>
-										</td>
-									</tr>
-									<tr data-status="seguidoresmensual">
-										<td>
-											<div class="ckbox">
-												<h1>1</h1>
-											</div>
-										</td>
-										<td>
-										</td>
-										<td>
-											<div class="media">
-											
-												<div class="pull-left">
-													<img src="../../recursos/img/cat-icon.png" height="45px">
-												</div>
-												<div class="media-body">
-													<span class=" pull-right"><h1>1030</h1></span>
-													<span class=" pull-left"><h1>Marley</h1></span>
-								
-												</div>
-											</div>
-										</td>
-									</tr>
-									<tr data-status="seguidoresmensual">
-										<td>
-											<div class="ckbox">
-												<h1>2</h1>
-											</div>
-										</td>
-										<td>
-										</td>
-										<td>
-											<div class="media">
-											
-												<div class="pull-left">
-													<img src="../../recursos/img/dog-icon.png" height="45px">
-												</div>
-												<div class="media-body">
-													<span class=" pull-right"><h1>1022</h1></span>
-													<span class=" pull-left"><h1>maty</h1></span>
-								
-												</div>
-											</div>
-										</td>
-									</tr>
-									
-									<tr data-status="seguidoresmensual">
-										<td>
-											<div class="ckbox">
-												<h1>3</h1>
-											</div>
-										</td>
-										<td>
-										</td>
-										<td>
-											<div class="media">
-											
-												<div class="pull-left">
-													<img src="../../recursos/img/cat-icon.png" height="45px">
-												</div>
-												<div class="media-body">
-													<span class=" pull-right"><h1>1017</h1></span>
-													<span class=" pull-left"><h1>husky</h1></span>
-								
-												</div>
-											</div>
-										</td>
-									</tr>
-									<tr data-status="seguidoresmensual">
-										<td>
-											<div class="ckbox">
-												<h3>4</h3>
-											</div>
-										</td>
-										<td>
-										</td>
-										<td>
-											<div class="media">
-											
-												<div class="pull-left">
-													<img src="../../recursos/img/cat-icon.png" height="45px">
-												</div>
-												<div class="media-body">
-													<span class=" pull-right"><h3>1012</h3></span>
-													<span class=" pull-left"><h3>lola</h3></span>
-								
-												</div>
-											</div>
-										</td>
-									</tr>
-									
+												<div class="col-md-3 center-block">
+		                                        <a href="#">
+		                                          <img src="'.str_replace('../recursos/', 'recursos/', $row['foto']).'" width="50" height="60" alt="'.$row['nombre'].'" class="img-circle" style="margin-bottom: 4px;">
+		                                       </a>
+	                                       </div>
+										
+	                                  	   <div class="col-md-3 center-block">
+		                                       
+	                                       </div>
+	                                       <div class="col-md-6" style="padding-top:5%;">
+	                                       		<p class="text-center texto-azul textoBold" style="vertical-align: middle;">'.$row['nombre'].'</p>
+	                                       </div>
+										   </div>
+	                                       
+	                                 </div> 
+	                             </td>
+	                           </tr>';
+	                           $puesto+=1;
+	    	}
+
+   }
+
+?>
 									
 								</tbody>
 							</table>
@@ -1118,7 +622,34 @@
 		
 		</div>
 	</div>
-	
+	<div class="col-md-4">
+		   <div class="panel panel-default">
+			  <div class="panel-heading">Porcentajes de mascotas</div>
+			 <div class="panel-body"><?php include_once('../usuarios/ranktipos.php')?></div>
+			</div>	
+			</div>
+			<div class="col-md-4">
+		   <div class="panel panel-default">
+			  <div class="panel-heading">Estadisticas de likes por tipo</div>
+			  <div class="panel-body"><?php include_once('../usuarios/ranklikes.php')?></div>
+			</div>	
+			</div>
+			<div class="col-md-4">
+		   <div class="panel panel-default">
+			  <div class="panel-heading">Estadisticas Mascotas</div>
+				  <div class="panel-body">
+				  </br>
+				  <h3>Cantidad de posteos <div class="pull-right"><span class="label label-default"><?php echo $post;?></span></div></h3>
+				   <h3>Cantidad de Guaus <div class="pull-right"><span class="label label-default"><?php echo $guaus;?></span></div></h3>
+				   <h3>Cantidad de Miaus <div class="pull-right"><span class="label label-default"><?php echo $miaus;?></span></div></h3>
+				   <h3>Cantidad de Gluglus <div class="pull-right"><span class="label label-default"><?php echo $gluglus;?></span></div></h3>
+				   <h3>Cantidad de Pios <div class="pull-right"><span class="label label-default"><?php echo $pios;?></span></div></h3>
+				   <h3>Encuentros <div class="pull-right"><span class="label label-default"><?php echo $citas;?></span></div></h3>
+				   <h3>Adopciones <div class="pull-right"><span class="label label-default"><?php echo $adopcion;?></span></div></h3>
+					</br>
+				  </div>
+			</div>	
+			</div>
 
 		 
     </div><!-- div wrap -->

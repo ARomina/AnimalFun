@@ -67,10 +67,7 @@ if( isset($_SESSION['login']) && $_SESSION['login']){
 	$user = str_replace(' ', '', $user);
 	$correo='falta ingresar mail';//$_SESSION['userMail'];
 
-} else {
-    echo "<h3>Error: Usted no se encuentra logueado.</h3>";
-    //header('Location: ./index.php');
-}
+} 
 
 $facebookLogin = new FacebookLogin();
 ?>
@@ -79,28 +76,28 @@ $facebookLogin = new FacebookLogin();
    <head>
       <meta charset="UTF-8">
       <title>AnimalFun - El lugar para tus mascotas</title>
-      <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
-      <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
+      <link rel="shortcut icon" href="../recursos/img/favicon.ico" type="image/x-icon">
+      <link rel="icon" href="../recursos/img/favicon.ico" type="image/x-icon">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" href="../css/bootstrap.css">
-      <link rel="stylesheet" href="../css/components.css">
-      <link rel="stylesheet" href="../css/responsee.css">
+      <link rel="stylesheet" href="../recursos/css/bootstrap.css">
+      <link rel="stylesheet" href="../recursos/css/components.css">
+      <link rel="stylesheet" href="../recursos/css/responsee.css">
 
     <!-- Bootstrap Core CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../recursos/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <!-- <link href="css/half-slider.css" rel="stylesheet"> -->
-    <link rel="stylesheet" href="../css/estilos.css">
-    <link rel="stylesheet" href="../css/estilosMenuPaginas.css">
-    <link href="../css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="../recursos/css/estilos.css">
+    <link rel="stylesheet" href="../recursos/css/estilosMenuPaginas.css">
+    <link href="../recursos/css/font-awesome.css" rel="stylesheet">
 
    </head>
    <body>
   
 		<!-- MENU -->
-		<?php include("../menuPaginas.php");?>
+		<?php include("../vistas/menuPaginas.php");?>
 		<!--Fin menu-->
 
 	<div id="wrap">
@@ -155,7 +152,7 @@ $facebookLogin = new FacebookLogin();
 									            <input type="text" name="correo" class="form-control" id="correo"  value="<?php echo $email;?>" required="" title="correo" placeholder="correo">
 												      <span class="alerta" id="alertaCorreo">Campo obligatorio. La dirección debe tener un formato válido</span></br>
 												<label for="correo2"lass="control-label">Repita correo electrónico</label>
-									            <input type="text" name="correo2" class="form-control" id="correo2"  value="" required="" title="correo" placeholder="correo">
+									            <input type="text" name="correo2" class="form-control" id="correo2"  value="<?php echo $email;?>" required="" title="correo" placeholder="correo">
 												      <span class="alerta" id="alertaCorreo2">Campo obligatorio. La dirección debe tener un formato válido y concidir con lo ingresado antes</span></br>
 												<label >Contraseña</label>
 									            <input  class="form-control" type="password" name="password" placeholder="password"  value="123456" required="" title="Por favor, ingrese su contraseña"for="password" id="password"></br>
@@ -216,9 +213,9 @@ $facebookLogin = new FacebookLogin();
 	        </div>
 	    </div>
 
-      <script type="text/javascript" src="../js/jquery-3.2.0.js"></script>
-      <script type="text/javascript" src="../js/bootstrap.js"></script>
-      <script type="text/javascript" src="../js/registroValidacion.js"></script>	 
+      <script type="text/javascript" src="../recursos/js/jquery-3.2.0.js"></script>
+      <script type="text/javascript" src="../recursos/js/bootstrap.js"></script>
+      <script type="text/javascript" src="../recursos/js/registroValidacion.js"></script>	 
 		<script>
 			  $("#menu-close").click(function(e) {
 			e.preventDefault();

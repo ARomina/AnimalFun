@@ -21,7 +21,7 @@ $facebookLogin = new FacebookLogin();
       <link rel="stylesheet" href="../../recursos/css/responsee.css">
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../recursos/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../../recursos/css/estilos.css">
@@ -50,9 +50,9 @@ $facebookLogin = new FacebookLogin();
 			        </div>
 		        	
 		        	<div class="col-xs-4 col-sm-2">
-				        <a href="../../extras/redirectGoogle.php" class="btn btn-lg btn-block omb_btn-google">
+				        <a href="../../google/unirse.php" class="btn btn-lg btn-block omb_btn-google">
 					      
-					        <span class="hidden-xs">Google+</span>
+					        <span class="hidden-xs">Google</span>
 				        </a>
 			        </div>	
 				</div>

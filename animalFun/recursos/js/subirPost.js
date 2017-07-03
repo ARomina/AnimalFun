@@ -46,7 +46,7 @@ function subirPostMascota(){
 	                },
 	                success: 
 	                    function(data){
-	                        if(data == "OK"){
+	                        if(data.indexOf("OK") != -1){
 					            $("#myModal").modal("toggle");
         						$("#mensajeModal").html("¡Se ha publicado el post exitosamente!");
         						setTimeout(function (){

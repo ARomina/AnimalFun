@@ -21,14 +21,34 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
  */
+   include_once "../../conexion.php";
+
+
     
-    echo "<h1>Segui los pasos para generar tu identificación</h1><hr/>";
+	  if(isset($_SESSION['usuario'])){
+      $usuario = $_SESSION['usuario'];
+      $id = $_SESSION['id'];
+  }
+
+  //Inicializo variables
+  $idMascota = "";
+  $nombre = "";
+  $foto = "";
+
+  //Query
+  $sql = "SELECT id, nombre, foto FROM mascota WHERE usuario = ?";
+
+  
+  
+  
+   
+    echo "<h1>Solo elegi la mascota y generalo! </h1><hr/>";
     
     //set it to writable location, a place for temp generated PNG files
     $PNG_TEMP_DIR = dirname(__FILE__).DIRECTORY_SEPARATOR.'temp'.DIRECTORY_SEPARATOR;
     
     //html PNG location prefix
-    $PNG_WEB_DIR = 'extras/qr/temp/';
+    $PNG_WEB_DIR = 'temp/';
 
     include "qrlib.php";    
     
@@ -73,13 +93,32 @@
     
     //config form
     echo '<div class="col col-md-6"><form action="generarQR.php" method="post">
-		Elegi tu mascota
+		Elegi tu mascota';
 		
-       <select name="data">
-					<option value="Mascota 1">Mascota 1</option>
-					<option value="Mascota 2">Mascota 2</option>
-					<option value="Mascota 3">Mascota 3</option>
-					</select>
+      //Preparo la query
+	if($stmt = $con->prepare($sql)){
+
+            //Seteo parámetros
+            $stmt->bind_param('s', $id);
+            $stmt->bind_result($idMascota, $nombre, $foto);
+            $stmt->execute();
+            $stmt->store_result();
+          
+            if(($stmt->num_rows) > 0){
+ echo'<select name="data">';
+              while($stmt->fetch()){
+                echo '  
+                        
+                         <option value="http://animalfun.fun/animalFun/vistas/usuarios/verPerfilMascota.php?idMascota='.$idMascota.'"> '.$nombre.' ID- '.$idMascota.' </option>
+                       
+                     ';
+              }
+            }
+			echo '	</select>';
+  }
+					
+					
+	/* 				'
 		<hr>
 		
 	   Complejidad del codigo:&nbsp;<select name="level">
@@ -93,12 +132,21 @@
         Tamaño:&nbsp;<select name="size">';
         
     for($i=1;$i<=10;$i++)
-        echo '<option value="'.$i.'"'.(($matrixPointSize==$i)?' selected':'').'>'.$i.'</option><hr/>';
+        echo '<option value="'.$i.'"'.(($matrixPointSize==$i)?' selected':'').'>'.$i.'</option><hr/>'; */
         
     echo '</select>&nbsp;
-       <div class="pull-right"> <input  class="btn btn-success"type="submit" value="Generar QR">&nbsp;&nbsp;<input  class="btn btn-danger"type="submit" value="Exportar a PDF"></div></form></hr></div></div>';
+       <div class="pull-right"> <input  class="btn btn-success"type="submit" value="Generar QR">&nbsp;&nbsp;</div></form><a href="output.php?t=pdf" target="_blank"><input  class="btn btn-danger"type="submit" value="Exportar a PDF"></a></hr></div></div>';
         
-    
-	
 
-    
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	

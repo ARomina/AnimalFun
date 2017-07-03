@@ -18,13 +18,14 @@
   $idMascota = $_GET['idMascota'];
 
   //Query para traer el nombre de la mascota
-  $sql = "SELECT nombre, foto from mascota WHERE id = '$idMascota'";
+  $sql = "SELECT m.nombre as nombre, m.foto as foto, e.descripcion as estado from mascota m JOIN estado e ON e.id = m.estado WHERE m.id = '$idMascota'";
 
   $resultado = mysqli_query($con, $sql);
 
   while($row = $resultado->fetch_assoc()){
         $nombre = $row['nombre'];
         $fotoMascota = $row['foto'];
+        $estado = $row['estado'];
   }
 
 ?>
@@ -443,35 +444,44 @@
           </div><!-- col-4 -->
          
                      
-          <!-- Columna izquierda -->
+           <!-- Columna izquierda -->
                   <div class="col-lg-4">
                     <div class="row">           
                       <div class="widget-sidebar">
-                        <h2 class="title-widget-sidebar">Estado </h2>
+                        <h2 class="title-widget-sidebar">Estado   <button type="button" class="btn btn-default"  data-toggle="modal" data-target="#myModal2"><span class="  glyphicon glyphicon-pencil"></span></button></h2>
+          
                           <div class="row">
                             <div class="col-lg-6 col-md-6 col-md-offset-3">
+              
                              <div class="content-widget-sidebar">
+               
                                   <div class="text-center">
-                                    <p class="btn" style="padding: 20px; font-weight: bold; background-color: #FF9D27;
-  color: #ffffff;">EN ADOPCION</p>
-                                  </div>
+                  
+                                    <p class="btn" style="padding: 20px; font-weight: bold; background-color: #FF9D27;  color: #ffffff;"><?php echo $estado;?></p>  
+                  
+                  </div>
+                  
                               </div>
+                
                             </div>
+              
                             </div>
                             <br>
                            
                       </div>
 
-                      <div class="widget-sidebar">
+                   <!--    <div class="widget-sidebar">
                         <h2 class="title-widget-sidebar">Comparación</h2>
                              <div class="content-widget-sidebar">
                                   <div class="center-block">
-                                    
+                  
+                   <?php ///include_once('../usuarios/rankingPerfil.php');?>
+                   </br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
                                   </div>
                               </div>
                             <br>
                            
-                      </div>
+                      </div> -->
 
                   <!--=====================
                          CATEGORIES
@@ -485,7 +495,7 @@
                        </div> -->  
                       </div><!-- row -->
                     </div><!-- col-4 -->
-          			
+                
                 </div><!-- row de toda la seccion -->
           		   </br></br>
           		    	

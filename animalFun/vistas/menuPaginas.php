@@ -142,11 +142,19 @@
 										<p class="text-center"><strong>'.$_SESSION['usuario'].'</strong></p>
 										
 													<p class="text-center">
-														<a href="http://animalFun.fun/animalFun/vistas/usuarios/adminUsuario.php" >';
+														<a href="http://animalFun.fun/animalFun/vistas/usuarios/home.php" >';
                               if(basename($_SERVER['PHP_SELF']) != 'index.php'){
-                                echo '<img src="'.str_replace('../recursos/', '../../recursos/', $fotoPerfilUsuario).'"';
+                                if(isset($fotoPerfilUsuario)){
+                                  echo '<img src="'.str_replace('../recursos/', '../../recursos/', $fotoPerfilUsuario).'"';
+                                }else{
+                                  echo '<img src="../../recursos/img/avatar-placeholder.jpg';
+                                }
                               }else{
-                                echo '<img src="'.str_replace('../recursos/', 'recursos/', $fotoPerfilUsuario).'"';
+                                if(isset($fotoPerfilUsuario)){
+                                  echo '<img src="'.str_replace('../recursos/', 'recursos/', $fotoPerfilUsuario).'"';
+                                }else{
+                                  echo '<img src="recursos/img/avatar-placeholder.jpg';
+                                }
                               }
                               echo '" class="img-rounded" alt="Foto de perfil de '.$_SESSION['usuario'].'" width="100" height="100"/></a>
 													</p>
@@ -155,8 +163,11 @@
 									
 										<li>
 											</br>	 </br>	</br>		
-										  <a href="http://animalFun.fun/animalFun/vistas/usuarios/adminUsuarioMascotas.php" class="text-left"><strong>Mis mascotas</strong></a>								   
+										  <a href="http://animalFun.fun/animalFun/vistas/usuarios/adminUsuario.php" class="text-left"><strong>Mis datos</strong></a>								   
 										</li>
+                    <li>
+                       <a href="http://animalFun.fun/animalFun/vistas/usuarios/adminUsuarioMascotas.php" class="text-left"><strong>Mis mascotas</strong></a>               
+                    </li>
 										<li>
 										   <a href="http://animalFun.fun/animalFun/vistas/usuarios/adminUsuarioAdopciones.php" class="text-left"><strong>Mis adopciones</strong></a>								
 										</li>

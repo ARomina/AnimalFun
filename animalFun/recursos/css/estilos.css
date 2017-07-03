@@ -543,3 +543,12 @@ body{
     border-bottom-color: transparent;
     border-radius: none !important;
 }
+
+/* Post de Mascota */
+.content-footer span a {
+    color: #fff;
+    display: inline !important;
+    padding: 0px 5px;
+    text-decoration: none;
+    transition: 0.5s;
+} 

@@ -3,7 +3,7 @@ class User {
 	private $dbHost     = "localhost";
     private $dbUsername = "root";
     private $dbPassword = "";
-    private $dbName     = "animalFun";
+    private $dbName     = "animalfun";
     private $userTbl    = 'users';
 	
 	function __construct(){

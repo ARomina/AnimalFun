@@ -173,12 +173,11 @@
 	                <a href="" title="Oliver"><img height="200" src="../../recursos/img/perro2.jpg" alt="Perro - Oliver" title="Oliver"/></a>
 	                <a href="" title="Jason"><img height="200" src="../../recursos/img/perro3.jpg" alt="Perro - Jason" title="Jason"/></a>
 	                <a href="" title="Emmet"><img height="200" src="../../recursos/img/perro4.jpg" alt="Perro - Emmet" title="Emme1"/></a>
-					<a href="" title="Emmet"><img height="200" src="../../recursos/img/perro3.jpg" alt="Perro - Emmet" title="Emmet2"/></a>
-					<a href="" title="Emmet"><img height="200" src="../../recursos/img/perro2.jpg" alt="Perro - Emmet" title="Emmet3"/></a>
-					<a href="" title="Emmet"><img height="200" src="../../recursos/img/perro3.jpg" alt="Perro - Emmet" title="Emmet4"/></a>
-					<a href="" title="Emmet"><img height="200" src="../../recursos/img/perro4.jpg" alt="Perro - Emmet" title="Emmet5"/></a>
-					<a href="" title="Emmet"><img height="200" src="../../recursos/img/perro2.jpg" alt="Perro - Emmet" title="Emmet6"/></a>
-					<a href="" title="Emmet"><img height="200" src="../../recursos/img/perro1.jpg" alt="Perro - Emmet" title="Emmet7"/></a>
+					<a href="" title="Emmet"><img height="200" src="../../recursos/img/adopcion3.jpg" alt="Perro - Mishi" title="Emmet2"/></a>
+					<a href="" title="Emmet"><img height="200" src="../../recursos/img/adopcion2.jpg" alt="Perro - Mateo" title="Emmet3"/></a>
+					<a href="" title="Emmet"><img height="200" src="../../recursos/img/adopcion1.jpg" alt="Perro - Gato" title="Emmet4"/></a>
+					<a href="" title="Emmet"><img height="200" src="../../recursos/img/perritoenojado.jpg" alt="Perro -Gruñon" title="Emmet5"/></a>
+
 				</ul>
             </div>
         </div>

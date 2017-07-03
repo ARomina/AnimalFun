@@ -6,7 +6,7 @@ or die('No se pudo conectar: ' . mysql_error());
 mysql_select_db('animalfun') or die('No se pudo seleccionar la base de datos');
  
 //preparamos la consulta
-$SQLDatos = "SELECT  tipo.descripcion, COUNT(*) AS cantidad FROM mascota join tipo on mascota.tipo=tipo.id  JOIN valoracion ON valoracion.mascota=mascota.id GROUP BY tipo.descripcion";
+$SQLDatos = "SELECT tipo.descripcion,COUNT(*) AS cantidad FROM valoracion JOIN post ON valoracion.post=post.id JOIN mascota ON post.mascota=mascota.id JOIN tipo ON mascota.tipo=tipo.id GROUP BY tipo.descripcion";
  
 //ejecutamos la consulta
 $result = mysql_query($SQLDatos);

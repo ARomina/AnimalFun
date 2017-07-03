@@ -21,7 +21,6 @@
 	$raza = "";
 	$tamano = "";
 	$sexo = "";
-    $estado = "";
 	$caracteristicas = "";
 	
 	//Validaciones
@@ -73,12 +72,6 @@
         $errores .= "<p class='alerta'>Debe elegir un sexo para la mascota</p>";
     }
 
-    if(isset($_POST['estado']) && (!empty($_POST['estado']))){
-        $estado = $_POST['estado'];
-    }else{
-        $errores .= "<p class='alerta'>Debe elegir un estado para la mascota</p>";
-    }
-
     if(isset($_POST['caracteristicas'])){
         $caracteristicas = $_POST['caracteristicas'];
     }else{
@@ -87,9 +80,9 @@
 
 
     //Ingreso la mascota nueva
-    $stmt = $con->prepare("INSERT INTO mascota (usuario, nombre, tipo, tamano, raza, sexo, estado, foto, caracteristicas) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt = $con->prepare("INSERT INTO mascota (usuario, nombre, tipo, tamano, raza, sexo, foto, caracteristicas) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 
-    $stmt->bind_param('isiiiiiss', $id, $nombre, $tipo, $tamano, $raza, $sexo, $estado, $fotoMascota, $caracteristicas);
+    $stmt->bind_param('isiiiiss', $id, $nombre, $tipo, $tamano, $raza, $sexo, $fotoMascota, $caracteristicas);
 
     $stmt->execute();
 

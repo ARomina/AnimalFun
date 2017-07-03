@@ -78,22 +78,6 @@
     }
   }
 
-  //Array de ESTADOS de mascota
-  $estadosMascota = array();
-
-  //Query ESTADO de mascota
-  $sql = "SELECT * FROM estado";
-  $resultado = $con->query($sql);
-
-  if($resultado->num_rows > 0){
-    $i = 0;
-    while($row = $resultado->fetch_assoc()){
-      $estadosMascota[$i]['id'] = $row["id"];
-      $estadosMascota[$i]['descripcion'] = $row["descripcion"];
-      $i++;
-    }
-  }
-
 ?>
 
 <!DOCTYPE html>
@@ -127,7 +111,7 @@
      <!-- Sección Perfil Dueño -->
       <div class="row">
             <div class="col-md-12 text-center">
-               <h2 class="titulo-central">Agregar nueva mascota <i class="fa fa-plus" aria-hidden="true" style="vertical-align: middle;"></i></h2>
+               <h2 class="titulo-central">Agregar nueva mascota</h2>
             </div>
       </div>
 
@@ -238,27 +222,7 @@
                          <span class="alerta" id="alertaSexo">Debe seleccionar una opción</span>
                       </div>
                     </div>
-
-                <div class="form-group">
-                      <label class="col-sm-2 control-label" for="estado">Estado </label>
-                      <div class="col-sm-10">
-                         <select class="form-control" id="estado" name="estado" class="form-control">
-                             <?php
-                                $cantEstadosMascota = count($estadosMascota);
-                                if($cantEstadosMascota > 0){
-                                  echo '<option value="" disabled="disabled" selected="selected">Seleccione un estado</option>';
-                                  for($i=0; $i<$cantEstadosMascota; $i++){
-                                    echo '<option value="'.$estadosMascota[$i]['id'].'">'.$estadosMascota[$i]['descripcion'].'</option>';
-                                    }
-                                }else{
-                                    echo '<option value="">No hay opciones disponibles</option>';   //si no hay nada cargado en el array
-                                }
-                            ?>
-                         </select>
-                         <span class="alerta" id="alertaEstado">Debe seleccionar una opción</span>
-                      </div>
-                    </div>
-
+      
               <hr>
               <br>
               <br>

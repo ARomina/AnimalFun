@@ -1,6 +1,4 @@
-<!-- Materia: Programación Web 2  / UNLaM 2017 -->
-<!-- Profesores: Rusticcini, Alejandro / D'aranno, Facundo / Uran, Jhonatan-->
-<!-- Alumnos: Barraza, A. Romina / Miharu, Lucas / Suárez, Pablo -->
+
 <?php
 session_start();
 
@@ -57,7 +55,6 @@ if ($gClient->getAccessToken()) {
 } else {
 //Include GP config file
 include_once 'gpConfig.php';
-//Redirect to homepage
 header("Location:login.php");
 }
 
@@ -77,28 +74,28 @@ $facebookLogin = new FacebookLogin();
     <head>
       <meta charset="UTF-8">
       <title>AnimalFun - El lugar para tus mascotas</title>
-      <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
-      <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
+      <link rel="shortcut icon" href="../recursos/img/favicon.ico" type="image/x-icon">
+      <link rel="icon" href="../recursos/img/favicon.ico" type="image/x-icon">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" href="../css/bootstrap.css">
-      <link rel="stylesheet" href="../css/components.css">
-      <link rel="stylesheet" href="../css/responsee.css">
+      <link rel="stylesheet" href="../recursos/css/bootstrap.css">
+      <link rel="stylesheet" href="../recursos/css/components.css">
+      <link rel="stylesheet" href="../recursos/css/responsee.css">
 
     <!-- Bootstrap Core CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../recursos/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="../css/half-slider.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/estilos.css">
-    <link rel="stylesheet" href="../css/estilosMenuPaginas.css">
-    <link href="../css/font-awesome.css" rel="stylesheet">
+    <link href="../recursos/css/half-slider.css" rel="stylesheet">
+    <link rel="stylesheet" href="../recursos/css/estilos.css">
+    <link rel="stylesheet" href="../recursos/css/estilosMenuPaginas.css">
+    <link href="../recursos/css/font-awesome.css" rel="stylesheet">
 
    </head>
    <body>
     
     <!-- MENU -->
-    <?php include("../menuPaginas.php");?>
+    <?php include("../vistas/menuPaginas.php");?>
     <!--Fin menu-->
 	 
   <div class="wrap">
@@ -192,10 +189,10 @@ $facebookLogin = new FacebookLogin();
 
     <!-- FOOTER -->
      
-      <script type="text/javascript" src="../js/jquery-3.2.0.js"></script>
-      <script type="text/javascript" src="../js/bootstrap.js"></script>
+      <script type="text/javascript" src="../recursos/js/jquery-3.2.0.js"></script>
+      <script type="text/javascript" src="../recursos/js/bootstrap.js"></script>
     <!--   <script type="text/javascript" src="js/responsee.js"></script> -->
-    	<script type="text/javascript" src="js/loginValidacion.js"></script>	 
+    	<script type="text/javascript" src="../recursos/js/loginValidacion.js"></script>	 
 		<script>
 			  $("#menu-close").click(function(e) {
 			e.preventDefault();

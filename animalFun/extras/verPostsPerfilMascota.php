@@ -2,7 +2,7 @@
 
   $sql = "SELECT m.id, p.mascota, p.contenido, p.adjunto, p.fechaHora, m.nombre, m.foto, 
           (SELECT COUNT(*) FROM valoracion v JOIN post p ON v.post = p.id WHERE p.mascota = '$idMascota') AS cantidadValoraciones, 
-          (SELECT COUNT(*) FROM comentario c JOIN post p ON c.post = p.id JOIN mascota m ON p.mascota = '$idMascota') AS cantidadComentarios 
+          (SELECT COUNT(*) FROM comentario c JOIN post p ON c.post = p.id WHERE p.mascota = '$idMascota') AS cantidadComentarios 
           FROM post p
           JOIN mascota m ON p.mascota = '$idMascota'
           WHERE m.id = '$idMascota'

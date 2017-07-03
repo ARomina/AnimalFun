@@ -50,8 +50,7 @@
 
     //Si existe y si no es vacío --> valido y asigno a variable
     if((isset($_POST['videoPost'])) && (!empty($_POST['videoPost']))){
-        //$videoPost = $_POST['videoPost'];
-        
+        $videoPost = $_POST['videoPost'];
     }else{
         $videoPost = "";
     }
@@ -66,11 +65,7 @@
     //Para agarrar la fecha y hora del posteo
     date_default_timezone_set('America/Argentina/Buenos_Aires');
     $fechaHora = date('Y-m-d H:i:s');
-/*
-    echo $idMascota;
-    echo $contenidoPost;
-    echo $adjunto;
-    echo $fechaHora;*/
+
     //Ingreso el nuevo posteo
     $stmt = $con->prepare("INSERT INTO post (mascota, contenido, adjunto, fechaHora) VALUES (?, ?, ?, ?)");
 
@@ -87,9 +82,6 @@
     }
 
     $con->close();
-
-
-
 
 
 ?>

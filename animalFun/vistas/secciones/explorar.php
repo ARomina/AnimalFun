@@ -56,7 +56,27 @@
 		}
 	}
 
-?>
+
+
+  if(isset($_SESSION['usuario'])){
+      $usuario = $_SESSION['usuario'];
+      $id = $_SESSION['id'];
+  }
+
+  //Inicializo variables
+  $idMascota = "";
+  $nombre = "";
+  $foto = "";
+
+  //Query
+  $sql = "SELECT mascota.id, mascota.nombre, mascota.foto,  tipo.descripcion AS tipo FROM tipo JOIN mascota ON mascota.tipo=tipo.id JOIN raza ON mascota.raza=raza.id JOIN tamano  ON mascota.tamano=tamano.id  ";
+
+  $sql2 = "SELECT mascota.id, mascota.nombre, mascota.foto,  raza.descripcion AS raza FROM raza JOIN mascota ON mascota.raza=raza.id JOIN tipo ON mascota.tipo=tipo.id JOIN tamano  ON mascota.tamano=tamano.id  ";
+
+  $sql3 = "SELECT mascota.id, mascota.nombre, mascota.foto,  tamano.descripcion AS tamano FROM tamano JOIN mascota ON mascota.tamano=tamano.id JOIN raza ON mascota.raza=raza.id JOIN tipo  ON mascota.tipo=tipo.id  ";
+
+  
+  ?>
 
 <!DOCTYPE html>
 <html lang="en-US">
@@ -81,6 +101,61 @@
 	<style>
 		.modal-dialog {width:600px;}
 		.thumbnail {margin-bottom:6px;}
+		
+
+}
+
+#container {
+    border: 1px solid transparent;
+    padding: 3px;
+}
+
+.item {
+    width: 300px;
+    height: 400px;
+
+   
+
+}
+
+
+
+.isotope-item {
+    z-index: 2;
+}
+
+.isotope-hidden.isotope-item {
+    pointer-events: none;
+    z-index: 1;
+}
+
+.isotope,
+.isotope .isotope-item {
+    -webkit-transition-duration: 0.8s;
+    -moz-transition-duration: 0.8s;
+    transition-duration: 0.8s;
+}
+
+.isotope {
+    -webkit-transition-property: height, width;
+    -moz-transition-property: height, width;
+    transition-property: height, width;
+}
+
+.isotope .isotope-item {
+    -webkit-transition-property: -webkit-transform, opacity;
+    -moz-transition-property: -moz-transform, opacity;
+    transition-property: transform, opacity;
+}
+
+.isotope.no-transition,
+.isotope.no-transition .isotope-item,
+.isotope .isotope-item.no-transition {
+    -webkit-transition-duration: 0s;
+    -moz-transition-duration: 0s;
+    transition-duration: 0s;
+}
+
 	</style>
    </head>
    <body>
@@ -95,9 +170,18 @@
 	    	</div>
 	
 	<div class="container">
+	
+	
+	
+	
+<script src='//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'></script>
+<script src='https://isotope.metafizzy.co/v1/jquery.isotope.min.js'></script>
+	
+	
 		<div class="row">
 		<hr>
 		<h2 align="center" >Filtra tus busquedas</h2> 
+		<div id="filters">
 			<div class="col-4 col-sm-4" align="center">
 				<form>
 					<div class="form-group">
@@ -108,7 +192,7 @@
 							   		if($cantTiposMascota > 0){
 							   			echo '<option value="0" disabled="disabled" selected="selected">Seleccione un tipo</option>';
 							   			for($i=0; $i<$cantTiposMascota; $i++){
-								   			echo '<option value="'.$tiposMascota[$i]['id'].'">'.$tiposMascota[$i]['descripcion'].'</option>';
+								   			echo '<option value=".'.$tiposMascota[$i]['descripcion'].'">'.$tiposMascota[$i]['descripcion'].'</option>';
 							        	}
 							        }else{
 							        	echo '<option value="">No hay opciones disponibles</option>';   //si no hay nada cargado en el array
@@ -128,7 +212,7 @@
 							   	if($cantRazasMascota > 0){
 							   		echo '<option value="0" disabled="disabled" selected="selected">Seleccione una raza</option>';
 							   		for($i=0; $i<$cantRazasMascota; $i++){
-								   		echo '<option value="'.$razasMascota[$i]['id'].'">'.$razasMascota[$i]['descripcion'].'</option>';
+								   		echo '<option value=".'.$razasMascota[$i]['descripcion'].'">'.$razasMascota[$i]['descripcion'].'</option>';
 							        }
 							    }else{
 							        echo '<option value="">No hay opciones disponibles</option>';   //si no hay nada cargado en el array
@@ -148,7 +232,7 @@
 							   	if($cantTamanosMascota > 0){
 							   		echo '<option value="0" disabled="disabled" selected="selected">Seleccione un tamaño</option>';
 							   		for($i=0; $i<$cantTamanosMascota; $i++){
-								   		echo '<option value="'.$tamanosMascota[$i]['id'].'">'.$tamanosMascota[$i]['descripcion'].'</option>';
+								   		echo '<option value=".'.$tamanosMascota[$i]['descripcion'].'">'.$tamanosMascota[$i]['descripcion'].'</option>';
 							        }
 							    }else{
 							        echo '<option value="">No hay opciones disponibles</option>';   //si no hay nada cargado en el array
@@ -158,23 +242,109 @@
 	             </div>
 				</form>
 			</div>
+			</div>
 		</div>
 	</div>
+	<div id="container">
+	<div class="row">
+	<div class="col-md-12">
+	<?php
+	//Preparo la query
+  if($stmt = $con->prepare($sql)){
 
+            //Seteo parámetros
+    
+            $stmt->bind_result($idMascota, $nombre, $foto,$tipo);
+            $stmt->execute();
+            $stmt->store_result();
+           
+            if(($stmt->num_rows) > 0){
+
+              while($stmt->fetch()){
+                echo ' 
+		
+						<a title="'.$nombre.'" href="../usuarios/verPerfilMascotaPublico.php?idMascota='.$idMascota.'">
+                           <div class="item '.$tipo.'"> <img   class="thumbnail img-responsive" src="'.str_replace('../recursos/', '../../recursos/', $foto).'" alt="Mascota - '.$nombre.'" title="'.$nombre.'"/></div>
+                        </a>
+                    
+					  ';
+              }
+            }
+  }
+	?>
+	</div>
+
+	<div class="col-md-12">
+	<?php
+	//Preparo la query
+  if($stmt = $con->prepare($sql2)){
+
+            //Seteo parámetros
+    
+            $stmt->bind_result($idMascota, $nombre, $foto, $raza);
+            $stmt->execute();
+            $stmt->store_result();
+           
+            if(($stmt->num_rows) > 0){
+
+              while($stmt->fetch()){
+                echo ' 
+		
+						<a title="'.$nombre.'" href="../usuarios/verPerfilMascotaPublico.php?idMascota='.$idMascota.'">
+                           <div class="item '.$raza.'"> <img   class="thumbnail img-responsive" src="'.str_replace('../recursos/', '../../recursos/', $foto).'" alt="Mascota - '.$nombre.'" title="'.$nombre.'"/></div>
+                        </a>
+                    
+					  ';
+              }
+            }
+  }
+	?>
+	</div>
+
+	<div class="col-md-12">
+	<?php
+	//Preparo la query
+  if($stmt = $con->prepare($sql3)){
+
+            //Seteo parámetros
+    
+            $stmt->bind_result($idMascota, $nombre, $foto,$tamano);
+            $stmt->execute();
+            $stmt->store_result();
+           
+            if(($stmt->num_rows) > 0){
+
+              while($stmt->fetch()){
+                echo ' 
+		
+						<a title="'.$nombre.'" href="../usuarios/verPerfilMascotaPublico.php?idMascota='.$idMascota.'">
+                           <div class="item '.$tamano.'"> <img   class="thumbnail img-responsive" src="'.str_replace('../recursos/', '../../recursos/', $foto).'" alt="Mascota - '.$nombre.'" title="'.$nombre.'"/></div>
+                        </a>
+                    
+					  ';
+              }
+            }
+  }
+	?>
+	</div>
+
+
+	</div>
+	</div>
 	  <!-- Sector mascotas en adopción -->
         
-      <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 1" href="#"><img class="thumbnail img-responsive" src="//placehold.it/600x350"></a></div>
-      <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 2" href="#"><img class="thumbnail img-responsive" src="//placehold.it/600x350/2255EE"></a></div>
-      <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 3" href="#"><img class="thumbnail img-responsive" src="//placehold.it/600x350/449955/FFF"></a></div>
-      <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 4" href="#"><img class="thumbnail img-responsive" src="//placehold.it/600x350/992233"></a></div>
-      <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 5" href="#"><img class="thumbnail img-responsive" src="//placehold.it/600x350/2255EE"></a></div>
-      <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 6" href="#"><img class="thumbnail img-responsive" src="//placehold.it/600x350/449955/FFF"></a></div>
-      <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 8" href="#"><img class="thumbnail img-responsive" src="//placehold.it/600x350/777"></a></div>
-      <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 9" href="#"><img class="thumbnail img-responsive" src="//placehold.it/600x350/992233"></a></div>
-      <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 10" href="#"><img class="thumbnail img-responsive" src="//placehold.it/600x350/EEE"></a></div>
-      <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 11" href="#"><img class="thumbnail img-responsive" src="//placehold.it/600x350/449955/FFF"></a></div>
-      <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 12" href="#"><img class="thumbnail img-responsive" src="//placehold.it/600x350/DDD"></a></div>
-      <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 13" href="#"><img class="thumbnail img-responsive" src="//placehold.it/600x350/992233"></a></div>
+     <!-- <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 1" href="#"><img class="thumbnail img-responsive" src="../../recursos/img/mascotas/1.jpg"></a></div>
+      <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 2" href="#"><img class="thumbnail img-responsive" src="../../recursos/img/mascotas/2.jpg"></a></div>
+      <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Aladin" href="#"><img class="thumbnail img-responsive" src="../../recursos/img/mascotas/3.jpg"></a></div>
+      <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Aladin" href="#"><img class="thumbnail img-responsive" src="../../recursos/img/mascotas/4.jpg"></a></div>
+      <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 5" href="#"><img class="thumbnail img-responsive" src="../../recursos/img/mascotas/5.jpg"></a></div>
+      <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 6" href="#"><img class="thumbnail img-responsive" src="../../recursos/img/mascotas/6.jpg"></a></div>
+      <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 8" href="#"><img class="thumbnail img-responsive" src="../../recursos/img/mascotas/7.jpg"></a></div>
+      <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 9" href="#"><img class="thumbnail img-responsive" src="../../recursos/img/mascotas/8.jpg"></a></div>
+      <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 10" href="#"><img class="thumbnail img-responsive" src="../../recursos/img/mascotas/9.jpg"></a></div>
+      <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 11" href="#"><img class="thumbnail img-responsive" src="../../recursos/img/mascotas/10.jpg"></a></div>
+      <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 12" href="#"><img class="thumbnail img-responsive" src="../../recursos/img/mascotas/11.jpg"></a></div>
+      <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 13" href="#"><img class="thumbnail img-responsive" src="../../recursos/img/mascotas/12.jpg"></a></div>-->
    
     <hr>
     <div tabindex="-1" class="modal fade" id="myModal" role="dialog">
@@ -194,10 +364,10 @@
   </div>
 </div>
 	
-		<div class="row">
+	<!-- 	<div class="row">
 			<div class="col-6 col-sm-12" align="center">
 				<button type="button" class="btn btn-success btn-lg">Ver más</button>
-			</div>
+			</div> -->
 			
 		</div>
 		<hr>
@@ -208,13 +378,15 @@
 		   <div class="col-md-4 col-md-offset-4 divBuscador">
 							<form>
 								<div class="form-group input-group">
-									<input type="text" class="form-control" placeholder="Buscá mascotas en adopción">
+									<input type="text" class="form-control" placeholder="Buscá al usuario" id="usuarioBuscado">
 										<span class="input-group-btn">
-											<button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+											<button class="btn btn-default" type="button" id="botonBuscar"><i class="fa fa-search"></i></button>
 										</span>
 								</div>
 							</form>
 						</div>
+
+						<div class="col-md-12" id="divBusquedaUsuario"></div>
 		</div>
 
 		<!-- FOOTER -->
@@ -228,7 +400,7 @@
 		</div>
 
 		<!-- FOOTER -->
-      <script type="text/javascript" src="../../recursos/js/jquery-3.2.0.js"></script>
+     <!-- <script type="text/javascript" src="../../recursos/js/jquery-3.2.0.js"></script>-->
       <script type="text/javascript" src="../../recursos/js/bootstrap.js"></script>
 	  <script type="text/javascript" src="../../recursos/js/carousel.js"></script>
        <!-- /.container -->
@@ -250,5 +422,45 @@ $('.thumbnail').click(function(){
 });
 });
 	</script>
+	<script>
+	$(function() {
+
+    var $container = $('#container'),
+        $select = $('#filters select');
+
+    $container.isotope({
+        itemSelector: '.item'
+    });
+
+    $select.change(function() {
+        var filters = $(this).val();
+;
+        $container.isotope({
+            filter: filters
+        });
+    });
+
+});
+	</script>
+
+	 <!-- Script para mandar el usuario buscado -->
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $("#botonBuscar").click(function(){
+          var usuarioBuscado = $("#usuarioBuscado").val();
+
+          $.ajax({
+            type: "POST",
+            url: "../../extras/buscarUsuario.php",
+            data: {usuarioBuscado: usuarioBuscado},
+            cache: false,
+            success: function(html){
+              $("#divBusquedaUsuario").html(html);
+            } 
+            });
+        });
+      });
+    </script>
+
    </body>
 </html>

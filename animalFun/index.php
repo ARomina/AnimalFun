@@ -77,7 +77,7 @@
                         </tbody>
                       </table>          
                     <div class="text-center">
-                      <a href="vistas/secciones/tableroAnuncios.php" class="btn boton">Ver más</a>
+                      <a href="#" class="btn boton">Ver más</a>
                     </div>
                   </div>
                   <div class="col-md-4 text-center">
@@ -137,7 +137,7 @@
                         </tbody>
                       </table>   
                      <div class="text-center">
-                        <a href="vistas/secciones/tableroAnuncios.php" class="btn boton">Ver más</a>
+                        <a href="#" class="btn boton">Ver más</a>
                      </div>
                   </div>
                </div>

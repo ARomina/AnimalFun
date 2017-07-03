@@ -1,17 +1,32 @@
-<?php 
+<?php
 
-	$sql = "SELECT id,nombre,foto FROM mascota WHERE usuario=".$_SESSION['id'];
+  //Inicializo variables
+  $idMascota = "";
+  $nombre = "";
+  $foto = "";
 
-	if($resultado = $con->query($sql)){
-	    while ($row = $resultado->fetch_assoc()){
-			echo '<a href="../usuarios/verPerfilMascota.php?idMascota='.$row['id'].'" title="'.$row['nombre'].'"><img height="200" src="';
-			if (is_file('../'.$row['foto'])){
-				echo '../'.$row['foto'];
-			}else{
-				echo '../../recursos/img/avatar-placeholder.jpg';
-			}
-			echo '" alt="'.$row['nombre'].'" title="'.$row['nombre'].'"/></a>';	
-		}
-		
-	}
+  //Query
+  $sql = "SELECT m.id, m.nombre, m.foto FROM mascota m JOIN usuario u ON m.usuario = u.id WHERE u.id = ?";
+
+  //Preparo la query
+  if($stmt = $con->prepare($sql)){
+
+            //Seteo parámetros
+            $stmt->bind_param('i', $idUsuario);
+            $stmt->bind_result($idMascota, $nombre, $foto);
+            $stmt->execute();
+            $stmt->store_result();
+           
+            if(($stmt->num_rows) > 0){
+
+              while($stmt->fetch()){
+                echo '<a href="../usuarios/verPerfilMascotaPublico.php?idMascota='.$idMascota.'" title="'.$nombre.'">
+                        <img height="200" class="imagenes" src="'.str_replace('../recursos/', '../../recursos/', $foto).'" alt="Mascota - '.$nombre.'" title="'.$nombre.'"/>
+                      </a>';
+              }
+            }else{
+               echo '<p>Este usuario aún no tiene mascotas</p>';
+            }
+  }
+  
 ?>
